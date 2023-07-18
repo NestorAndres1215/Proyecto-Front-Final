@@ -1,0 +1,28 @@
+<div class="bootstrap-wrapper">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+            <img src="/assets/reclamo.png" alt="" class="img-fluid foto-agregar">
+            <br><br>
+            <form (ngSubmit)="formSubmit()">
+                <mat-form-field class="w100" appearance="outline">
+                    <mat-label>Nombre Completo</mat-label>
+                    <input required autofocus type="text" name="nombre completo" matInput
+                        placeholder="Digite su nombre completo"[(ngModel)]="reclamo.nombre">
+                </mat-form-field>
+                <mat-form-field class="w100" appearance="outline">
+                    <mat-label>Correo Electronico</mat-label>
+                    <input required autofocus type="email" name="correo electronico" matInput
+                        placeholder="Digite su correo electronico"[(ngModel)]="reclamo.email">
+                </mat-form-field>
+                <mat-form-field class="w100" appearance="outline">
+                    <mat-label>Descripcion</mat-label>
+                    <textarea name="descripcion" matInput placeholder="Digite la descripcion sobre su reclamo"
+                        rows="10" [(ngModel)]="reclamo.asunto"></textarea>
+                </mat-form-field>
+                <div class="container text-center">
+                    <button class="btn btn-primary">Enviar Reclamo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

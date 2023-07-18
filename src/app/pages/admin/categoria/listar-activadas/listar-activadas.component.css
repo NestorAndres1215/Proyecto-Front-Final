@@ -1,0 +1,11 @@
+.button-container {
+    float: left;
+  }
+  
+  .search-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .letra{
+    color: black;
+  }

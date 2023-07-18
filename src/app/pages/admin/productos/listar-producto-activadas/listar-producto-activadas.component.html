@@ -1,0 +1,51 @@
+<br>
+<h1>Lista de Activadas</h1>
+<hr>
+
+<div class="container">
+  <div class="button-container">
+  <button class="btn btn-primary" [routerLink]="'/admin/producto/crear-producto'">Agregar Producto</button>
+</div>
+<br><br>
+<table class="table table-dark table-hover">
+  <thead class="text-center">
+    <tr>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th>Imagen 1</th>
+      <th>Imagen 2</th>
+      <th>Descripcion</th>
+      <th>Talla</th>
+      <th>Etiqueta</th>
+      <th>Equipo</th>
+      <th>Precio</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody class="text-center">
+    <tr *ngFor="let producto of productos | slice: (paginator.pageIndex * paginator.pageSize):(paginator.pageIndex + 1) * paginator.pageSize">
+      <td>{{ producto.productoId }}</td>
+      <td>{{ producto.nombre }}</td>
+      <td><img [src]="mostrarImagen(producto)" width="100px" height="100px" /></td>
+      <td><img [src]="mostrarImagen1(producto)" width="100px" height="100px" /></td>
+      <td>{{ producto.descripcion }}</td>
+      <td>{{ producto.talla }}</td>
+      <td>{{ producto.version }}</td>
+      <td>{{producto.equipo}}</td>
+  
+      <td>{{"S/."+producto.precio}}</td>
+    
+      
+      
+      <td>
+        <button routerLink="/admin/categoria/{{ producto.categoriaId }}" class="btn btn-success">Actualizar</button>
+        &nbsp;
+        <button (click)="(producto.categoriaId)" class="btn btn-danger">Desactivar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<!-- Paginador -->
+<mat-paginator [length]="productos.length" [pageSize]="pageSize" [pageIndex]="pageIndex" class="letra"
+               (page)="onPageChange($event)" #paginator></mat-paginator>

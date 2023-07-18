@@ -1,0 +1,37 @@
+<mat-card>
+  <br>
+  <h1 style="text-align: center; color: #000000; font-family: Arial, sans-serif;">AGREGAR NUEVO CATEGORIA</h1>
+
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+
+          <img src="assets/listado/crear/categoria.jpg" alt="" class="foto">
+
+          <br><br>
+          <form (submit)="crearCategoria()" enctype="multipart/form-data">
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Producto</mat-label>
+              <input required autofocus type="text" name="nombre de producto" matInput
+                placeholder="Digite el nombre del producto" [(ngModel)]="nombre">
+            </mat-form-field>
+
+
+            <div class="w100">
+              <label for="imagen">Imagen:</label><br>
+              <input type="file" class="btn btn primary" id="imagen" name="imagen" (change)="onFileSelected($event)"
+                required>
+            </div>
+            <br>
+            <br>
+            <div class="container text-center mt15">
+              <button class="btn btn-primary">Guardar Categoria</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </mat-card-content>
+</mat-card>

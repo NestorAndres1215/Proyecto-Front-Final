@@ -1,0 +1,48 @@
+
+<mat-card style="margin-left: 10px;">
+  <br>
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="container">
+        <div class="text-center">
+          <img src="assets/perfil.jpg" alt="Foto de perfil">
+          <h1 class="mt20" style="text-transform: capitalize">{{ user.nombre }} {{ user.apellido }}</h1>
+        </div>
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            <table class="table text-center">
+              <tr>
+                <th colspan="2" class="text-center">Información de Contacto</th>
+              </tr>
+              <tr>
+                <td><strong>Codigo</strong></td>
+                <td>{{ user.id }}</td>
+              </tr>
+              <tr>
+                <td><strong>Nombre de usuario</strong></td>
+                <td style="text-transform: capitalize">{{ user.username }}</td>
+              </tr>
+              <tr>
+                <td><strong>Correo</strong></td>
+                <td>{{ user.email }}</td>
+              </tr>
+              <tr>
+                <td><strong>Teléfono</strong></td>
+                <td>{{ user.telefono }}</td>
+              </tr>
+              <tr>
+                <td><strong>Rol</strong></td>
+                <td>{{ user.authorities[0].authority }}</td>
+              </tr>
+              <tr>
+                <td><strong>Estado</strong></td>
+                <td>{{ user.enabled ? "Activo" : "No activo"}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+  
+</mat-card>

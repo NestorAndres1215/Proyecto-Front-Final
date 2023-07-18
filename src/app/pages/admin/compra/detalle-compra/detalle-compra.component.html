@@ -1,0 +1,52 @@
+
+
+<mat-card>
+    <mat-card-title>
+        <br>
+        <h1>Detalle de la Compra</h1>
+        <hr>
+        <br>
+    </mat-card-title>
+    <table class="table text-center table-bordered">
+      <tr>
+        <td colspan="2" class="bg-dark text-white">Detalle de Compra</td>
+      </tr>
+      <tr>
+        <td class="table-header">Código</td>
+        <td>{{ compra.compraId }}</td>
+      </tr>
+      <tr>
+        <td class="table-header">Nombre Producto</td>
+        <td style="text-transform: capitalize">{{ compra.producto }}</td>
+      </tr>
+      <tr>
+        <td class="table-header">Nombre de Proveedor</td>
+        <td>{{ compra.proveedor.nombre }}</td>
+      </tr>
+      <tr>
+        <td class="table-header">Fecha de Compra</td>
+        <td>{{ compra.fechaCompra}}</td>
+      </tr>
+      <tr>
+        <td class="table-header">Fecha de Entrega</td>
+        <td>{{ compra.diaEntrega}}</td>
+      </tr>
+      <tr>
+        <td class="table-header">Precio Unidad</td>
+        <td>{{"S/."+compra.precioUnidad}}</td>
+      </tr>
+      <tr>
+        <td class="table-header">Cantidad</td>
+        <td>{{ compra.cantidad}}</td>
+      </tr>
+      <tr>
+        <td class="table-header">Descuento</td>
+        <td>{{ compra.descuento +"%"}}</td>
+      </tr>
+      <tr>
+        <td class="table-header">Total de la Compra</td>
+        <td>{{ "S/."+compra.totalCompra}}</td>
+      </tr>
+    </table>
+  </mat-card>
+  

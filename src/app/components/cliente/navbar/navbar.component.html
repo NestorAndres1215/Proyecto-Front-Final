@@ -1,0 +1,182 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000000; color: #FFFFFF;">
+  <div class="container">
+    <a class="navbar-brand"  >    
+      Retro Futbol
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button mat-button [routerLink]="'/user-dashboard'">Inicio</button>
+        </li>
+        <li class="nav-item">
+          <button mat-button [matMenuTriggerFor]="clubesMenu">Clubes</button>
+        </li>
+        <li class="nav-item">
+          <button mat-button [matMenuTriggerFor]="seleccionesMenu">Selecciones</button>
+        </li>
+        <li class="nav-item">
+          <button mat-button [routerLink]="'/temporada'">2023-24</button>
+        </li>
+        <li class="nav-item">
+          <button mat-button [matMenuTriggerFor]="accesorioMenu">Accesorios</button>
+        </li>
+        <li class="nav-item">
+          <button mat-button [routerLink]="'/promociones'">Promociones</button>
+        </li>
+        <li class="nav-item">
+          <button mat-button [matMenuTriggerFor]="marcasMenu">Marcas</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a *ngIf="!isLoggedIn" [routerLink]="'/login'" class="nav-link">Iniciar Sesión</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="!isLoggedIn" [routerLink]="'/signup'" class="nav-link">Registrar</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLoggedIn && user" class="nav-link text-white">{{ user.username }}</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLoggedIn" (click)="logout()" class="nav-link text-white">Cerrar Sesión</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<mat-menu #accesorioMenu="matMenu">
+  <button mat-menu-item>Sudaderas de Futbol</button>
+  <button mat-menu-item>Botas de Futbol</button>
+  <button mat-menu-item>Patalones de Futbol</button>
+  <button  mat-menu-item>Short de Futbol</button>
+</mat-menu>
+
+
+<mat-menu #clubesMenu="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="alemaniaSubMenu">Liga Alemana</button>
+  <button mat-menu-item [matMenuTriggerFor]="espanaSubMenu">Liga Española</button>
+  <button mat-menu-item [matMenuTriggerFor]="franciaSubMenu">Liga Francesa</button>
+  <button mat-menu-item [matMenuTriggerFor]="italiaSubMenu">Liga Italiana</button>
+  <button mat-menu-item [matMenuTriggerFor]="peruSubMenu">Liga Perú</button>
+  <button mat-menu-item [matMenuTriggerFor]="inglaterraSubMenu">Liga Inglesa</button>
+  <button mat-menu-item [matMenuTriggerFor]="brasilSubMenu">Liga Brasil</button>
+  <button mat-menu-item [routerLink]="'/clubes/otros-europeos'">Otros Europeos</button>
+  <button mat-menu-item [routerLink]="'/clubes/otros-sudamerica'">Otros Sudamérica</button>
+  <button mat-menu-item [routerLink]="'/clubes/otros-norteamerica'">Otros Norteamérica</button>
+  <button mat-menu-item [routerLink]="'/clubes/otros-asiaticos'">Otros Asiáticos</button>
+</mat-menu>
+
+<mat-menu #seleccionesMenu="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="conmebolSubMenu">Sudamerica</button>
+  <button mat-menu-item [matMenuTriggerFor]="uefaSubMenu">Europa</button>
+  <button mat-menu-item [matMenuTriggerFor]="concacafSubMenu">Norteamerica</button>
+  <button mat-menu-item [matMenuTriggerFor]="afcSubMenu">Asia</button>
+  <button mat-menu-item [matMenuTriggerFor]="cafSubMenu">Africa</button>
+</mat-menu>
+
+<mat-menu #marcasMenu="matMenu">
+  <button mat-menu-item>Puma</button>
+  <button mat-menu-item>Nike</button>
+  <button mat-menu-item>Adidas</button>
+</mat-menu>
+<!--Clubes-->
+<mat-menu #alemaniaSubMenu="matMenu">
+  <button mat-menu-item [routerLink]="'/clubes/alemania/bayern-munich'">Bayern Múnich</button>
+  <button mat-menu-item [routerLink]="'/clubes/alemania/borussia-dormund'">Borussia Dortmund</button>
+  <button mat-menu-item [routerLink]="'/clubes/alemania/rb-leipzig'"> RB Leipzig</button>
+  <button mat-menu-item [routerLink]="'/clubes/alemania/otros-alemanes'">Otros</button>
+</mat-menu>
+<mat-menu #espanaSubMenu="matMenu">
+  <button mat-menu-item [routerLink]="'/clubes/españa/barcelona'">Barcelona</button>
+  <button mat-menu-item [routerLink]="'/clubes/españa/real-madrid'">Real Madrid</button>
+  <button mat-menu-item [routerLink]="'/clubes/españa/atletico-madrid'"> Atletico Madrid</button>
+  <button mat-menu-item [routerLink]="'/clubes/españa/otros-españoles'">Otros</button>
+</mat-menu>
+<mat-menu #franciaSubMenu="matMenu">
+  <button mat-menu-item [routerLink]="'/clubes/francia/paris-saint-germain'">Paris Saint-Germain</button>
+  <button mat-menu-item [routerLink]="'/clubes/francia/olympique-de-marseille'">Olympique de Marseille</button>
+  <button mat-menu-item [routerLink]="'/clubes/francia/olympique-lyonnais'"> Olympique Lyonnais</button>
+  <button mat-menu-item [routerLink]="'/clubes/francia/otros-franceses'">Otros</button>
+</mat-menu>
+<mat-menu #italiaSubMenu="matMenu">
+  <button mat-menu-item [routerLink]="'/clubes/italia/juventus'">Juventus</button>
+  <button mat-menu-item [routerLink]="'/clubes/italia/inter-milan'">Inter Milan</button>
+  <button mat-menu-item [routerLink]="'/clubes/italia/ac-milan'"> Ac Milan</button>
+  <button mat-menu-item [routerLink]="'/clubes/italia/napoles'">Napoles</button>
+  <button mat-menu-item [routerLink]="'/clubes/italia/roma'"> As Roma</button>
+  <button mat-menu-item [routerLink]="'/clubes/italia/otros-italianos'">Otros</button>
+</mat-menu>
+<mat-menu #peruSubMenu="matMenu">
+  <button mat-menu-item [routerLink]="'/clubes/peru/alianza-lima'">Alianza Lima</button>
+  <button mat-menu-item [routerLink]="'/clubes/peru/sporting-cristal'">Sporting Cristal</button>
+  <button mat-menu-item [routerLink]="'/clubes/peru/universitario'"> Universitario</button>
+  <button mat-menu-item [routerLink]="'/clubes/peru/otros-peruanos'">Otros</button>
+</mat-menu>
+<mat-menu #inglaterraSubMenu="matMenu">
+  <button mat-menu-item [routerLink]="'/clubes/inglaterra/tottnham'">Tottenham</button>
+  <button mat-menu-item [routerLink]="'/clubes/inglaterra/manchester-city'">Manchester City</button>
+  <button mat-menu-item [routerLink]="'/clubes/inglaterra/manchester-united'"> Manchester United</button>
+  <button mat-menu-item [routerLink]="'/clubes/inglaterra/livepool'">Liverpool</button>
+  <button mat-menu-item [routerLink]="'/clubes/inglaterra/chelsea'"> Chelsea</button>
+  <button mat-menu-item [routerLink]="'/clubes/inglaterra/arsenal'">Arsenal</button>
+  <button mat-menu-item [routerLink]="'/clubes/inglaterra/otros-ingleses'">Otros</button>
+</mat-menu>
+<mat-menu #brasilSubMenu="matMenu">
+  <button mat-menu-item [routerLink]="'/clubes/brasil/flamengo'">Flamengo</button>
+  <button mat-menu-item [routerLink]="'/clubes/brasil/sao-paulo'">Sao Paulo</button>
+  <button mat-menu-item [routerLink]="'/clubes/brasil/fluminense'">Fluminense</button>
+  <button mat-menu-item [routerLink]="'/clubes/brasil/otros-brasileños'">Otros</button>
+</mat-menu>
+
+
+
+
+
+
+<!--Selecciones-->
+<mat-menu #conmebolSubMenu="matMenu">
+  <button mat-menu-item [routerLink]="'/seleccion/sudamerica/argentina'">Argentina</button>
+  <button mat-menu-item [routerLink]="'/seleccion/sudamerica/peru'">Perú</button>
+  <button mat-menu-item [routerLink]="'/seleccion/sudamerica/brasil'"> Brasil</button>
+  <button mat-menu-item [routerLink]="'/seleccion/sudamerica/otros-sudamericanos'">Otros</button>
+</mat-menu>
+<mat-menu #cafSubMenu="matMenu">
+  <button mat-menu-item [routerLink]="'/seleccion/africa/nigeria'">Nigeria</button>
+  <button mat-menu-item [routerLink]="'/seleccion/africa/ghana'">Ghana</button>
+  <button mat-menu-item [routerLink]="'/seleccion/africa/marruecos'"> Marruecos</button>
+  <button mat-menu-item [routerLink]="'/seleccion/africa/egipto'">Egipto</button>
+  <button mat-menu-item [routerLink]="'/seleccion/africa/senegal'">Senegal</button>
+  <button mat-menu-item [routerLink]="'/seleccion/africa/otras-africa'">Otras</button>
+</mat-menu>
+<mat-menu #concacafSubMenu="matMenu">
+  <button mat-menu-item [routerLink]="'/seleccion/norteamerica/estados-unidos'">Estados Unidos</button>
+  <button mat-menu-item [routerLink]="'/seleccion/norteamerica/mexico'">Mexico</button>
+  <button mat-menu-item [routerLink]="'/seleccion/norteamerica/canada'"> Canada</button>
+  <button mat-menu-item [routerLink]="'/seleccion/norteamerica/otras-norteamerica'">Otras</button>
+</mat-menu>
+<mat-menu #afcSubMenu="matMenu">
+  <button mat-menu-item [routerLink]="'/seleccion/asia/japon'">Japon</button>
+  <button mat-menu-item [routerLink]="'/seleccion/asia/corea-del-sur'">Corea Del Sur</button>
+  <button mat-menu-item [routerLink]="'/seleccion/asia/otros-asia'">Otras</button>
+</mat-menu>
+<mat-menu #uefaSubMenu="matMenu">
+  <button mat-menu-item [routerLink]="'/seleccion/europa/alemania'">Alemania</button>
+  <button mat-menu-item [routerLink]="'/seleccion/europa/portugal'">Portugal</button>
+  <button mat-menu-item [routerLink]="'/seleccion/europa/belgica'">Belgica</button>
+  <button mat-menu-item [routerLink]="'/seleccion/europa/italia'">Italia</button>
+  <button mat-menu-item [routerLink]="'/seleccion/europa/españa'">España</button>
+  <button mat-menu-item [routerLink]="'/seleccion/europa/francia'">Francia</button>
+  <button mat-menu-item [routerLink]="'/seleccion/europa/inglaterra'">Inglaterra</button>
+  <button mat-menu-item [routerLink]="'/seleccion/europa/paises-bajos'">Paises Bajos</button>
+  <button mat-menu-item [routerLink]="'/seleccion/europa/otros-europes'">Otras</button>
+</mat-menu>

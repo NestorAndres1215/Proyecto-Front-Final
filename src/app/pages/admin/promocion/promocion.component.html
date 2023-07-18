@@ -1,0 +1,23 @@
+<div class="container">
+    <mat-card-header>
+        <mat-card-title>
+            <br>
+            <h1>Panel de Gestion de Marcas</h1>
+        </mat-card-title>
+    </mat-card-header>
+    <hr>
+    <mat-tab-group [(selectedIndex)]="activeTab">
+        <mat-tab label="Activadas">
+            <div *ngIf="activeTab === 0">
+                <app-listar-promocion-activadas></app-listar-promocion-activadas>
+            </div>
+        </mat-tab>
+        <mat-tab label="Desactivadas">
+            <div *ngIf="activeTab === 1">
+                <app-listar-promocion-desactivadas></app-listar-promocion-desactivadas>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
+</div>
+

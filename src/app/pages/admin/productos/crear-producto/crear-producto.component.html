@@ -1,0 +1,188 @@
+<div class="container"><br>
+  <h1 style="text-align: center; color: #ff0000; font-family: Arial, sans-serif;">AGREGAR NUEVO PRODUCTO</h1>
+  <br>
+
+  <form (submit)="formSubmit()" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field class="w100" appearance="outline">
+          <mat-label>Producto</mat-label>
+          <input required autofocus type="text" name="nombre de producto" matInput
+            placeholder="Digite el nombre del producto" [(ngModel)]="producto.nombre">
+        </mat-form-field>
+        <mat-form-field class="w100" appearance="outline">
+          <mat-label>Equipo</mat-label>
+          <input required autofocus type="text" name="equipo de producto" matInput
+            placeholder="Digite el equipo del producto" [(ngModel)]="producto.equipo">
+        </mat-form-field>
+        <mat-form-field class="w100" appearance="outline">
+          <mat-label>Precio</mat-label>
+          <input required autofocus type="number" name="precio de producto" matInput
+            placeholder="Digite el precio del producto" [(ngModel)]="producto.precio">
+        </mat-form-field>
+        <mat-form-field class="w100" appearance="outline">
+          <mat-label>Genero</mat-label>
+          <mat-select name="genero" [(ngModel)]="producto.genero">
+            <mat-option *ngFor="let genero of genero" [value]="genero">{{ genero }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="w100" appearance="outline">
+          <mat-label>Temporada</mat-label>
+          <input required autofocus type="text" name="temporada de producto" matInput
+            placeholder="Digite la temporada del producto" [(ngModel)]="producto.temporada">
+        </mat-form-field>
+        <div class="w100">
+          <label for="imagen1">Imagen 1:</label><br>
+          <input type="file" class="btn btn primary" id="imagen1" name="imagen1" (change)="onFileSelected($event)"
+            required>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field class="w100" appearance="outline">
+          <mat-label>Descripción</mat-label>
+          <input required autofocus type="text" name="nombre de descripción" matInput
+            placeholder="Digite la descripción" [(ngModel)]="producto.descripcion">
+        </mat-form-field>
+        <mat-form-field class="w100" appearance="outline">
+          <mat-label>Categoría</mat-label>
+          <mat-select name="categoría de producto" [(ngModel)]="producto.categoria.categoriaId">
+            <mat-option *ngFor="let categoria of categorias" [value]="categoria.categoriaId">{{ categoria.nombre
+              }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="w100" appearance="outline">
+          <mat-label>Versión</mat-label>
+          <input required autofocus type="text" name="versión de producto" matInput
+            placeholder="Digite la versión del producto" [(ngModel)]="producto.version">
+        </mat-form-field>
+        <mat-form-field class="w100" appearance="outline">
+          <mat-label>Material</mat-label>
+          <input required autofocus type="text" name="material de producto" matInput
+            placeholder="Digite el material del producto" [(ngModel)]="producto.material">
+        </mat-form-field>
+        <mat-form-field class="w100" appearance="outline">
+          <mat-label>Atributo</mat-label>
+          <mat-select name="atributo" [(ngModel)]="producto.atributo">
+            <mat-option *ngFor="let atributo of atributo" [value]="atributo">{{ atributo }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="w100">
+          <label for="imagen2">Imagen 2:</label><br>
+          <input type="file" class="btn btn primary" id="imagen2" name="imagen2" (change)="onFileSelected1($event)"
+            required>
+        </div>
+
+      </div>
+      <br><br>
+      <div class="container text-center mt15">
+        <br>
+        <button class="btn btn-primary" type="submit">Guardar producto</button>
+      </div>
+    </div>
+  </form>
+  <br>
+</div>
+
+
+
+
+
+<!--div class="container">
+  <br>
+  <h1 style="text-align: center; color: #ff0000; font-family: Arial, sans-serif;">AGREGAR NUEVO PRODUCTO</h1>
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+
+
+        <form (submit)="formSubmit()" enctype="multipart/form-data">
+
+          
+          <mat-form-field class="w100" appearance="outline">
+            <mat-label>Producto</mat-label>
+            <input required autofocus type="text" name="nombre de producto" matInput
+              placeholder="Digite el nombre del producto" [(ngModel)]="producto.nombre">
+          </mat-form-field>
+
+
+
+          <mat-form-field class="w100" appearance="outline">
+            <mat-label>Equipo</mat-label>
+            <input required autofocus type="text" name="equipo de producto" matInput
+              placeholder="Digite el equipo del producto" [(ngModel)]="producto.equipo">
+          </mat-form-field>
+          <mat-form-field class="w100" appearance="outline">
+            <mat-label>Precio</mat-label>
+            <input required autofocus type="number" name="precio de producto" matInput
+              placeholder="Digite el precio del producto" [(ngModel)]="producto.precio">
+          </mat-form-field>
+
+          <mat-form-field class="w100" appearance="outline">
+            <mat-label>Genero</mat-label>
+            <mat-select name="genero" [(ngModel)]="producto.genero">
+              <mat-option *ngFor="let genero of genero" [value]="genero">{{ genero }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="w100" appearance="outline">
+            <mat-label>Temporada</mat-label>
+            <input required autofocus type="text" name="temporada de producto" matInput
+              placeholder="Digite la temporada del producto" [(ngModel)]="producto.temporada">
+          </mat-form-field>
+
+
+
+
+          <div class="w100">
+            <label for="imagen1">Imagen 1:</label><br>
+            <input type="file" class="btn btn primary" id="imagen1" name="imagen1" (change)="onFileSelected($event)"
+              required>
+          </div>
+
+
+
+
+
+
+          <mat-form-field class="w100" appearance="outline">
+            <mat-label>Descripción</mat-label>
+            <input required autofocus type="text" name="nombre de descripción" matInput
+              placeholder="Digite la descripción" [(ngModel)]="producto.descripcion">
+          </mat-form-field>
+          <mat-form-field class="w100" appearance="outline">
+            <mat-label>Categoría</mat-label>
+            <mat-select name="categoría de producto" [(ngModel)]="producto.categoria.categoriaId">
+              <mat-option *ngFor="let categoria of categorias" [value]="categoria.categoriaId">{{ categoria.nombre
+                }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="w100" appearance="outline">
+            <mat-label>Versión</mat-label>
+            <input required autofocus type="text" name="versión de producto" matInput
+              placeholder="Digite la versión del producto" [(ngModel)]="producto.version">
+          </mat-form-field>
+          <mat-form-field class="w100" appearance="outline">
+            <mat-label>Material</mat-label>
+            <input required autofocus type="text" name="material de producto" matInput
+              placeholder="Digite el material del producto" [(ngModel)]="producto.material">
+          </mat-form-field>
+          <mat-form-field class="w100" appearance="outline">
+            <mat-label>Atributo</mat-label>
+            <mat-select name="atributo" [(ngModel)]="producto.atributo">
+              <mat-option *ngFor="let atributo of atributo" [value]="atributo">{{ atributo }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="w100">
+            <label for="imagen2">Imagen 2:</label><br>
+            <input type="file" class="btn btn primary" id="imagen2" name="imagen2" (change)="onFileSelected1($event)"
+              required>
+          </div>
+
+
+          <br><br>
+          <div class="container text-center mt15">
+            <button class="btn btn-primary" type="submit">Guardar producto</button>
+          </div>
+        </form>
+
+
+</div-->

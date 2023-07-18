@@ -1,0 +1,15 @@
+.italia {
+  width: 1349px;
+  height: 520px;
+  filter: brightness(1.2); /* Ajusta el valor según tu preferencia */
+}
+
+  
+  /* Media query para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .italia {
+      max-width: 100%; /* Establece un ancho máximo del 100% en pantallas pequeñas */
+      height: auto; /* Permite que la altura se ajuste automáticamente */
+    }
+  }
+  

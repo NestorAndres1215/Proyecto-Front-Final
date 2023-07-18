@@ -1,0 +1,49 @@
+<h1>Listar Registro de Compras</h1>
+<br>
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <button class="btn btn-primary btn-block" routerLink="/admin/compras/registrar-compras">Registrar Compra</button>
+    </div>
+    <div class="col-md-4 mb-3">
+        <button class="btn btn-warning btn-block" (click)="downloadPDF()">Reporte Compra</button>
+    </div>
+    <div class="col-md-4 mb-3">
+        <button class="btn btn-info btn-block" routerLink="/admin/compras/graficos-compras">Gráficos Compra</button>
+    </div>
+</div>
+<div id="htmlData">
+    <br><br>
+<table class="table table-dark table-hover" >
+    <thead class="text-center">
+        <tr>
+            <th>Código</th>
+            <th>Producto</th>
+            <th>Metodo <br> Pago</th>
+            <th>Cantidad</th>
+            <th>Dia Entrega</th>
+            <th>Precio Unidad</th>
+            <th>Descuento</th>
+            <th>Proveedor</th>
+            <th>Fecha Compra</th>
+            <th>Total Compra</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        <tr *ngFor="let compra of compras">
+            <td>{{ compra.compraId }}</td>
+            <td>{{ compra.producto }}</td>
+            <td>{{compra.metodoPago}}</td>
+            <td>{{ compra.cantidad }}</td>
+            <td>{{compra.diaEntrega}}</td>
+            <td>{{ compra.precioUnidad }}</td>
+            <td>{{compra.descuento}}</td>
+            <td>{{ compra.proveedor.nombre }}</td>
+            <td>{{compra.fechaCompra}}</td>
+            <td>{{compra.totalCompra}}</td>
+            <td>
+                <button class="btn btn-success" routerLink="/admin/compras/detalle-compra/{{ compra.compraId }}">Detalle</button>
+            </td>
+        </tr>
+    </tbody>
+</table></div>

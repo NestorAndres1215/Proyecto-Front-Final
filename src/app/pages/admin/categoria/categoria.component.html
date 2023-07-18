@@ -1,0 +1,18 @@
+<div class="container">
+  <br>
+  <h1>Panel de Gestion de Cayegorias</h1>
+
+  <mat-tab-group [(selectedIndex)]="activeTab">
+    <mat-tab label="Activadas">
+      <div *ngIf="activeTab === 0">
+        <app-listar-activadas></app-listar-activadas>
+      </div>
+    </mat-tab>
+    <mat-tab label="Desactivadas">
+      <div *ngIf="activeTab === 1">
+        <app-listar-desactivadas></app-listar-desactivadas>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+  <br>
+</div>
