@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -34,94 +34,56 @@ import { authInterceptorProviders } from './services/auth.interceptor';
 import { DashboardComponent } from './pages/admin/home-admin/home-admin.component';
 import { UserDashboardComponent } from './pages/cliente/home-cliente/home-cliente.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { NavbarAdminComponent } from './components/admin/navbar-admin/navbar-admin.component';
 import { FooterComponent } from './components/cliente/footer/footer.component';
-import { CatalogoComponent } from './pages/cliente/catalogo/catalogo.component';
-import { PromocionesComponent } from './pages/cliente/promociones/promociones.component';
-import { FooterAdminComponent } from './components/admin/footer-admin/footer-admin.component';
+
 import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
 import { PrincipalComponent } from './pages/admin/principal/principal.component';
-import { PerfilComponent } from './pages/admin/perfil/perfil.component';
-import { ProductosComponent } from './pages/admin/productos/productos.component';
-import { CategoriaComponent } from './pages/admin/categoria/categoria.component';
-import { UsuarioComponent } from './pages/admin/usuario/usuario.component';
-import { ProveedorComponent } from './pages/admin/proveedor/proveedor.component';
-import { VentasComponent } from './pages/admin/ventas/ventas.component';
-import { ReclamosComponent } from './pages/admin/reclamos/reclamos.component';
-import { AcercaDeEmpresaComponent } from './pages/cliente/footer-cliente/acerca-de-empresa/acerca-de-empresa.component';
-import { SostenibilidadComponent } from './pages/cliente/footer-cliente/sostenibilidad/sostenibilidad.component';
-import { ContactoComponent } from './pages/cliente/footer-cliente/contacto/contacto.component';
-import { NuestrosProductosComponent } from './pages/cliente/footer-cliente/nuestros-productos/nuestros-productos.component';
-import { NosotrosComponent } from './pages/cliente/footer-cliente/nosotros/nosotros.component';
-import { PoliticaPrivacidadComponent } from './pages/cliente/footer-cliente/politica-privacidad/politica-privacidad.component';
-import { AtencionClienteComponent } from './pages/cliente/footer-cliente/atencion-cliente/atencion-cliente.component';
-import { ConfiguracionComponent } from './pages/admin/configuracion/configuracion.component';
-
-
-import { ListarUsuarioComponent } from './pages/admin/usuario/listar-usuario/listar-usuario.component';
-
-import { GuardarReclamoComponent } from './pages/admin/reclamos/guardar-reclamo/guardar-reclamo.component';
-import { ResponderReclamoComponent } from './pages/admin/reclamos/responder-reclamo/responder-reclamo.component';
 
 
 
-
-import { CrearProductoComponent } from './pages/admin/productos/crear-producto/crear-producto.component';
-import { ActualizarProductoComponent } from './pages/admin/productos/actualizar-producto/actualizar-producto.component';
-import { ListarActivadasComponent } from './pages/admin/categoria/listar-activadas/listar-activadas.component';
-import { ListarDesactivadasComponent } from './pages/admin/categoria/listar-desactivadas/listar-desactivadas.component';
-import { ActualizarCategoriaComponent } from './pages/admin/categoria/actualizar-categoria/actualizar-categoria.component';
-import { CrearCategoriaComponent } from './pages/admin/categoria/crear-categoria/crear-categoria.component';
-import { ListarActivadasProveedorComponent } from './pages/admin/proveedor/listar-activadas-proveedor/listar-activadas-proveedor.component';
-import { ListarDesactivarProveedorComponent } from './pages/admin/proveedor/listar-desactivar-proveedor/listar-desactivar-proveedor.component';
-import { CrearProveedorComponent } from './pages/admin/proveedor/crear-proveedor/crear-proveedor.component';
-import { ActualizarProveedorComponent } from './pages/admin/proveedor/actualizar-proveedor/actualizar-proveedor.component';
-import { ListarReclamosActivadosComponent } from './pages/admin/reclamos/listar-reclamos-activados/listar-reclamos-activados.component';
-import { ListarReclamosDesactivadosComponent } from './pages/admin/reclamos/listar-reclamos-desactivados/listar-reclamos-desactivados.component';
-import { RegistrarUsuarioAdminComponent } from './pages/admin/usuario/registrar-usuario-admin/registrar-usuario-admin.component';
-import { PromocionComponent } from './pages/admin/promocion/promocion.component';
-import { CompramosTuCamisetaComponent } from './pages/cliente/footer-cliente/compramos-tu-camiseta/compramos-tu-camiseta.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { EmpresaComponent } from './pages/admin/empresa/empresa.component';
-import { GuardarEmpresaComponent } from './pages/admin/empresa/guardar-empresa/guardar-empresa.component';
-import { ActualizarEmpresaComponent } from './pages/admin/empresa/actualizar-empresa/actualizar-empresa.component';
-import { ListarEmpresaActivadasComponent } from './pages/admin/empresa/listar-empresa-activadas/listar-empresa-activadas.component';
-import { CompraComponent } from './pages/admin/compra/compra.component';
-import { ListarCompraComponent } from './pages/admin/compra/listar-compra/listar-compra.component';
-import { RegistrarCompraComponent } from './pages/admin/compra/registrar-compra/registrar-compra.component';
-import { ListarPromocionActivadasComponent } from './pages/admin/promocion/listar-promocion-activadas/listar-promocion-activadas.component';
-import { ListarPromocionDesactivadasComponent } from './pages/admin/promocion/listar-promocion-desactivadas/listar-promocion-desactivadas.component';
-import { CrearPromocionComponent } from './pages/admin/promocion/crear-promocion/crear-promocion.component';
-import { ActualizarPromocionComponent } from './pages/admin/promocion/actualizar-promocion/actualizar-promocion.component';
-import { DetalleCompraComponent } from './pages/admin/compra/detalle-compra/detalle-compra.component';
-import { GraficosCompraComponent } from './pages/admin/compra/graficos-compra/graficos-compra.component';
-import { ListarProductoActivadasComponent } from './pages/admin/productos/listar-producto-activadas/listar-producto-activadas.component';
-import { ListarProductoDesactivadasComponent } from './pages/admin/productos/listar-producto-desactivadas/listar-producto-desactivadas.component';
-import { ArgentinaComponent } from './pages/cliente/selecciones/sudamerica/argentina/argentina.component';
-import { BrasilComponent } from './pages/cliente/selecciones/sudamerica/brasil/brasil.component';
-import { CoreaDelSurComponent } from './pages/cliente/selecciones/asia/corea-del-sur/corea-del-sur.component';
-import { JaponComponent } from './pages/cliente/selecciones/asia/japon/japon.component';
-import { PortugalComponent } from './pages/cliente/selecciones/europa/portugal/portugal.component';
-import { AlemaniaComponent } from './pages/cliente/selecciones/europa/alemania/alemania.component';
-import { ItaliaComponent } from './pages/cliente/selecciones/europa/italia/italia.component';
-import { FranciaComponent } from './pages/cliente/selecciones/europa/francia/francia.component';
-import { PaisesBajosComponent } from './pages/cliente/selecciones/europa/paises-bajos/paises-bajos.component';
-import { EspanaComponent } from './pages/cliente/selecciones/europa/espana/espana.component';
-import { BelgicaComponent } from './pages/cliente/selecciones/europa/belgica/belgica.component';
-import { InglaterraComponent } from './pages/cliente/selecciones/europa/inglaterra/inglaterra.component';
-import { MexicoComponent } from './pages/cliente/selecciones/norteamerica/mexico/mexico.component';
-import { TemporadaComponent } from './pages/cliente/temporada/temporada.component';
-import { PeruComponent } from './pages/cliente/selecciones/sudamerica/peru/peru.component';
-import { EstadosUnidosComponent } from './pages/cliente/selecciones/norteamerica/estados-unidos/estados-unidos.component';
-import { OtrosNorteamericaComponent } from './pages/cliente/selecciones/norteamerica/otros-norteamerica/otros-norteamerica.component';
-import { OtrosEuropeosComponent } from './pages/cliente/selecciones/europa/otros-europeos/otros-europeos.component';
-import { OtrosAsiaticosComponent } from './pages/cliente/selecciones/asia/otros-asiaticos/otros-asiaticos.component';
-import { OtrosAfricanosComponent } from './pages/cliente/selecciones/africa/otros-africanos/otros-africanos.component';
-import { NigeriaComponent } from './pages/cliente/selecciones/africa/nigeria/nigeria.component';
-import { MarruecosComponent } from './pages/cliente/selecciones/africa/marruecos/marruecos.component';
+
+import { NavbarAdminComponent } from './components/admin/navbar-admin/navbar-admin.component';
+import { MatDividerModule } from '@angular/material/divider';
+
+import { AsientoComponent } from './pages/admin/asiento/asiento.component';
+import { ReporteComponent } from './pages/admin/reporte/reporte.component';
+
+
+
+import { AsientoCompraComponent } from './pages/admin/asiento/asiento-compra/asiento-compra.component';
+import { AsientoVentaComponent } from './pages/admin/asiento/asiento-venta/asiento-venta.component';
+import { ProgramacionComponent } from './pages/admin/programacion/programacion.component';
+import { RegComprasComponent } from './pages/admin/reporte/reg-compras/reg-compras.component';
+import { RegReclamoComponent } from './pages/admin/reporte/reg-reclamo/reg-reclamo.component';
+import { RegPromocionComponent } from './pages/admin/reporte/reg-promocion/reg-promocion.component';
+import { RegProductoComponent } from './pages/admin/reporte/reg-producto/reg-producto.component';
+import { RegProgramacionVentaComponent } from './pages/admin/programacion/reg-programacion-venta/reg-programacion-venta.component';
+import { RegProgramacionCompraComponent } from './pages/admin/programacion/reg-programacion-compra/reg-programacion-compra.component';
+import { AdministracionComponent } from './pages/admin/administracion/administracion.component';
+import { ConfigUsuarioComponent } from './pages/admin/administracion/config-usuario/config-usuario.component';
+import { ConfigPerfilComponent } from './pages/admin/administracion/config-perfil/config-perfil.component';
+import { MantenimientoComponent } from './pages/admin/mantenimiento/mantenimiento.component';
+import { TablaGeneralesComponent } from './pages/admin/mantenimiento/tabla-generales/tabla-generales.component';
+import { TablaResenaComponent } from './pages/admin/mantenimiento/tabla-resena/tabla-resena.component';
+import { MantenimientoPromocionComponent } from './pages/admin/mantenimiento/mantenimiento-promocion/mantenimiento-promocion.component';
+import { MantenimientoProveedorComponent } from './pages/admin/mantenimiento/mantenimiento-proveedor/mantenimiento-proveedor.component';
+import { MantenimientoCategoriaComponent } from './pages/admin/mantenimiento/mantenimiento-categoria/mantenimiento-categoria.component';
+import { MantenimientoDescuentoComponent } from './pages/admin/mantenimiento/mantenimiento-descuento/mantenimiento-descuento.component';
+import { MantenimientoContenidoComponent } from './pages/admin/mantenimiento/mantenimiento-contenido/mantenimiento-contenido.component';
+import { MantenimientoProductoComponent } from './pages/admin/mantenimiento/mantenimiento-producto/mantenimiento-producto.component';
+import { ConsultaComponent } from './pages/admin/consulta/consulta.component';
+import { ConsultaPromocionComponent } from './pages/admin/consulta/consulta-promocion/consulta-promocion.component';
+import { ConsultaProveedorComponent } from './pages/admin/consulta/consulta-proveedor/consulta-proveedor.component';
+import { ConsultaCompraComponent } from './pages/admin/consulta/consulta-compra/consulta-compra.component';
+import { ConsultaVentaComponent } from './pages/admin/consulta/consulta-venta/consulta-venta.component';
+import { ConsultaDescuentoComponent } from './pages/admin/consulta/consulta-descuento/consulta-descuento.component';
+import { ConsultaProductoComponent } from './pages/admin/consulta/consulta-producto/consulta-producto.component';
+
 
 
 @NgModule({
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     AppComponent,
     NavbarComponent,
@@ -130,88 +92,50 @@ import { MarruecosComponent } from './pages/cliente/selecciones/africa/marruecos
     HomeComponent,
     DashboardComponent,
     UserDashboardComponent,
-    NavbarAdminComponent,
     FooterComponent,
-    CatalogoComponent,
-    PromocionesComponent,
-
-    FooterAdminComponent,
     SidebarComponent,
     PrincipalComponent,
-    PerfilComponent,
-    ProductosComponent,
-    CategoriaComponent,
-    UsuarioComponent,
-    ProveedorComponent,
-    VentasComponent,
-    ReclamosComponent,
-    AcercaDeEmpresaComponent,
-    SostenibilidadComponent,
-    ContactoComponent,
-    NuestrosProductosComponent,
-    NosotrosComponent,
-    PoliticaPrivacidadComponent,
-    AtencionClienteComponent,
-    ConfiguracionComponent,
-    ListarUsuarioComponent,
-    GuardarReclamoComponent,
-    ResponderReclamoComponent,
-    CrearProductoComponent,
-    ActualizarProductoComponent,
-    ListarActivadasComponent,
-    ListarDesactivadasComponent,
-    ActualizarCategoriaComponent,
-    CrearCategoriaComponent,
-    ListarActivadasProveedorComponent,
-    ListarDesactivarProveedorComponent,
-    CrearProveedorComponent,
-    ActualizarProveedorComponent,
-    ListarReclamosActivadosComponent,
-    ListarReclamosDesactivadosComponent,
-    RegistrarUsuarioAdminComponent,
-    PromocionComponent,
-    CompramosTuCamisetaComponent,
-    EmpresaComponent,
-    GuardarEmpresaComponent,
-    ActualizarEmpresaComponent,
-    ListarEmpresaActivadasComponent,
-    CompraComponent,
-    ListarCompraComponent,
-    RegistrarCompraComponent,
-    ListarPromocionActivadasComponent,
-    ListarPromocionDesactivadasComponent,
-    CrearPromocionComponent,
-    ActualizarPromocionComponent,
-    DetalleCompraComponent,
-    GraficosCompraComponent,
-    ListarProductoActivadasComponent,
-    ListarProductoDesactivadasComponent,
-    ArgentinaComponent,
-    BrasilComponent,
-    CoreaDelSurComponent,
-    JaponComponent,
-    PortugalComponent,
-    AlemaniaComponent,
-    ItaliaComponent,
-    FranciaComponent,
-    PaisesBajosComponent,
-    EspanaComponent,
-    BelgicaComponent,
-    InglaterraComponent,
-    MexicoComponent,
-    TemporadaComponent,
-    PeruComponent,
-    EstadosUnidosComponent,
-    OtrosNorteamericaComponent,
-    OtrosEuropeosComponent,
-    OtrosAsiaticosComponent,
-    OtrosAfricanosComponent,
-    NigeriaComponent,
-    MarruecosComponent,
+    NavbarAdminComponent,
+ 
+    AsientoComponent,
+   ReporteComponent,
+  RegComprasComponent,
+    ReporteComponent,
+
+    AsientoCompraComponent,
+    AsientoVentaComponent,
+    ProgramacionComponent,
+    RegReclamoComponent,
+    RegPromocionComponent,
+    RegProductoComponent,
+    RegProgramacionVentaComponent,
+    RegProgramacionCompraComponent,
+    AdministracionComponent,
+    ConfigUsuarioComponent,
+    ConfigPerfilComponent,
+    MantenimientoComponent,
+    TablaGeneralesComponent,
+    TablaResenaComponent,
+    MantenimientoPromocionComponent,
+    MantenimientoProveedorComponent,
+    MantenimientoCategoriaComponent,
+    MantenimientoDescuentoComponent,
+    MantenimientoContenidoComponent,
+    MantenimientoProductoComponent,
+    ConsultaComponent,
+    ConsultaPromocionComponent,
+    ConsultaProveedorComponent,
+    ConsultaCompraComponent,
+    ConsultaVentaComponent,
+    ConsultaDescuentoComponent,
+    ConsultaProductoComponent,
+  
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatSidenavModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatFormFieldModule,
@@ -221,6 +145,7 @@ import { MarruecosComponent } from './pages/cliente/selecciones/africa/marruecos
     MatSnackBarModule,
     MatCardModule,
     MatToolbarModule,
+    MatDividerModule,
     MatIconModule,
     MatSidenavModule,
     MatMenuModule,
@@ -230,11 +155,15 @@ import { MarruecosComponent } from './pages/cliente/selecciones/africa/marruecos
     MatOptionModule,
     MatTabsModule,
     MatSelectModule,
+    MatIconModule,
     MatAutocompleteModule,
     NgxPaginationModule,
     MatButtonToggleModule,
     MatProgressBarModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+   
+
+   
 
   ],
   

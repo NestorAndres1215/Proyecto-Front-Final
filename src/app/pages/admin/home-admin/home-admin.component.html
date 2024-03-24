@@ -1,74 +1,95 @@
-
-
-<app-navbar-admin></app-navbar-admin>
-
-
-<!---
-<div class="bootstrap-wrapper">
-
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-3 col-sm-12" style="padding-left: 0;">
-        <app-sidebar></app-sidebar>
+<div class="example-container">
+  <div>
+    <mat-toolbar color="primary" class="example-toolbar">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+        <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+      </button>
+      <h1 class="example-app-name" style="width: max-content;"><img class="img-logo"></h1>
+      <span class="example-spacer"></span>
+      <div style="justify-content: center;display: flex;margin: initial;" class="navegador">
+        <h4 *ngIf="isLoggedIn && user"> {{ user.username }} </h4>
+        <h4> - Administrador</h4>
       </div>
-      <div class="col-md-9 col-sm-12" style="padding-right: 0;">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>house</mat-icon>
+          <span>Compañia Contratante :</span>
+        </button>
+        <div
+          style="margin: 5px 5px;line-height: 10px;text-transform: capitalize;align-items: center;justify-content: center;display: grid;">
+          <label style="font-weight: bold;">XD</label><br>
+          <label><span style="font-weight: bold;">RUC: </span>XD</label>
+        </div>
+        <button mat-menu-item>
+          <mat-icon>storage</mat-icon>
+          <span>Capacidad Ocupada: </span>
+        </button>
+        <div
+          style="margin: 5px 5px;line-height: 10px;text-transform: capitalize;align-items: center;justify-content: center;display: grid;">
+          <label style="font-weight: bold;">F</label><br>
+        </div>
+        <button mat-menu-item>
+          <mat-icon>business</mat-icon>
+          <span>Compañia: </span>
+        </button>
+        <div
+          style="margin: 5px 5px;line-height: 10px;text-transform: capitalize;align-items: center;justify-content: center;display: grid;">
+          <label
+            style="font-weight: bold; white-space:nowrap; width:99%;text-overflow: ellipsis; overflow:hidden; padding:5px 0;"></label><br>
+          <label><span style="font-weight: bold;">RUC: </span> </label>
+        </div>
+        <button mat-menu-item>
+          <mat-icon>account_box</mat-icon>
+          <span style="align-items: center;justify-content: center;display: inline-flex;">Mi Perfil <button
+              class="badge bg-danger border-0 m-2">Proximamente</button> </span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>check_circle</mat-icon>
+          <span>Version: <strong></strong></span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Cerrar Sesión</span>
+        </button>
+      </mat-menu>
+
+    </mat-toolbar>
+
   </div>
-</div>-->
-<!--
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav mode="side" opened="true" class="sidenav dark">
-    <mat-nav-list>
-      <button mat-list-item routerLink="/admin">
-        <mat-icon mat-list-icon>home</mat-icon> Inicio
-      </button>
-      <button mat-list-item routerLink="/admin/perfil">
-        <mat-icon mat-list-icon>account_circle</mat-icon> Perfil
-      </button>
-      <button mat-list-item routerLink="/admin/producto">
-        <mat-icon mat-list-icon>inventory_2</mat-icon> Productos
-      </button>
-      <button mat-list-item routerLink="/admin/categoria">
-        <mat-icon mat-list-icon>category</mat-icon> Categoría
-      </button>
-      <button mat-list-item>
-        <mat-icon mat-list-icon>branding_watermark</mat-icon> Botón sin enlace
-      </button>
-      <button mat-list-item routerLink="/admin/promocion">
-        <mat-icon mat-list-icon>local_offer</mat-icon> Promociones
-      </button>
-      <button mat-list-item routerLink="/admin/usuario">
-        <mat-icon mat-list-icon>person</mat-icon> Usuarios
-      </button>
-      <button mat-list-item routerLink="/admin/proveedor">
-        <mat-icon mat-list-icon>business</mat-icon> Proveedores
-      </button>
-      <button mat-list-item routerLink="/admin/ventas">
-        <mat-icon mat-list-icon>monetization_on</mat-icon> Ventas
-      </button>
-      <button mat-list-item routerLink="/admin/compras">
-        <mat-icon mat-list-icon>shopping_cart</mat-icon> Compras
-      </button>
-      <button mat-list-item routerLink="/admin/ventas">
-        <mat-icon mat-list-icon>supervised_user_circle</mat-icon> Empleado
-      </button>
-      <button mat-list-item routerLink="/admin/reclamos">
-        <mat-icon mat-list-icon>report</mat-icon> Reclamos
-      </button>
-      <button mat-list-item routerLink="/admin/configuracion">
-        <mat-icon mat-list-icon>settings</mat-icon> Configuración
-      </button>
-    </mat-nav-list>
-  </mat-sidenav>
-  
-  <mat-sidenav-content opened="true">
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  <mat-sidenav-container class="example-sidenav-container" class="app-container">
+    <mat-sidenav #sidenav style="width: 28%; min-width: 350px;" mode="push" [opened]="false">
+      <mat-divider></mat-divider>
 
 
--->
 
-<app-footer-admin></app-footer-admin>
+      <mat-list>
+        <ng-container *ngFor="let menuItem of menu1">
+          <mat-list-item [routerLink]="[menuItem.menuRuta]"(click)="toggleSubMenu(menuItem)" style="cursor: pointer">
+            <mat-icon>{{ menuItem.menuIcono }}</mat-icon>
+            <span style="margin-left: 8px; color: black;">{{ menuItem.menuNombre }}</span>
+          </mat-list-item>
+          <!-- Agregar menú hijo si se muestra el submenú -->
+          <ng-container *ngIf="menuItem.mostrarSubMenu">
+            <mat-list-item *ngFor="let subMenuItem of this.menu2FiltradoPorCategoria[menuItem.menuCategoria]" [routerLink]="[subMenuItem.menuRuta]" (click)="handleSubmenuItemClicked(subMenuItem)" style="cursor: pointer">
+              <mat-icon>{{ subMenuItem.menuIcono }}</mat-icon>
+              <span style="margin-left: 8px; color: black;">{{ subMenuItem.menuNombre }}</span>
+            </mat-list-item>
+          </ng-container>
+        </ng-container>
+      </mat-list>
+      
+      
+
+   
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

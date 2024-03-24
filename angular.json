@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sistema-examenes-frontend": {
+    "proyecto-futbol": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sistema-examenes-frontend",
+            "outputPath": "dist/proyecto-futbol",
             "index": "src/index.html",
            
             "main": "src/main.ts",
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "sistema-examenes-frontend:build:production"
+              "browserTarget": "proyecto-futbol:build:production"
             },
             "development": {
-              "browserTarget": "sistema-examenes-frontend:build:development"
+              "browserTarget": "proyecto-futbol:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sistema-examenes-frontend:build"
+            "browserTarget": "proyecto-futbol:build"
           }
         },
         "test": {
@@ -106,7 +106,7 @@
       }
     }
   },
-  "defaultProject": "sistema-examenes-frontend",
+  "defaultProject": "proyecto-futbol",
   "cli": {
     "analytics": "9e46452f-e3b7-40bb-968c-c389295d2dce"
   }

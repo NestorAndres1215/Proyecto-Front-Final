@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService
- } from 'src/app/services/login.service';
+import { LoginService } from 'src/app/services/login.service';
+
 @Component({
   selector: 'app-navbar-admin',
   templateUrl: './navbar-admin.component.html',
   styleUrls: ['./navbar-admin.component.css']
 })
 export class NavbarAdminComponent implements OnInit {
-
-  
+ 
   isLoggedIn = false;
   user:any = null;
   contenido: any;
@@ -38,5 +37,10 @@ export class NavbarAdminComponent implements OnInit {
     // Verificar si la variable "contenido" tiene algún valor
     return !!this.contenido;
   }
-  
+  status = false;
+  addToggle()
+  {
+    this.status = !this.status;       
+  }
+
 }
