@@ -79,6 +79,8 @@ import { ConsultaCompraComponent } from './pages/admin/consulta/consulta-compra/
 import { ConsultaVentaComponent } from './pages/admin/consulta/consulta-venta/consulta-venta.component';
 import { ConsultaDescuentoComponent } from './pages/admin/consulta/consulta-descuento/consulta-descuento.component';
 import { ConsultaProductoComponent } from './pages/admin/consulta/consulta-producto/consulta-producto.component';
+import { EstadoSituacionFinancieraComponent } from './pages/admin/estado-situacion-financiera/estado-situacion-financiera.component';
+import { RegEstadoSituacionFinancieraComponent } from './pages/admin/estado-situacion-financiera/reg-estado-situacion-financiera/reg-estado-situacion-financiera.component';
 
 
 
@@ -129,6 +131,8 @@ import { ConsultaProductoComponent } from './pages/admin/consulta/consulta-produ
     ConsultaVentaComponent,
     ConsultaDescuentoComponent,
     ConsultaProductoComponent,
+    EstadoSituacionFinancieraComponent,
+    RegEstadoSituacionFinancieraComponent,
   
   
   ],

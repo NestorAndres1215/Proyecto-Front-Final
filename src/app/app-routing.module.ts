@@ -33,6 +33,14 @@ import { MantenimientoProveedorComponent } from './pages/admin/mantenimiento/man
 import { MantenimientoCategoriaComponent } from './pages/admin/mantenimiento/mantenimiento-categoria/mantenimiento-categoria.component';
 import { MantenimientoContenidoComponent } from './pages/admin/mantenimiento/mantenimiento-contenido/mantenimiento-contenido.component';
 import { MantenimientoProductoComponent } from './pages/admin/mantenimiento/mantenimiento-producto/mantenimiento-producto.component';
+import { ConsultaComponent } from './pages/admin/consulta/consulta.component';
+import { ConsultaVentaComponent } from './pages/admin/consulta/consulta-venta/consulta-venta.component';
+import { ConsultaCompraComponent } from './pages/admin/consulta/consulta-compra/consulta-compra.component';
+import { ConsultaProductoComponent } from './pages/admin/consulta/consulta-producto/consulta-producto.component';
+import { ConsultaPromocionComponent } from './pages/admin/consulta/consulta-promocion/consulta-promocion.component';
+import { ConsultaProveedorComponent } from './pages/admin/consulta/consulta-proveedor/consulta-proveedor.component';
+import { ConsultaDescuentoComponent } from './pages/admin/consulta/consulta-descuento/consulta-descuento.component';
+import { RegEstadoSituacionFinancieraComponent } from './pages/admin/estado-situacion-financiera/reg-estado-situacion-financiera/reg-estado-situacion-financiera.component';
 
 
 const routes: Routes = [
@@ -41,7 +49,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, pathMatch: 'full', },
   {
     path: 'asientos',
-    component: AsientoComponent,
+    component: DashboardComponent,
     canActivate: [AdminGuard],
     children: [
       { path: 'compras', component: AsientoCompraComponent, pathMatch: 'full' },
@@ -50,7 +58,7 @@ const routes: Routes = [
   },
   {
     path: 'reporte',
-    component: ReporteComponent,
+    component: DashboardComponent,
     canActivate: [AdminGuard],
     children: [
       { path: 'compras', component: RegComprasComponent, pathMatch: 'full' },
@@ -62,7 +70,7 @@ const routes: Routes = [
   },
   {
     path: 'programacion',
-    component: ProgramacionComponent,
+    component: DashboardComponent,
     canActivate: [AdminGuard],
     children: [
       { path: 'regcompra', component: RegProgramacionCompraComponent, pathMatch: 'full' },
@@ -71,7 +79,7 @@ const routes: Routes = [
   },
   {
     path: 'administracion',
-    component: AdministracionComponent,
+    component: DashboardComponent,
     canActivate: [AdminGuard],
     children: [
       { path: 'usuario', component: ConfigUsuarioComponent, pathMatch: 'full' },
@@ -81,7 +89,7 @@ const routes: Routes = [
 
   {
     path: 'mantenimiento',
-    component: MantenimientoComponent,
+    component: DashboardComponent,
     canActivate: [AdminGuard],
     children: [
       { path: 'tablagenerales', component: TablaGeneralesComponent, pathMatch: 'full' },
@@ -97,8 +105,30 @@ const routes: Routes = [
 
 
 
+  {
+    path: 'consulta',
+    component: DashboardComponent,
+    canActivate: [AdminGuard],
+    children: [
+      { path: 'proveedor', component: ConsultaProveedorComponent, pathMatch: 'full' },
+      { path: 'descuento', component: ConsultaDescuentoComponent, pathMatch: 'full' },
+      { path: 'promocion', component: ConsultaPromocionComponent, pathMatch: 'full' },
+      { path: 'producto', component: ConsultaProductoComponent, pathMatch: 'full' },
+      { path: 'compra', component: ConsultaCompraComponent, pathMatch: 'full' },
+      { path: 'venta', component: ConsultaVentaComponent, pathMatch: 'full' },
 
+    ]
+  },
 
+  {
+    path: 'estadosituacionfinanciera',
+    component: DashboardComponent,
+    canActivate: [AdminGuard],
+    children: [
+      { path: 'situacionfinanciera', component: RegEstadoSituacionFinancieraComponent, pathMatch: 'full' },
+    
+    ]
+  },
   {
     path: 'admin', component: DashboardComponent,
     canActivate: [AdminGuard],

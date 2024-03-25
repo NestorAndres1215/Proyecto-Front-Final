@@ -16,42 +16,12 @@
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item>
-          <mat-icon>house</mat-icon>
-          <span>Compañia Contratante :</span>
+          <mat-icon>person</mat-icon> 
+          <span>Perfil <strong></strong></span>
         </button>
-        <div
-          style="margin: 5px 5px;line-height: 10px;text-transform: capitalize;align-items: center;justify-content: center;display: grid;">
-          <label style="font-weight: bold;">XD</label><br>
-          <label><span style="font-weight: bold;">RUC: </span>XD</label>
-        </div>
-        <button mat-menu-item>
-          <mat-icon>storage</mat-icon>
-          <span>Capacidad Ocupada: </span>
-        </button>
-        <div
-          style="margin: 5px 5px;line-height: 10px;text-transform: capitalize;align-items: center;justify-content: center;display: grid;">
-          <label style="font-weight: bold;">F</label><br>
-        </div>
-        <button mat-menu-item>
-          <mat-icon>business</mat-icon>
-          <span>Compañia: </span>
-        </button>
-        <div
-          style="margin: 5px 5px;line-height: 10px;text-transform: capitalize;align-items: center;justify-content: center;display: grid;">
-          <label
-            style="font-weight: bold; white-space:nowrap; width:99%;text-overflow: ellipsis; overflow:hidden; padding:5px 0;"></label><br>
-          <label><span style="font-weight: bold;">RUC: </span> </label>
-        </div>
-        <button mat-menu-item>
-          <mat-icon>account_box</mat-icon>
-          <span style="align-items: center;justify-content: center;display: inline-flex;">Mi Perfil <button
-              class="badge bg-danger border-0 m-2">Proximamente</button> </span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>check_circle</mat-icon>
-          <span>Version: <strong></strong></span>
-        </button>
-        <button mat-menu-item>
+ 
+        
+        <button mat-menu-item *ngIf="isLoggedIn" (click)="logout()">
           <mat-icon>exit_to_app</mat-icon>
           <span>Cerrar Sesión</span>
         </button>
@@ -68,28 +38,32 @@
 
       <mat-list>
         <ng-container *ngFor="let menuItem of menu1">
-          <mat-list-item [routerLink]="[menuItem.menuRuta]"(click)="toggleSubMenu(menuItem)" style="cursor: pointer">
+          <mat-list-item [routerLink]="[menuItem.menuRuta]" (click)="toggleSubMenu(menuItem)" style="cursor: pointer">
             <mat-icon>{{ menuItem.menuIcono }}</mat-icon>
             <span style="margin-left: 8px; color: black;">{{ menuItem.menuNombre }}</span>
           </mat-list-item>
           <!-- Agregar menú hijo si se muestra el submenú -->
           <ng-container *ngIf="menuItem.mostrarSubMenu">
-            <mat-list-item *ngFor="let subMenuItem of this.menu2FiltradoPorCategoria[menuItem.menuCategoria]" [routerLink]="[subMenuItem.menuRuta]" (click)="handleSubmenuItemClicked(subMenuItem)" style="cursor: pointer">
+            <mat-list-item *ngFor="let subMenuItem of this.menu2FiltradoPorCategoria[menuItem.menuCategoria]"
+              [routerLink]="[subMenuItem.menuRuta]" (click)="handleSubmenuItemClicked(subMenuItem)"
+              style="cursor: pointer">
               <mat-icon>{{ subMenuItem.menuIcono }}</mat-icon>
               <span style="margin-left: 8px; color: black;">{{ subMenuItem.menuNombre }}</span>
             </mat-list-item>
           </ng-container>
         </ng-container>
       </mat-list>
-      
-      
 
-   
+
+
+
 
     </mat-sidenav>
 
-    <mat-sidenav-content>
-      <router-outlet></router-outlet>
+    <mat-sidenav-content style="width: 90vw; height:90vh;">
+      
+        <router-outlet></router-outlet>
+      
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
