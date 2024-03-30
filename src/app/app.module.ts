@@ -12,7 +12,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -35,15 +35,15 @@ import { DashboardComponent } from './pages/admin/home-admin/home-admin.componen
 import { UserDashboardComponent } from './pages/cliente/home-cliente/home-cliente.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { FooterComponent } from './components/cliente/footer/footer.component';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 
-import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
+
+
 import { PrincipalComponent } from './pages/admin/principal/principal.component';
 
 
 
 import { NgxPaginationModule } from 'ngx-pagination';
-
-import { NavbarAdminComponent } from './components/admin/navbar-admin/navbar-admin.component';
 import { MatDividerModule } from '@angular/material/divider';
 
 import { AsientoComponent } from './pages/admin/asiento/asiento.component';
@@ -81,6 +81,10 @@ import { ConsultaDescuentoComponent } from './pages/admin/consulta/consulta-desc
 import { ConsultaProductoComponent } from './pages/admin/consulta/consulta-producto/consulta-producto.component';
 import { EstadoSituacionFinancieraComponent } from './pages/admin/estado-situacion-financiera/estado-situacion-financiera.component';
 import { RegEstadoSituacionFinancieraComponent } from './pages/admin/estado-situacion-financiera/reg-estado-situacion-financiera/reg-estado-situacion-financiera.component';
+import { CabeceraComponent } from './components/admin/cabecera/cabecera.component';
+import { TablaDataSourceComponent } from './components/admin/tabla-data-source/tabla-data-source.component';
+import { DinamoPipePipe } from './pipe/dinamo-pipe.pipe';
+import { MatSortModule } from '@angular/material/sort';
 
 
 
@@ -95,9 +99,9 @@ import { RegEstadoSituacionFinancieraComponent } from './pages/admin/estado-situ
     DashboardComponent,
     UserDashboardComponent,
     FooterComponent,
-    SidebarComponent,
+
     PrincipalComponent,
-    NavbarAdminComponent,
+ 
  
     AsientoComponent,
    ReporteComponent,
@@ -133,6 +137,9 @@ import { RegEstadoSituacionFinancieraComponent } from './pages/admin/estado-situ
     ConsultaProductoComponent,
     EstadoSituacionFinancieraComponent,
     RegEstadoSituacionFinancieraComponent,
+    CabeceraComponent,
+    TablaDataSourceComponent,
+    DinamoPipePipe,
   
   
   ],
@@ -153,8 +160,10 @@ import { RegEstadoSituacionFinancieraComponent } from './pages/admin/estado-situ
     MatIconModule,
     MatSidenavModule,
     MatMenuModule,
+    MatTableModule,
     MatExpansionModule,
     MatListModule,
+    MatSortModule,
     MatGridListModule,
     MatOptionModule,
     MatTabsModule,
@@ -165,7 +174,8 @@ import { RegEstadoSituacionFinancieraComponent } from './pages/admin/estado-situ
     MatButtonToggleModule,
     MatProgressBarModule,
     MatPaginatorModule,
-   
+    FormsModule, // Si estás usando formularios basados en plantillas
+    ReactiveFormsModule, // Si estás usando formularios reactivos
 
    
 

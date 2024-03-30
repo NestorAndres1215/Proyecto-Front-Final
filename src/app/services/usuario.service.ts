@@ -15,6 +15,9 @@ export class UsuarioService {
     return this.http.get(`${baserUrl}/usuariorol/admin/`);
   }
 
+  public obtenerUsuario(): Observable<any> {
+    return this.http.get(`${baserUrl}/usuarios/`);
+  }
   //registrar usuarios admin
   public añadirUsuario(user:any){
     return this.http.post(`${baserUrl}/usuarios/admin/`,user);

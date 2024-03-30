@@ -34,12 +34,14 @@ export class DashboardComponent implements OnInit {
 
   }
 menu1:any
-
+menuxd:any
   async listarMenuPrimero() {
     this.menu.listarmenuPrimero().subscribe(
       data => {
         console.log(data);
-        this.menu1=data
+        this.menuxd=data
+        this.menu1= this.menuxd.filter((item: { menuTipo: string; }) => item.menuTipo === 'T');
+        console.log(this.menu1)
       }
     );
   }

@@ -1,0 +1,17 @@
+/* tu-componente.component.css */
+.mat-table {
+    width: 100%; /* Establece el ancho de la tabla al 100% del contenedor */
+    margin-bottom: 20px; /* Agrega un margen inferior a la tabla */
+  }
+  
+  .mat-header-cell, .mat-cell {
+    padding: 00px; /* Agrega un espacio interno de 10px a las celdas de encabezado y celdas de datos */
+  }
+  
+  .mat-header-row, .mat-row {
+    background-color: #f5f5f5; /* Establece un color de fondo para las filas de encabezado y filas de datos */
+  }
+  
+  .mat-header-row:hover, .mat-row:hover {
+    background-color: #e0e0e0; /* Cambia el color de fondo al pasar el mouse sobre las filas */
+  }

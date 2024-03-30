@@ -1,0 +1,16 @@
+<app-cabecera title="Configuración de Compañías - LCCIAS01"
+              [exist_add]="true"
+              [exist_search]="true"
+              (search)="filtrar($event)"
+              (open)="agregarCompania()"
+              >
+
+</app-cabecera>
+<app-table-data-source [cabecera]="cabecera" [datosTabla]="datosTabla" [relacion]="relacion" [size]="tamanio"
+  [editar]="true" (btnEditar)="editar($event)" [view]="true" (btnView)="visor($event)" [eliminar]="true"
+  (btnEliminar)="eliminar($event)" [paginaSize]="pageSize">
+</app-table-data-source>
+<br>
+
+
+
