@@ -12,39 +12,39 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class TablaDataSourceComponent implements OnInit {
 
-  @Input() cabecera: any[]| undefined;//cabecera de la tabla
+  @Input() cabecera: any= [];;//cabecera de la tabla
   @Input() existeCheckColumn: boolean = false;//check de la columna de la tabla
   @Input() datoscheckColumnas: any;//cabecera de la tabla
   @Input()
-  datosTabla!: any[];//datos tabla
+  datosTabla: any[] = [];;//datos tabla
   @Input()
   relacion: any[] = [];//comparacion columna de la tabla
   @Input()
-  size!: any[];//tamaño de la columna
+  size: any[]= [];;//tamaño de la columna
   @Input() paginaSize: any;//tamaño de la pagina
-  @Input() editar: boolean| undefined;//btnEditar
-  @Input() estadosProgramacion: boolean| undefined;
-  @Input() restaurar: boolean| undefined;//btnRestaurar
-  @Input() view: boolean| undefined;//btnView
-  @Input() eliminar: boolean| undefined;//btneliminar
-  @Input() pago: boolean| undefined;//btneliminar
-  @Input() print: boolean| undefined;//btnprint
-  @Input() copia: boolean| undefined;//btncopia
-  @Input() aprobar: boolean| undefined;//btnAprobar
-  @Input() desaprobar: boolean| undefined;//btnDesaprobar
-  @Input() ejecucion: boolean| undefined;//btnEjecucion
+  @Input() editar: boolean;//btnEditar
+  @Input() estadosProgramacion: boolean;
+  @Input() restaurar: boolean;//btnRestaurar
+  @Input() view: boolean;//btnView
+  @Input() eliminar: boolean;//btneliminar
+  @Input() pago: boolean;//btneliminar
+  @Input() print: boolean;//btnprint
+  @Input() copia: boolean;//btncopia
+  @Input() aprobar: boolean;//btnAprobar
+  @Input() desaprobar: boolean;//btnDesaprobar
+  @Input() ejecucion: boolean;//btnEjecucion
 
-  @Input() addEjer: boolean| undefined;//agregar ejercicio
-  @Input() viewEjer: boolean| undefined;//consultar ejercicio
-  @Input() addCred: boolean| undefined;//agregar datos sunat
-  @Input() bodyheight: string | undefined;//tamaño de la clase body
-  @Input() maxHeight: boolean| undefined;//cambiar altura máxima de clase body
-  @Input() searchText: string| undefined; //texto del buscador
+  @Input() addEjer: boolean;//agregar ejercicio
+  @Input() viewEjer: boolean;//consultar ejercicio
+  @Input() addCred: boolean;//agregar datos sunat
+  @Input() bodyheight: string ;//tamaño de la clase body
+  @Input() maxHeight: boolean;//cambiar altura máxima de clase body
+  @Input() searchText: string; //texto del buscador
   @Input() pipes: any;//pipe para los textos
   @Input() checkedItems: any; //texto del buscador
 
-  @Input() desabilitado: boolean | undefined;//desabilitar
-  @Input() checkedAction: boolean | undefined;//checked in row and generar asiento => doc selecionados
+  @Input() desabilitado: boolean ;//desabilitar
+  @Input() checkedAction: boolean ;//checked in row and generar asiento => doc selecionados
 
   //datos de salida de los botones
 
@@ -67,7 +67,7 @@ export class TablaDataSourceComponent implements OnInit {
   selection = new SelectionModel<any>(true, []);// select row
   @Output() btnCopia= new EventEmitter<any>();
   dataSource!: MatTableDataSource<any>;
-  displayedColumns: string[] | undefined;
+  displayedColumns: string[] ;
 
   @ViewChild('paginator')
   paginator!: MatPaginator;

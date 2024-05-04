@@ -5,7 +5,8 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "strictPropertyInitialization": false,
+    "strict": false,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -21,7 +22,14 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "exceljs": [
+        "node_modules/exceljs/dist/exceljs.min"
+      ]
+    },
+    "useDefineForClassFields": false,
+    "resolveJsonModule": true,
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

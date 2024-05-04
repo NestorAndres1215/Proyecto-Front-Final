@@ -25,6 +25,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
+
 //importacion del component
 import { NavbarComponent } from './components/cliente/navbar/navbar.component';
 import { SignupComponent } from './pages/configuracion/signup/signup.component';
@@ -153,6 +154,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatInputModule,
     FormsModule,
     HttpClientModule,
+   
     MatSnackBarModule,
     MatCardModule,
     MatToolbarModule,
@@ -176,8 +178,6 @@ import { MatSortModule } from '@angular/material/sort';
     MatPaginatorModule,
     FormsModule, // Si estás usando formularios basados en plantillas
     ReactiveFormsModule, // Si estás usando formularios reactivos
-
-   
 
   ],
   

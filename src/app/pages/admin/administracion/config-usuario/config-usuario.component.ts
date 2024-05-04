@@ -10,6 +10,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./config-usuario.component.css']
 })
 export class ConfigUsuarioComponent implements OnInit {
+displayedColumns: any;
 editar($event: Event) {
 throw new Error('Method not implemented.');
 }
@@ -35,7 +36,7 @@ throw new Error('Method not implemented.');
   btnEdit: boolean = true
   btnView: boolean = true
   btnEliminar: boolean = true
-  pageSize: any;
+  paginaSize: any;
 filtrar($event: string) {
 throw new Error('Method not implemented.');
 }
@@ -49,22 +50,20 @@ throw new Error('Method not implemented.');
   constructor(private servicio: UsuarioService,
     private change: ChangeDetectorRef) { }
 
-  ngOnInit(): void {this.FuncionTableReutilizable();
-     this.servicio.obtenerUsuario().subscribe(
-      data => {
-        console.log(data);
-        this.datosTabla= data; 
-        this.change.markForCheck();
-      },
-      error => {
-      
-        console.error('Error al obtener datos:', error);
-      }
-    );
-    this.servicio.obtenerUsuario().subscribe((data) => {
+    ngOnInit(): void {
+      this.listarUsuario(); // Agrega paréntesis para llamar a la función
+      this.FuncionTableReutilizable(); // Agrega paréntesis para llamar a la función
+    }
+    
+pageSize = 10; 
+  pageSizeOptions = [5, 10, 25, 50]; 
+
+  listarUsuario() {
+      this.servicio.obtenerUsuario().subscribe((data) => {
 
       //this.spinnerService.OcultarSpinner()
       this.datosTabla = data;
+      console.log(this.datosTabla)
       //this.lista = data;
       this.change.markForCheck();
     }, (error) => {
@@ -74,19 +73,14 @@ throw new Error('Method not implemented.');
     }
     );
   }
-  //pageSize = 10; 
-  //pageSizeOptions = [5, 10, 25, 50]; 
-
-  listarUsuario() {
-   
-  }
 
 
   FuncionTableReutilizable() {
-    this.cabecera = ['username']; //,
-    this.relacion = { username: "username"}
-    this.tamanio = ['5'],
-      this.pageSize = [12, 14, 16, 20]
-    this.change.markForCheck()
+    this.cabecera = ['Usuario'];
+    this.relacion = { Usuario: "username" };
+    this.tamanio = ['5'];
+    this.paginaSize = [12, 14, 16, 20];
+    this.change.markForCheck();
   }
+  
 }
