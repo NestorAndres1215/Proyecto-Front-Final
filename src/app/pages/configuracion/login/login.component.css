@@ -13,25 +13,50 @@ body {
     background-size: cover;
     background-position: center;
     padding: 50px;
-    margin: 30px auto;
+    margin: 10px auto;
     min-height: 200%;
 
 }
+
 form {
-    width: 70%; /* Ancho del formulario */
-    margin: 0 auto; /* Centrar horizontalmente */
-    text-align: center; /* Alinear elementos internos al centro */
-  }
-  
-  .mat-form-field {
+    width: 70%;
+    /* Ancho del formulario */
+    margin: 0 auto;
+    /* Centrar horizontalmente */
+    text-align: center;
+    /* Alinear elementos internos al centro */
+}
+
+.mat-form-field {
     width: 100%;
     margin-bottom: 20px;
-    border-color: #032850; /* Color del borde */
-  }
-  
-  .mat-form-field.input{
-    border-color: blue; /* Cambia el color del borde cuando el campo está enfocado */
-  }
+    border-color: #032850;
+    /* Color del borde */
+}
+
+.mat-form-field.input {
+    border-color: blue;
+    /* Cambia el color del borde cuando el campo está enfocado */
+}
+
+.header-title {
+    font-size: 24px;
+    /* Tamaño del texto */
+    color: #000000;
+    /* Color del texto */
+    font-family: "monospace";
+    text-align: center;
+    /* Centrar el texto */
+    margin-top: 20px;
+    /* Espacio superior */
+    margin-bottom: 20px;
+    /* Espacio inferior */
+    text-transform: uppercase;
+    /* Convertir el texto a mayúsculas */
+    font-weight: bold;
+    /* Establecer negrita */
+}
+
 .logo {
     font-family: "Script MT";
     font-size: 54px;
@@ -83,7 +108,7 @@ form {
 }
 
 .login-form .btn.btn-primary {
-    background:  #00116e;
+    background: #00116e;
     border-color: #8a041b;
 }
 
@@ -107,6 +132,3 @@ form {
 .slider-feature-card p {
     margin-bottom: 50px;
 }
-
-
-

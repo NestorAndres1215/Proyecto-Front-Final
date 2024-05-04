@@ -16,11 +16,11 @@
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item>
-          <mat-icon>person</mat-icon> 
+          <mat-icon>person</mat-icon>
           <span>Perfil <strong></strong></span>
         </button>
- 
-        
+
+
         <button mat-menu-item *ngIf="isLoggedIn" (click)="logout()">
           <mat-icon>exit_to_app</mat-icon>
           <span>Cerrar Sesión</span>
@@ -60,10 +60,10 @@
 
     </mat-sidenav>
 
-    <mat-sidenav-content style="width: 90vw; height:90vh;">
-      
-        <router-outlet></router-outlet>
-      
+    <mat-sidenav-content style=" height:100vh;">
+
+      <router-outlet></router-outlet>
+
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

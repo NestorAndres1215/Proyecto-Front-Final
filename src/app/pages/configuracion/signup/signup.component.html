@@ -1,5 +1,96 @@
 <app-navbar></app-navbar>
-<div class="bootstrap-wrapper">
+<section class="body">
+  <div class="container">
+    <div class="login-box">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="logo">
+            <span class="logo-font">Retro</span>Futbol
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <br>
+          <h3 class="header-title">Registro</h3>
+          <form (ngSubmit)="formSubmit()">
+
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Nombre</mat-label>
+                  <input required [(ngModel)]="user.nombre" name="nombre" matInput placeholder="Digite su nombre">
+                </mat-form-field>
+
+                <!-- Contenido de la primera columna -->
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Nombre de usuario</mat-label>
+                  <input required [(ngModel)]="user.username" name="username" matInput
+                    placeholder="Digite su nombre de usuario" (ngModelChange)="validacion()">
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input required [(ngModel)]="user.email" name="email" type="email" matInput
+                    placeholder="Digite su email">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Contraseña</mat-label>
+                  <input required [(ngModel)]="user.password" name="password" type="password" matInput
+                    placeholder="Digite su contraseña">
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Apellido</mat-label>
+                  <input required [(ngModel)]="user.apellido" name="apellido" matInput placeholder="Digite su apellido">
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Telefono</mat-label>
+                  <input required [(ngModel)]="user.telefono" type="number" name="telefono" matInput
+                    placeholder="Digite su telefono">
+                </mat-form-field>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="container text-center">
+              <button class="btn btn-primary">Registrar</button>
+              <button type="reset" style="margin-left: 20px;" class="btn btn-danger">Limpiar</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-sm-6 hide-on-mobile">
+          <div id="demo" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+              <li data-target="#demo" data-slide-to="0" class="active"></li>
+              <li data-target="#demo" data-slide-to="1"></li>
+            </ul>
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="slider-feature-card">
+                  <img src="assets/image/config/imagen-login.png" alt="">
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--- div class="bootstrap-wrapper">
   <div class="container">
     <div class="row" style="margin-top : 20px;">
       <div class="col-md-6 offset-md-3">
@@ -62,4 +153,4 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->

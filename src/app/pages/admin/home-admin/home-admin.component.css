@@ -101,6 +101,11 @@ span {
   width: 12%;
   height: auto !important;
 }
+.full-width {
+  width: 100%; /* Ancho del 100% */
+  padding: 0; /* Eliminar el relleno */
+  margin: 0; /* Eliminar el margen */
+}
 
 @media (max-width: 600px) {
   mat-sidenav {
