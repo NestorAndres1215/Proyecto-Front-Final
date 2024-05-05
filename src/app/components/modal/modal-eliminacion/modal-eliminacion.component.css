@@ -1,0 +1,43 @@
+.letra {
+    margin-top: 6px;
+    padding: 5px;
+}
+
+.titulo {
+    background-color: #b0c4de;
+
+}
+
+.contenido {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 50px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    /* Espacio debajo de los botones */
+}
+
+.si-button {
+    background-color: green;
+    color: white;
+}
+
+.si-button,
+.no-button {
+    margin: 0 5px;
+    /* Ajusta este valor según sea necesario */
+}
+
+.no-button {
+    background-color: red;
+    color: white;
+}
+
+.icon {
+    color: white;
+}

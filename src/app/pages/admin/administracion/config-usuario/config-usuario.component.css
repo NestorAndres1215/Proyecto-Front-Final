@@ -1,17 +1,85 @@
-/* tu-componente.component.css */
-.mat-table {
-    width: 100%; /* Establece el ancho de la tabla al 100% del contenedor */
-    margin-bottom: 20px; /* Agrega un margen inferior a la tabla */
-  }
-  
-  .mat-header-cell, .mat-cell {
-    padding: 00px; /* Agrega un espacio interno de 10px a las celdas de encabezado y celdas de datos */
-  }
-  
-  .mat-header-row, .mat-row {
-    background-color: #f5f5f5; /* Establece un color de fondo para las filas de encabezado y filas de datos */
-  }
-  
-  .mat-header-row:hover, .mat-row:hover {
-    background-color: #e0e0e0; /* Cambia el color de fondo al pasar el mouse sobre las filas */
-  }
+/* Estilos para la tabla */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilos para las celdas del encabezado */
+.table th {
+  background-color: #b0c4de;
+  color: #000;
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+ 
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+}
+
+/* Estilos para las celdas de datos */
+.table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+/* Estilos para las filas pares */
+.table-striped tbody tr:nth-child(even) {
+  background-color: #b0c4de;
+  color: rgb(0, 0, 0);
+}
+/* Estilos para los botones de acción */
+.btn-editar {
+  color: black; /* Color negro para el botón editar */
+  margin-right: 8px; /* Agrega un poco de espacio a la derecha del botón */
+}
+
+.btn-eliminar {
+  color: red; /* Color rojo para el botón eliminar */
+  margin-right: 8px; /* Agrega un poco de espacio a la derecha del botón */
+}
+/* Estilos para el botón de vista */
+.btn-vista {
+  color: #007bff; /* Color azul para el botón de vista */
+  margin-right: 8px; /* Agrega un poco de espacio a la derecha del botón */
+}
+
+/* Estilos para las filas impares */
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+  color: #333; /* Cambia el color del texto si es necesario */
+}
+
+/* Estilos para las filas impares */
+.table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 10px; /* Espacio uniforme alrededor del contenido */
+}
+
+.title {
+  margin: 0;
+  flex-grow: 1;
+  margin-right: 70px; /* Agrega espacio a la derecha del título */
+}
+
+
+.volver-btn {
+  margin-left: 10px; 
+  color: white;
+  background-color: red;
+  width: 40px; /* Ancho del botón */
+  height: 40px; /* Alto del botón */
+  border-radius: 20%; /* Hace que los bordes sean circulares */
+}
+
+
+
+

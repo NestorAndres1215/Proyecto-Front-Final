@@ -25,7 +25,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { MatDialogModule } from '@angular/material/dialog';
 //importacion del component
 import { NavbarComponent } from './components/cliente/navbar/navbar.component';
 import { SignupComponent } from './pages/configuracion/signup/signup.component';
@@ -82,10 +82,10 @@ import { ConsultaDescuentoComponent } from './pages/admin/consulta/consulta-desc
 import { ConsultaProductoComponent } from './pages/admin/consulta/consulta-producto/consulta-producto.component';
 import { EstadoSituacionFinancieraComponent } from './pages/admin/estado-situacion-financiera/estado-situacion-financiera.component';
 import { RegEstadoSituacionFinancieraComponent } from './pages/admin/estado-situacion-financiera/reg-estado-situacion-financiera/reg-estado-situacion-financiera.component';
-import { CabeceraComponent } from './components/admin/cabecera/cabecera.component';
-import { TablaDataSourceComponent } from './components/admin/tabla-data-source/tabla-data-source.component';
+
 import { DinamoPipePipe } from './pipe/dinamo-pipe.pipe';
 import { MatSortModule } from '@angular/material/sort';
+import { ModalEliminacionComponent } from './components/modal/modal-eliminacion/modal-eliminacion.component';
 
 
 
@@ -138,9 +138,10 @@ import { MatSortModule } from '@angular/material/sort';
     ConsultaProductoComponent,
     EstadoSituacionFinancieraComponent,
     RegEstadoSituacionFinancieraComponent,
-    CabeceraComponent,
-    TablaDataSourceComponent,
+
+   
     DinamoPipePipe,
+           ModalEliminacionComponent,
   
   
   ],
@@ -154,7 +155,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatInputModule,
     FormsModule,
     HttpClientModule,
-   
+    MatDialogModule,
     MatSnackBarModule,
     MatCardModule,
     MatToolbarModule,

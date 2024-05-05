@@ -1,51 +1,43 @@
-<app-cabecera title="Configuración de Compañías - LCCIAS01"
-              [exist_add]="true"
-              [exist_search]="true"
-              (search)="filtrar($event)"
-              (open)="agregarCompania()"
-              >
-
-</app-cabecera>
-
-
-<div class="card-body" style="margin: 0 auto; margin-top: 40px; width: 95%">
-  <table mat-table class="table-responsive" [dataSource]="datosTabla" matTableExporter 
-  matSort id="tableView">
-  <ng-container matColumnDef="fl_codfrmt">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:20%; margin-right: 50px;">Rubro</th>
-    <td mat-cell [ngStyle]="{'color': row.fl_tipdto === 'C' ? 'blue' : 'initial'}"  *matCellDef="let row">{{ row.fl_codfrmt }}</td>
-  </ng-container>
-  <ng-container matColumnDef="itm">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Codigo</th>
-    <td mat-cell [ngStyle]="{'color': row.fl_tipdto === 'C' ? 'blue' : 'initial'}" *matCellDef="let row">{{ row.itm }}</td>
-  </ng-container>
-  <ng-container matColumnDef="fl_descri1">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripcion</th>
-    <td [ngStyle]="{'color': row.fl_tipdto === 'C' ? 'blue' : 'initial'}"  mat-cell *matCellDef="let row">{{ row.fl_descri1 }}</td>
-  </ng-container>
-  <ng-container matColumnDef="fl_tipdto">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</th>
-    <td mat-cell [ngStyle]="{'color': row.fl_tipdto === 'C' ? 'blue' : 'initial'}"  *matCellDef="let row">{{ row.fl_tipdto }}</td>
-  </ng-container>
-  <ng-container matColumnDef="Accion">
-    <th mat-header-cell *matHeaderCellDef fxLayoutAlign="center" style="text-align: center !important;">Acción</th>
-    <td mat-cell *matCellDef="let row" id="actions">
-      <button mat-button (click)="editar(row)">
-        <mat-icon class="icon-display">edit</mat-icon>
-      </button>
-      <button mat-button class="eliminar" (click)="eliminar(row)">
-        <mat-icon class="icon-display">delete</mat-icon>
-      </button>
-    </td>
-  </ng-container>
-  
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-<mat-paginator #paginator [pageSizeOptions]="paginaSize" aria-label="Select page of users"></mat-paginator>
-
-
+<div class="separator">
+  <h1>Configuración de usuario</h1>
+  <button mat-icon-button  class="volver-btn" (click)="volver()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
 </div>
 
 
-
+<div class="card-body" style="margin: 0 auto; margin-top: 40px; width: 95%">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+  
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Telefono</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of datosTabla">
+        <td>{{ row.id }}</td>
+        <td>{{ row.nombre+ " "+row.apellido}}</td>
+        <td>{{row.email }}</td>
+        <td>{{ row.telefono }}</td>
+        <td>
+          <button mat-icon-button class="btn-editar" (click)="editar(row)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button class="btn-vista" (click)="visor(row)">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-icon-button class="btn-eliminar" (click)="eliminar(row)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
