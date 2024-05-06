@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="titulo">
+        <h2 class="letra">Visor de Configuración de Usuario</h2>
+        <button mat-button class="icono-verde">
+            <mat-icon>save</mat-icon>
+        </button>
+    </div>
+    <div class="container">
+        <form [formGroup]="formulario">
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Nombre</mat-label>
+                        <input formControlName="nombre" matInput placeholder="Digite su nombre">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Nombre de usuario</mat-label>
+                        <input formControlName="username" matInput placeholder="Digite su nombre de usuario">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input formControlName="email" type="email" matInput placeholder="Digite su email">
+                    </mat-form-field>
+
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Contraseña</mat-label>
+                        <input formControlName="password" type="password" matInput placeholder="Digite su contraseña">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Apellido</mat-label>
+                        <input formControlName="apellido" matInput placeholder="Digite su apellido">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Telefono</mat-label>
+                        <input formControlName="telefono" type="number" matInput placeholder="Digite su telefono">
+                    </mat-form-field>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

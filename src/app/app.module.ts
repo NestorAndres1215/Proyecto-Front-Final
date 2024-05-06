@@ -86,6 +86,7 @@ import { RegEstadoSituacionFinancieraComponent } from './pages/admin/estado-situ
 
 import { MatSortModule } from '@angular/material/sort';
 import { ModalEliminacionComponent } from './components/modal/modal-eliminacion/modal-eliminacion.component';
+import { VisorConfigUsuarioComponent } from './pages/admin/administracion/config-usuario/visor-config-usuario/visor-config-usuario.component';
 
 
 
@@ -135,6 +136,7 @@ import { ModalEliminacionComponent } from './components/modal/modal-eliminacion/
     EstadoSituacionFinancieraComponent,
     RegEstadoSituacionFinancieraComponent,
     ModalEliminacionComponent,
+    VisorConfigUsuarioComponent,
 
 
   ],

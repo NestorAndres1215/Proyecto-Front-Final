@@ -1,0 +1,18 @@
+.titulo {
+    background-color: #b0c4de;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    
+}
+.letra {
+    margin-top: 6px;
+    padding: 5px;
+}
+.icono-verde {
+    background-color: rgb(1, 88, 1); /* Cambia el color del ícono a verde */
+  }
+  .container{
+    margin-top: 30px;
+  }

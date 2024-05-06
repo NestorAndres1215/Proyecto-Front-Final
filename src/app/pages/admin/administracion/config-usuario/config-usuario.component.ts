@@ -7,6 +7,7 @@ import { ModalEliminacionComponent } from 'src/app/components/modal/modal-elimin
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginService } from 'src/app/services/login.service';
+import { VisorConfigUsuarioComponent } from './visor-config-usuario/visor-config-usuario.component';
 @Component({
   selector: 'app-config-usuario',
   templateUrl: './config-usuario.component.html',
@@ -25,10 +26,13 @@ export class ConfigUsuarioComponent implements OnInit {
       console.log("Se puede nose actualizar")
     }
     else {
- 
+
       const dialogRef = this.dialog.open(ModalEliminacionComponent, {
-        width: '500px', 
-        data: { row } 
+        width: '500px',
+        data: { row ,
+          titulo: 'Eliminar',
+        subtitulo: `¿Deseas eliminar el usuario ${row.username} `},
+        
       });
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
@@ -41,8 +45,53 @@ export class ConfigUsuarioComponent implements OnInit {
 
 
   }
+/*
+  eliminar(cargaInicial: CargaInicial) {
+    console.log(cargaInicial)
+    const dialogEliminar = this.dialog.open(EliminarModalComponent, {
+      width: '400px',
+      data: {
+        titulo: 'Eliminar',
+        subtitulo: `¿Deseas eliminar conciliación Bancaria ${cargaInicial.bc_codban} del periodo ${cargaInicial.bc_periodo}?`
+      }
+    });
+
+    dialogEliminar.afterClosed().subscribe((respuesta: respuesta) => {
+      if (respuesta?.boton != 'CONFIRMAR') return;
+
+      this.cargainicialService.eliminarBini(cargaInicial.bc_secue, cargaInicial.bc_codban).subscribe(data => {
+        console.log(cargaInicial);
+        if (data['mensaje'] == "Eliminado correctamente") {
+          this.detector.detectChanges();
+          this.cargainicialService.setMensajeCambio("Carga Inicial eliminado correctamente.");
+
+          this.cargainicialService.getFiltro1("").subscribe((data) => {
+            console.log(data);
+            this.dataExp = data;
+            this.datosTabla = data;
+            this.change.markForCheck();
+
+          });
+        } else {
+          this.cargainicialService.setMensajeCambio("Error al eliminar el centro de costo.");
+        }
+      });
+
+    })
+  }*/
   visor(row: any) {
     console.log(row)
+    const dialogRef = this.dialog.open(VisorConfigUsuarioComponent, {
+      width: '700px',
+      height:'380px',
+      data: { row }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Elemento eliminado');
+      }
+    });
+
   }
 
 
@@ -100,13 +149,9 @@ export class ConfigUsuarioComponent implements OnInit {
     console.log(this.user.id)
     console.log(this.datosTabla)
     const userID = this.user.id;
-
-
     const usuarios = this.datosTabla.filter(item => item.id === this.user.id);
-
     console.log(usuarios);
     this.xd = usuarios
-
   }
   editar(row: any) {
     console.log(row.id)
