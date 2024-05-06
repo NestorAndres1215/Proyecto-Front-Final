@@ -41,3 +41,21 @@
 .icon {
     color: white;
 }
+.dos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .card-header
+  {
+    background-color: #B0C4DE;
+    font-weight: bold;
+  }
+  
+  .ancho-completo
+  {
+    width: 100%;
+  }

@@ -1,9 +1,8 @@
 <div class="card">
-    <div class="titulo">
-        <h2 class="letra">Visor de Configuración de Usuario</h2>
-        <button mat-button class="icono-verde">
-            <mat-icon>save</mat-icon>
-        </button>
+    <div class="card-header position-sticky sticky-top">
+        <button type="button" class=" btn btn-danger" (click)="cerrar()"><i
+                class="fas fa-long-arrow-alt-left"></i></button>
+        <h3 style="margin: 0; margin-top: 8px; margin-left: 20px; font-weight: 700px;">Visualizacion Carga Inicial</h3>
     </div>
     <div class="container">
         <form [formGroup]="formulario">
