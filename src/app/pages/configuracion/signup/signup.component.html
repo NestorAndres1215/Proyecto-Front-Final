@@ -13,55 +13,45 @@
         <div class="col-sm-6">
           <br>
           <h3 class="header-title">Registro</h3>
-          <form (ngSubmit)="formSubmit()">
-
+          <form [formGroup]="formulario">
             <div class="row">
               <div class="col-md-6">
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Nombre</mat-label>
-                  <input required [(ngModel)]="user.nombre" name="nombre" matInput placeholder="Digite su nombre">
+                  <input formControlName="nombre" matInput placeholder="Digite su nombre">
                 </mat-form-field>
 
-                <!-- Contenido de la primera columna -->
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Nombre de usuario</mat-label>
-                  <input required [(ngModel)]="user.username" name="username" matInput
-                    placeholder="Digite su nombre de usuario" (ngModelChange)="validacion()">
+                  <input formControlName="username" matInput placeholder="Digite su nombre de usuario">
                 </mat-form-field>
+
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Email</mat-label>
-                  <input required [(ngModel)]="user.email" name="email" type="email" matInput
-                    placeholder="Digite su email">
+                  <input formControlName="email" type="email" matInput placeholder="Digite su email">
                 </mat-form-field>
+
               </div>
               <div class="col-md-6">
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Contraseña</mat-label>
-                  <input required [(ngModel)]="user.password" name="password" type="password" matInput
-                    placeholder="Digite su contraseña">
+                  <input formControlName="password" type="password" matInput placeholder="Digite su contraseña">
                 </mat-form-field>
+
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Apellido</mat-label>
-                  <input required [(ngModel)]="user.apellido" name="apellido" matInput placeholder="Digite su apellido">
+                  <input formControlName="apellido" matInput placeholder="Digite su apellido">
                 </mat-form-field>
+
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Telefono</mat-label>
-                  <input required [(ngModel)]="user.telefono" type="number" name="telefono" matInput
-                    placeholder="Digite su telefono">
+                  <input formControlName="telefono" type="number" matInput placeholder="Digite su telefono">
                 </mat-form-field>
               </div>
             </div>
 
-
-
-
-
-
-
-
-
             <div class="container text-center">
-              <button class="btn btn-primary">Registrar</button>
+              <button class="btn btn-primary" (click)="operar()">Registrar</button>
               <button type="reset" style="margin-left: 20px;" class="btn btn-danger">Limpiar</button>
             </div>
           </form>

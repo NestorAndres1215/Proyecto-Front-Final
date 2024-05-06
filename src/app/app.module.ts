@@ -7,17 +7,17 @@ import { BrowserModule } from '@angular/platform-browser';
 //importaciones de angular material
 import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatButtonModule} from '@angular/material/button';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatCardModule} from '@angular/material/card';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -34,7 +34,7 @@ import { HomeComponent } from './pages/configuracion/home/home.component';
 import { authInterceptorProviders } from './services/auth.interceptor';
 import { DashboardComponent } from './pages/admin/home-admin/home-admin.component';
 import { UserDashboardComponent } from './pages/cliente/home-cliente/home-cliente.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { FooterComponent } from './components/cliente/footer/footer.component';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 
@@ -83,7 +83,7 @@ import { ConsultaProductoComponent } from './pages/admin/consulta/consulta-produ
 import { EstadoSituacionFinancieraComponent } from './pages/admin/estado-situacion-financiera/estado-situacion-financiera.component';
 import { RegEstadoSituacionFinancieraComponent } from './pages/admin/estado-situacion-financiera/reg-estado-situacion-financiera/reg-estado-situacion-financiera.component';
 
-import { DinamoPipePipe } from './pipe/dinamo-pipe.pipe';
+
 import { MatSortModule } from '@angular/material/sort';
 import { ModalEliminacionComponent } from './components/modal/modal-eliminacion/modal-eliminacion.component';
 
@@ -100,15 +100,11 @@ import { ModalEliminacionComponent } from './components/modal/modal-eliminacion/
     DashboardComponent,
     UserDashboardComponent,
     FooterComponent,
-
     PrincipalComponent,
- 
- 
     AsientoComponent,
-   ReporteComponent,
-  RegComprasComponent,
     ReporteComponent,
-
+    RegComprasComponent,
+    ReporteComponent,
     AsientoCompraComponent,
     AsientoVentaComponent,
     ProgramacionComponent,
@@ -138,12 +134,9 @@ import { ModalEliminacionComponent } from './components/modal/modal-eliminacion/
     ConsultaProductoComponent,
     EstadoSituacionFinancieraComponent,
     RegEstadoSituacionFinancieraComponent,
+    ModalEliminacionComponent,
 
-   
-    DinamoPipePipe,
-           ModalEliminacionComponent,
-  
-  
+
   ],
   imports: [
     BrowserModule,
@@ -181,7 +174,7 @@ import { ModalEliminacionComponent } from './components/modal/modal-eliminacion/
     ReactiveFormsModule, // Si estás usando formularios reactivos
 
   ],
-  
+
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })

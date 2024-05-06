@@ -12,11 +12,12 @@ body {
   background: url(https://i.imgur.com/73BxBuI.png);
   background-size: cover;
   background-position: center;
-  padding: 50px;
+  padding: 18px;
   margin: 0px auto;
-  min-height: 00%;
+  
 
 }
+
 form {
   width: 70%; /* Ancho del formulario */
   margin: 0 auto; /* Centrar horizontalmente */
