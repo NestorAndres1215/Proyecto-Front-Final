@@ -1,10 +1,10 @@
-import Swal from 'sweetalert2';
-import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { UserService } from '../../../services/user.service';
-import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from 'src/app/services/usuario.service';
-import { FormControl, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Usuario } from 'src/app/model/usuario';
+import {  Component, OnInit } from '@angular/core';
+
+import {  FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { Usuario, } from 'src/app/model/usuario';
+import { MensajeService } from 'src/app/services/mensaje.service';
 
 
 @Component({
@@ -14,13 +14,15 @@ import { Usuario } from 'src/app/model/usuario';
 })
 export class SignupComponent implements OnInit {
   public formulario: UntypedFormGroup;
-
-
+  usuarios: any[];
+  email: any
+  telefono: any
+  username: any
+  usuario: boolean = false;
   constructor(
     private userService: UserService,
-    private snack: MatSnackBar,
-    private usuarioService: UsuarioService,
     private formBuilder: UntypedFormBuilder,
+    private mensaje: MensajeService
   ) {
     this.formulario = new FormGroup({})
     this.formulario = this.formBuilder.group({
@@ -32,7 +34,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this.lista()
+
   }
   initForm(): void {
     this.formulario = this.formBuilder.group({
@@ -44,48 +46,36 @@ export class SignupComponent implements OnInit {
       telefono: ['', Validators.required]
     });
   }
-  usuarios: any[];
-  email: any
-  telefono: any
-  username: any
-  usuario: boolean = false;
-  async lista() {
-
-    await this.usuarioService.obtenerUsuario().subscribe(
-      data => {
-        console.log(data)
-        this.username = data.map(usuario => usuario.username);
-      }
-    );
-
-
-
-
-  }
 
 
   operar() {
-    console.log(this.username)
+
     console.log(this.formulario.value)
     if (this.formulario.valid) {
       const objRegistrar: Usuario = {
+        ul_codigo: '',
         username: this.formulario.get('username').value,
         password: this.formulario.get('password').value,
-        nombre: this.formulario.get('nombre').value,
-        apellido: this.formulario.get('apellido').value,
-        email: this.formulario.get('email').value,
-        telefono: this.formulario.get('telefono').value,
+        ul_nombre: this.formulario.get('nombre').value,
+        ul_apellido: this.formulario.get('apellido').value,
+        ul_correo: this.formulario.get('email').value,
+        ul_telefono: this.formulario.get('telefono').value,
+        ul_direccion: this.formulario.get('telefono').value,
+        ul_estado: true,
+
+        ul_rol: 'NORMAL',
       };
+
+
       console.log(objRegistrar)
-      const formData = this.formulario.value;
+
       this.userService.añadirUsuario(objRegistrar).subscribe(
         (response) => {
-          console.log('Datos del formulario:', objRegistrar);
-          console.log('Respuesta del servicio:', response);
+          this.mensaje.MostrarMensaje("Se Registro Usuario")
+          this.formulario.reset();
         },
         (error) => {
-          console.log(formData)
-          console.error('Error al actualizar datos:', error);
+          this.mensaje.MostrarMensaje("No se registro Usuario")
         }
       )
       this.formulario.reset();

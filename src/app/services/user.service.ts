@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import baserUrl from './helper';
+import { Usuario } from '../model/usuario';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +10,18 @@ import baserUrl from './helper';
 export class UserService {
 
 
-    constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-    public añadirUsuario(user:any){
-      return this.httpClient.post(`${baserUrl}/usuarios/`,user);
-    }
-    
-
+  añadirUsuario(user: Usuario) {
+    return this.http.post(`${baserUrl}/usuarios/`, user);
+  }
+  obtenerUsuario(): Observable<any> {
+    return this.http.get(`${baserUrl}/usuarios/listaUsuario/`);
+  }
+  actualizarUsuario(user: Usuario): Observable<any> {
+    return this.http.put(`${baserUrl}/usuarios/actualizarUsuario/`,user);
+  }
+  eliminarUsuario(codigo: String) {
+    return this.http.delete(`${baserUrl}/usuarios/eliminarUsuario/${codigo}`);
+  }
 }

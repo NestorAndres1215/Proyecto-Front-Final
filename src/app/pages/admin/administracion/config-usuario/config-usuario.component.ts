@@ -1,15 +1,15 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { ModalEliminacionComponent } from 'src/app/components/modal/modal-eliminacion/modal-eliminacion.component';
-import { UsuarioService } from 'src/app/services/usuario.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginService } from 'src/app/services/login.service';
 import { VisorConfigUsuarioComponent } from './visor-config-usuario/visor-config-usuario.component';
 import { MensajeService } from 'src/app/services/mensaje.service';
-import { FuncionService } from 'src/app/services/funcion.service';
+import { UserService } from 'src/app/services/user.service';
+import { EditConfigUsuarioComponent } from './edit-config-usuario/edit-config-usuario.component';
+import { Respuesta } from 'src/app/model/respuesta';
+
 @Component({
   selector: 'app-config-usuario',
   templateUrl: './config-usuario.component.html',
@@ -17,98 +17,91 @@ import { FuncionService } from 'src/app/services/funcion.service';
 })
 export class ConfigUsuarioComponent implements OnInit {
 
+  user: any = null;
+  xd: any
+
   constructor(
     private router: Router,
     private dialog: MatDialog,
     private mensajeService: MensajeService,
-    private funcionService: FuncionService,
+    private change: ChangeDetectorRef,
     public login: LoginService,
-    private servicio: UsuarioService,
-    private change: ChangeDetectorRef) { }
+    private servicio: UserService,) {
+    this.pageChanged({
+      pageIndex: 0, pageSize: this.pageSize,
+      length: 0
+    });
+  }
 
   ngOnInit(): void {
 
-
-
     this.user = this.login.getUser();
-    console.log(this.user)
-
     this.listarUsuario();
+
   }
 
+  datosTabla: any[] = [];
+  pagedData: any[] = [];
+
+  pageSizeOptions: number[] = [5, 10, 25, 100];
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  totalItems: number;
+  pageSize = 5;
+
+  pageChanged(event: PageEvent) {
+    console.log(event)
+    this.totalItems = this.datosTabla.length
+    const startIndex = event.pageIndex * event.pageSize;
+    const endIndex = startIndex + event.pageSize;
+    this.pagedData = this.datosTabla.slice(startIndex, endIndex);
+  }
+
+  pageSizeChanged() {
+    this.paginator.firstPage();
+    this.pageChanged({ pageIndex: 0, pageSize: this.pageSize, length: this.totalItems });
+  }
 
   eliminar(row: any) {
-    console.log(row.id)
+    console.log(row.us_codigo)
     this.user = this.login.getUser();
-    console.log(this.user.id)
-    if (this.user.id === row.id) {
+    console.log(this.user.us_codigo)
+    if (this.user.us_codigo === row.us_codigo) {
       this.mensajeService.MostrarMensaje("Nose puede eliminar usuario que esta loguaedo")
     }
     else {
 
-      const dialogRef = this.dialog.open(ModalEliminacionComponent, {
+      const dialogEliminar = this.dialog.open(ModalEliminacionComponent, {
         width: '500px',
         data: {
           row,
           titulo: 'Eliminar',
-          subtitulo: `¿Deseas eliminar el usuario ${row.username} ? `
+          subtitulo: `¿Deseas eliminar el usuario ${row.ul_usuario} con el codigo ${row.ul_codigo} ? `
         },
 
       });
-      dialogRef.afterClosed().subscribe(result => {
-        if (result) {
-          console.log('Elemento eliminado');
-        }
-      });
+      dialogEliminar.afterClosed().subscribe((respuesta: Respuesta) => {
+        if (respuesta?.boton != 'CONFIRMAR') return;
+        this.servicio.eliminarUsuario(row.ul_codigo).subscribe(result => {
+          console.log(result);
+          this.mensajeService.MostrarMensaje("Se elimino correctamente el usuario")
+          this.listarUsuario();
+        });
+
+      })
     }
     console.log(row);
-
-
-
   }
-  /*
-    eliminar(cargaInicial: CargaInicial) {
-      console.log(cargaInicial)
-      const dialogEliminar = this.dialog.open(EliminarModalComponent, {
-        width: '400px',
-        data: {
-          titulo: 'Eliminar',
-          subtitulo: `¿Deseas eliminar conciliación Bancaria ${cargaInicial.bc_codban} del periodo ${cargaInicial.bc_periodo}?`
-        }
-      });
-  
-      dialogEliminar.afterClosed().subscribe((respuesta: respuesta) => {
-        if (respuesta?.boton != 'CONFIRMAR') return;
-  
-        this.cargainicialService.eliminarBini(cargaInicial.bc_secue, cargaInicial.bc_codban).subscribe(data => {
-          console.log(cargaInicial);
-          if (data['mensaje'] == "Eliminado correctamente") {
-            this.detector.detectChanges();
-            this.cargainicialService.setMensajeCambio("Carga Inicial eliminado correctamente.");
-  
-            this.cargainicialService.getFiltro1("").subscribe((data) => {
-              console.log(data);
-              this.dataExp = data;
-              this.datosTabla = data;
-              this.change.markForCheck();
-  
-            });
-          } else {
-            this.cargainicialService.setMensajeCambio("Error al eliminar el centro de costo.");
-          }
-        });
-  
-      })
-    }*/
+
   visor(row: any) {
     console.log(row.email)
     console.log(row)
     const dialogRef = this.dialog.open(VisorConfigUsuarioComponent, {
       width: '700px',
-      height: '380px',
+      height: '430px',
       data: {
         row,
-
         email: row.email,
       }
     });
@@ -119,59 +112,44 @@ export class ConfigUsuarioComponent implements OnInit {
     });
 
   }
- 
-  datosTabla: any
-
-
-
-
-
-
-
-
-  user: any = null;
 
 
 
   async listarUsuario() {
     this.servicio.obtenerUsuario().subscribe((data) => {
-
       this.datosTabla = data;
-      console.log(this.datosTabla)
+      this.pagedData = data
+      this.totalItems = this.datosTabla.length
+      this.pageChanged({ pageIndex: 0, pageSize: this.pageSize, length: this.totalItems });
       this.getUserInfo()
       this.change.markForCheck();
-    }, (error) => {
-
-
-    }
-    );
+    });
   }
-
-
 
   volver() {
-    this.router.navigate(['/admin']); // Esto redirigirá a la pantalla principal
+    this.router.navigate(['/admin']);
   }
 
-  xd: any
+
   async getUserInfo() {
     this.user = this.login.getUser();
-    console.log(this.user.id)
-    console.log(this.datosTabla)
     const userID = this.user.id;
     const usuarios = this.datosTabla.filter(item => item.id === this.user.id);
-    console.log(usuarios);
     this.xd = usuarios
   }
+
   editar(row: any) {
-    console.log(row.id)
     this.user = this.login.getUser();
-    console.log(this.user.id)
-    if (this.user.id === row.id) {
-      console.log("Se puede nose actualizar")
-    }
-    else {
-      console.log("Se puede puede actualizar")
-    }
+    const dialogRef = this.dialog.open(EditConfigUsuarioComponent, {
+      width: '700px',
+      height: '430px',
+      data: {
+        row,
+      }
+    });
+    dialogRef.afterClosed().subscribe(data => {
+      this.listarUsuario();
+    })
   }
+
 }

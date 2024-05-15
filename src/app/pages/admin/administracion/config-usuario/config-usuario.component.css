@@ -5,25 +5,23 @@
   font-family: Arial, sans-serif;
 }
 
-/* Estilos para las celdas del encabezado */
+
 .table th {
+  color: #000; 
   background-color: #b0c4de;
-  color: #000;
-  border: 1px solid #ddd;
-  padding: 12px;
+   border: 1px solid #ddd;
+  padding: 12px;  
   text-align: left;
  
   position: sticky !important;
   top: 0 !important;
   z-index: 1000 !important;
 }
-
-/* Estilos para las celdas de datos */
 .table td {
   border: 1px solid #ddd;
   padding: 12px;
 }
-/* Estilos para las filas pares */
+
 .table-striped tbody tr:nth-child(even) {
   background-color: #b0c4de;
   color: rgb(0, 0, 0);
@@ -32,6 +30,7 @@
 .btn-editar {
   color: black; /* Color negro para el botón editar */
   margin-right: 8px; /* Agrega un poco de espacio a la derecha del botón */
+
 }
 
 .btn-eliminar {
@@ -69,7 +68,12 @@
   flex-grow: 1;
   margin-right: 70px; /* Agrega espacio a la derecha del título */
 }
-
+.button mat-icon {
+  height: 10px;
+  background: transparent;
+  border: none;
+  position: relative;
+}
 
 .volver-btn {
   margin-left: 10px; 
@@ -79,7 +83,4 @@
   height: 40px; /* Alto del botón */
   border-radius: 20%; /* Hace que los bordes sean circulares */
 }
-
-
-
 

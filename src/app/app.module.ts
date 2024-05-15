@@ -26,6 +26,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSortModule } from '@angular/material/sort';
+
+
 //importacion del component
 import { NavbarComponent } from './components/cliente/navbar/navbar.component';
 import { SignupComponent } from './pages/configuracion/signup/signup.component';
@@ -34,24 +41,10 @@ import { HomeComponent } from './pages/configuracion/home/home.component';
 import { authInterceptorProviders } from './services/auth.interceptor';
 import { DashboardComponent } from './pages/admin/home-admin/home-admin.component';
 import { UserDashboardComponent } from './pages/cliente/home-cliente/home-cliente.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { FooterComponent } from './components/cliente/footer/footer.component';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-
-
-
 import { PrincipalComponent } from './pages/admin/principal/principal.component';
-
-
-
-import { NgxPaginationModule } from 'ngx-pagination';
-import { MatDividerModule } from '@angular/material/divider';
-
 import { AsientoComponent } from './pages/admin/asiento/asiento.component';
 import { ReporteComponent } from './pages/admin/reporte/reporte.component';
-
-
-
 import { AsientoCompraComponent } from './pages/admin/asiento/asiento-compra/asiento-compra.component';
 import { AsientoVentaComponent } from './pages/admin/asiento/asiento-venta/asiento-venta.component';
 import { ProgramacionComponent } from './pages/admin/programacion/programacion.component';
@@ -82,11 +75,11 @@ import { ConsultaDescuentoComponent } from './pages/admin/consulta/consulta-desc
 import { ConsultaProductoComponent } from './pages/admin/consulta/consulta-producto/consulta-producto.component';
 import { EstadoSituacionFinancieraComponent } from './pages/admin/estado-situacion-financiera/estado-situacion-financiera.component';
 import { RegEstadoSituacionFinancieraComponent } from './pages/admin/estado-situacion-financiera/reg-estado-situacion-financiera/reg-estado-situacion-financiera.component';
-
-
-import { MatSortModule } from '@angular/material/sort';
 import { ModalEliminacionComponent } from './components/modal/modal-eliminacion/modal-eliminacion.component';
 import { VisorConfigUsuarioComponent } from './pages/admin/administracion/config-usuario/visor-config-usuario/visor-config-usuario.component';
+import { RegConfigUsuarioComponent } from './pages/admin/administracion/config-usuario/reg-config-usuario/reg-config-usuario.component';
+import { EditConfigUsuarioComponent } from './pages/admin/administracion/config-usuario/edit-config-usuario/edit-config-usuario.component';
+import { ConfEmpresaComponent } from './pages/admin/administracion/conf-empresa/conf-empresa.component';
 
 
 
@@ -137,6 +130,9 @@ import { VisorConfigUsuarioComponent } from './pages/admin/administracion/config
     RegEstadoSituacionFinancieraComponent,
     ModalEliminacionComponent,
     VisorConfigUsuarioComponent,
+    RegConfigUsuarioComponent,
+    EditConfigUsuarioComponent,
+    ConfEmpresaComponent,
 
 
   ],

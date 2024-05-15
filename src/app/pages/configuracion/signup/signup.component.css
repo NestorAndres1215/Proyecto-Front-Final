@@ -10,13 +10,14 @@ body {
 
 .login-box {
   background: url(https://i.pinimg.com/564x/b9/03/0b/b9030b5538bbfad9a9a8040b26d61619.jpg);
-  background-size: cover;
-  background-position: center;
+  background-size: cover; /* Hace que la imagen se ajuste al ancho del contenedor y mantenga su altura original */
+  background-position: center; /* Centra la imagen de fondo */
   padding: 18px;
   margin: 0px auto;
-  
-
 }
+
+
+
 
 form {
   width: 70%; /* Ancho del formulario */

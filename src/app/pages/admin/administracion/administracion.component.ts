@@ -11,13 +11,13 @@ import { MenuService } from 'src/app/services/menu.service';
 })
 export class AdministracionComponent implements OnInit {
 
- 
+
   isLoggedIn = false;
-  user:any = null;
+  user: any = null;
   contenido: any;
   isRouteActive: boolean = true;
 
-  constructor(public login:LoginService,private router:Router,private menu:MenuService) { }
+  constructor(public login: LoginService, private router: Router, private menu: MenuService) { }
 
   ngOnInit(): void {
     this.listarMenuPrimero();
@@ -35,13 +35,13 @@ export class AdministracionComponent implements OnInit {
 
 
   }
-menu1:any
+  menu1: any
 
   async listarMenuPrimero() {
     this.menu.listarmenuPrimero().subscribe(
       data => {
         console.log(data);
-        this.menu1=data
+        this.menu1 = data
       }
     );
   }
@@ -50,7 +50,7 @@ menu1:any
     console.log(menuItem);
     // Cambiar el estado de mostrarSubMenu para mostrar u ocultar el submenú
     menuItem.mostrarSubMenu = !menuItem.mostrarSubMenu;
-  
+
     if (menuItem.mostrarSubMenu) {
       console.log(menuItem.mostrarSubMenu)
       // Filtrar los elementos del submenú por la categoría del elemento del menú principal
@@ -62,39 +62,38 @@ menu1:any
       }
     } else {
       // Si se oculta el submenú, limpiar el arreglo de elementos filtrados
-      this.menu2FiltradoPorCategoria[menuItem.menuCategoria]= [];
+      this.menu2FiltradoPorCategoria[menuItem.menuCategoria] = [];
     }
   }
-  
-  
 
- 
+
+
+
   handleSubmenuItemClicked(subMenuItem: any): void {
     console.log('Clic en el submenu:', subMenuItem.menuNombre);
   }
-menu2:any
- async listarMenuSegundo(categoria:any) {
+  menu2: any
+  async listarMenuSegundo(categoria: any) {
     this.menu.listarmenuSegundo(categoria).subscribe(
       data => {
         console.log(data);
-     
-        this.menu2=data
-     
-        
-   
+
+        this.menu2 = data
+
+
+
       }
     );
   }
-  
+
   public logout() {
     this.login.logout();
     window.location.href = '';
   }
 
   status = false;
-  addToggle()
-  {
-    this.status = !this.status;       
+  addToggle() {
+    this.status = !this.status;
   }
   @ViewChild(MatMenuTrigger) mainMenuTrigger!: MatMenuTrigger;
 

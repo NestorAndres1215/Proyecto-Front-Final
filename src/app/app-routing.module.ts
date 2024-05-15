@@ -41,6 +41,7 @@ import { ConsultaPromocionComponent } from './pages/admin/consulta/consulta-prom
 import { ConsultaProveedorComponent } from './pages/admin/consulta/consulta-proveedor/consulta-proveedor.component';
 import { ConsultaDescuentoComponent } from './pages/admin/consulta/consulta-descuento/consulta-descuento.component';
 import { RegEstadoSituacionFinancieraComponent } from './pages/admin/estado-situacion-financiera/reg-estado-situacion-financiera/reg-estado-situacion-financiera.component';
+import { ConfEmpresaComponent } from './pages/admin/administracion/conf-empresa/conf-empresa.component';
 
 
 const routes: Routes = [
@@ -84,6 +85,7 @@ const routes: Routes = [
     children: [
       { path: 'usuario', component: ConfigUsuarioComponent, pathMatch: 'full' },
       { path: 'perfil', component: ConfigPerfilComponent, pathMatch: 'full' },
+      { path: 'empresa', component: ConfEmpresaComponent, pathMatch: 'full' },
     ]
   },
 

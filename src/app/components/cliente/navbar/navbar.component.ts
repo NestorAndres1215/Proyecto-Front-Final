@@ -1,4 +1,4 @@
-import { NombreService } from 'src/app/services/nombre.service';
+
 import { LoginService } from '../../../services/login.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -14,12 +14,12 @@ export class NavbarComponent implements OnInit {
   user:any = null;
   nombreE:any=null;
   constructor(public login:LoginService,
-    private nombreService:NombreService ) { }
+     ) { }
 
   ngOnInit(): void {
 
     //traer el nombre de la empresa
-      this.nombreE=this.nombreService.getNombre();
+     
     //login 
     this.isLoggedIn = this.login.isLoggedIn();
     this.user = this.login.getUser();
