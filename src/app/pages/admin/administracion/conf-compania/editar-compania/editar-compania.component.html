@@ -1,0 +1,69 @@
+<div class="card">
+    <div class="card-header position-sticky sticky-top">
+        <button _ngcontent-yfb-c88="" (click)="cerrar()" class="btn btn-danger button_close" tabindex="0"><i
+            _ngcontent-yfb-c88="" class="fas fa-long-arrow-alt-left"></i></button>
+    <button _ngcontent-yfb-c69="" class="btn btn-success ng-star-inserted" (click)="operar()"
+        style="margin-right: 10px; align-items: flex-end;"><i _ngcontent-yfb-c69=""
+            class="fas fa-save"></i></button>
+        <h3 style="margin: 0; margin-top: 8px; margin-left: 20px; font-weight: 700px;font-family: monospace;">
+            Visualizacion</h3>
+    </div>
+    <div class="container">
+        <form [formGroup]="formulario">
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Nombre</mat-label>
+                        <input formControlName="nombre" matInput placeholder="Digite su nombre">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Correo</mat-label>
+                        <input formControlName="email" matInput placeholder="Digite su correo">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Pais</mat-label>
+                        <input formControlName="pais" matInput placeholder="Digite su país">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Telefono</mat-label>
+                        <input formControlName="telefono" matInput placeholder="Digite su teléfono">
+                    </mat-form-field>
+                    <div>
+                        <input type="file" (change)="onFileSelected($event)" accept="image/*">
+                        <br>
+                        <img *ngIf="selectedFile" class="img-marca img-fluid">
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-6">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Ruc</mat-label>
+                        <input formControlName="ruc" matInput placeholder="Digite su ruc">
+                    </mat-form-field>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Sector</mat-label>
+                        <input formControlName="sector" matInput placeholder="Digite su sector">
+                    </mat-form-field>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Fecha de Fundacion</mat-label>
+                        <input formControlName="fecha" matInput placeholder="Digite su fecha">
+                    </mat-form-field>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Direccion</mat-label>
+                        <input formControlName="direccion" matInput placeholder="Digite su direccion">
+                    </mat-form-field>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Descripcion</mat-label>
+                        <textarea formControlName="descripcion" matInput placeholder="Digite su descripcion"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

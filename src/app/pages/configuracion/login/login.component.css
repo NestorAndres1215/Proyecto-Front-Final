@@ -9,13 +9,13 @@ body {
 }
 
 .login-box {
-    background: url(https://i.pinimg.com/564x/b9/03/0b/b9030b5538bbfad9a9a8040b26d61619.jpg);
+    background: url(https://media.gq.com.mx/photos/634991955171b4baec7ce8ab/16:9/w_2560%2Cc_limit/ropa-deportiva-por-menos-de-1000-pesos.jpg);
     background-size: cover;
     background-position: center;
     padding: 31.8px;
     margin: 0px auto;
-    
-
+    width: 100%;    height: 100%;
+top: 0;    left: 0;object-fit: cover;position: absolute;
 }
 
 form {

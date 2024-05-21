@@ -96,7 +96,7 @@ export class ConfigUsuarioComponent implements OnInit {
 
   visor(row: any) {
     console.log(row.email)
-    console.log(row)
+    console.log(typeof row)
     const dialogRef = this.dialog.open(VisorConfigUsuarioComponent, {
       width: '700px',
       height: '430px',

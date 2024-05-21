@@ -1,42 +1,27 @@
 <div class="card">
-    <div class="card-header">
-      {{titulo}}
-    </div>
-    <div class="card-body">
-      <!--     <p style="text-align: center;">{{subtitulo +""+mesActual +mesCambio}} 
-        <mat-form-field style="text-align: center;" *ngIf="mesActual!=''">
-          <mat-select [(value)]="mesActual" tabindex="1" id="mes">
-            <mat-option *ngFor="let mes of meses" [value]="mes?.pkID?.tl_clave" #mes>
-              {{mes.pkID.tl_clave +"-"+ mes.tl_descri}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </p> -->
-  
-      <p style="text-align: center;
+  <div class="card-header ">
+    <h2 style="font-family:monospace ;"> {{titulo}}</h2>
+  </div>
+  <div class="card-body">
+
+
+    <p style="text-align: center;
       margin-bottom: 0;" [innerHTML]="getHTML()"></p>
-      <mat-form-field style="text-align: center;text-align: center;
-      justify-content: center; display: flex;" *ngIf="mesActual!=''">
-        <mat-select [(value)]="mesActual" tabindex="1" id="mes">
-          <mat-option *ngFor="let mes of meses" [value]="mes?.pkID?.tl_clave" #mes>
-            {{mes.pkID.tl_clave +"-"+ mes.tl_descri}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-  
-  
-  
-      <mat-form-field class="ancho-completo" *ngIf="razon != undefined && razon.trim() != ''">
-        <div>
-          <input matInput #input [placeholder]="razon" />
-        </div>
-      </mat-form-field>
-      <div class="dos">
-        <button type="button" class=" btn btn-success" (click)="close('CONFIRMAR')"><i class="fas fa-check"></i></button>
-        <button type="button" class=" btn btn-danger" (click)="close('CANCELAR')"><i class="fas fa-times"></i></button>
+
+
+
+
+    <mat-form-field style="font-family:monospace;"class="ancho-completo" *ngIf="razon != undefined && razon.trim() != ''">
+      <div style="font-family:monospace;" >
+        <input  #input [placeholder]="razon" />
       </div>
+    </mat-form-field>
+    <div class="dos">
+      <button type="button" class=" btn btn-success" (click)="close('CONFIRMAR')"><i class="fas fa-check"></i></button>
+      <button type="button" class=" btn btn-danger" (click)="close('CANCELAR')"><i class="fas fa-times"></i></button>
     </div>
   </div>
+</div>
 
 
 

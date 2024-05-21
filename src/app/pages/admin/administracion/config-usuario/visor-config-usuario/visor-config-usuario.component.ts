@@ -27,6 +27,7 @@ export class VisorConfigUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.lista = this.data
+    
     this.listarEdiciones()
   }
 

@@ -1,2 +1,7 @@
 
-<router-outlet></router-outlet>
+  
+  <!-- Contenido de la aplicación con la familia de fuentes aplicada -->
+  <div [ngStyle]="{ 'font-family': fontFamilia }">
+    <router-outlet></router-outlet> <!-- Aquí se mostrará el contenido de los componentes -->
+  </div>
+  

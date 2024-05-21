@@ -1,0 +1,37 @@
+<div class="separator">
+    <h1 style="font-family: monospace;">Configuración de Plantillas</h1>
+    <button _ngcontent-yfb-c88="" class="volver-btn" (click)="volver()" class="btn btn-danger button_close"
+        tabindex="0"><i _ngcontent-yfb-c88="" class="fas fa-long-arrow-alt-left"></i></button>
+</div>
+<div class="card-body" style="margin: 0 auto; margin-top: 40px; width: 95%">
+    <table class="table table-striped" style="overflow-y: auto; max-height: 200px;">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>Juan Perez</td>
+          <td>
+            <button mat-icon-button class="btn-vista" onclick="visor({codigo: '001', nombre: 'Juan Perez'})">
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>Ana Gomez</td>
+          <td>
+            <button mat-icon-button class="btn-vista" onclick="visor({codigo: '002', nombre: 'Ana Gomez'})">
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+</div>

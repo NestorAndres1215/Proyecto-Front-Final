@@ -1,1 +1,47 @@
-<p>config-perfil works!</p>
+<div class="separator">
+    <h1 style="font-family: monospace;">Configuración de Perfil</h1>
+    <button _ngcontent-yfb-c88="" class="volver-btn" (click)="volver()" class="btn btn-danger button_close"
+        tabindex="0"><i _ngcontent-yfb-c88="" class="fas fa-long-arrow-alt-left"></i></button>
+</div>
+<form [formGroup]="form">
+    <div class="row" style=" margin:0; margin-top: 30px;">
+        <div class="col-md-4 ">
+            <mat-form-field style="font-family: monospace;">
+                <mat-select style="font-family: monospace;" placeholder="Rol Usuario" formControlName="rol" (selectionChange)="TablaRol()">
+                    <mat-option *ngFor="let ban of listaRol" [value]="ban" >
+                     <h4 style="font-family: monospace;">{{ban}}</h4>   
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</form>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4" *ngFor="let perfil of datosTabla">
+            <div class="custom-card text-center">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="d-flex justify-content-center align-items-center mb-3 col-auto">
+                                <img *ngIf="mostrarImagen(perfil)" [src]="mostrarImagen(perfil)" alt="Imagen" class="img-marca rounded-circle img-fluid">
+                                <img *ngIf="!mostrarImagen(perfil)"  src="assets/image/components/icono-perfil.jpg" alt="Imagen predeterminada" class="img-marca rounded-circle img-fluid">
+                            </div>
+                            
+                            
+                            <div class="col">
+                                <h2 class="card-title mt-3" style="font-family: monospace;">{{ perfil.ul_nombre + ' ' + perfil.ul_apellido }}</h2>
+                                <button type="button" class="btn btn-link" (click)="operar(perfil)">
+                                    Ver detalle
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br><br><br><br>

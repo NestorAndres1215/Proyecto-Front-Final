@@ -1,7 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { NavigationEnd, Route, Router } from '@angular/router';
+import { ModalPerfilComponent } from 'src/app/components/modal/modal-perfil/modal-perfil.component';
 import { LoginService } from 'src/app/services/login.service';
+import { MensajeService } from 'src/app/services/mensaje.service';
 import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
@@ -15,7 +18,14 @@ export class DashboardComponent implements OnInit {
   contenido: any;
   isRouteActive: boolean = true;
 
-  constructor(public login: LoginService, private router: Router, private menu: MenuService) { }
+  constructor(
+    public login: LoginService,
+
+    private dialog: MatDialog,
+    private mensajeService: MensajeService,
+    private change: ChangeDetectorRef,
+    private router: Router, 
+    private menu: MenuService) { }
 
   ngOnInit(): void {
     this.listarMenuPrimero();
@@ -46,21 +56,18 @@ export class DashboardComponent implements OnInit {
   }
   menu2FiltradoPorCategoria: { [categoria: string]: any[] } = {};
   toggleSubMenu(menuItem: any): void {
-    console.log(menuItem);
-    // Cambiar el estado de mostrarSubMenu para mostrar u ocultar el submenú
     menuItem.mostrarSubMenu = !menuItem.mostrarSubMenu;
 
     if (menuItem.mostrarSubMenu) {
       console.log(menuItem.mostrarSubMenu)
-      // Filtrar los elementos del submenú por la categoría del elemento del menú principal
       this.menu2FiltradoPorCategoria[menuItem.menuCategoria] = this.menu2.filter((i: { menuCategoria: any; }) => i.menuCategoria === menuItem.menuCategoria);
-      console.log(this.menu2FiltradoPorCategoria[menuItem.menuCategoria]);
+
       if (this.menu2FiltradoPorCategoria[menuItem.menuCategoria].length === 0) {
         console.log('El arreglo está vacío');
         this.router.navigate(['/admin']);
       }
     } else {
-      // Si se oculta el submenú, limpiar el arreglo de elementos filtrados
+
       this.menu2FiltradoPorCategoria[menuItem.menuCategoria] = [];
     }
   }
@@ -76,11 +83,7 @@ export class DashboardComponent implements OnInit {
     this.menu.listarmenuSegundo(categoria).subscribe(
       data => {
         console.log(data);
-
         this.menu2 = data
-
-
-
       }
     );
   }
@@ -95,11 +98,23 @@ export class DashboardComponent implements OnInit {
     this.status = !this.status;
   }
   @ViewChild(MatMenuTrigger) mainMenuTrigger!: MatMenuTrigger;
-
-
-
   closeMainMenu() {
-    // Agrega lógica para cerrar el menú principal si es necesario
     this.mainMenuTrigger.closeMenu();
+  }
+
+  configuracion(){
+
+
+    
+  }
+  perfil(){
+
+    const dialogRef = this.dialog.open(ModalPerfilComponent, {
+      width: '700px',
+      height: '430px',
+      data: {
+    
+      }
+    });
   }
 }

@@ -38,7 +38,7 @@ import { NavbarComponent } from './components/cliente/navbar/navbar.component';
 import { SignupComponent } from './pages/configuracion/signup/signup.component';
 import { LoginComponent } from './pages/configuracion/login/login.component';
 import { HomeComponent } from './pages/configuracion/home/home.component';
-import { authInterceptorProviders } from './services/auth.interceptor';
+import { authInterceptorProviders } from './interceptor/auth.interceptor';
 import { DashboardComponent } from './pages/admin/home-admin/home-admin.component';
 import { UserDashboardComponent } from './pages/cliente/home-cliente/home-cliente.component';
 import { FooterComponent } from './components/cliente/footer/footer.component';
@@ -80,6 +80,19 @@ import { VisorConfigUsuarioComponent } from './pages/admin/administracion/config
 import { RegConfigUsuarioComponent } from './pages/admin/administracion/config-usuario/reg-config-usuario/reg-config-usuario.component';
 import { EditConfigUsuarioComponent } from './pages/admin/administracion/config-usuario/edit-config-usuario/edit-config-usuario.component';
 import { ConfEmpresaComponent } from './pages/admin/administracion/conf-empresa/conf-empresa.component';
+import { VisorPerfilComponent } from './pages/admin/administracion/config-perfil/visor-perfil/visor-perfil.component';
+import { ModalPerfilComponent } from './components/modal/modal-perfil/modal-perfil.component';
+import { ConfiguracionComponent } from './components/configuracion/configuracion/configuracion.component';
+import { ConfCompaniaComponent } from './pages/admin/administracion/conf-compania/conf-compania.component';
+import { ConfigPlantillaComponent } from './pages/admin/administracion/config-plantilla/config-plantilla.component';
+import { CabeceraComponent } from './components/configuracion/configuracion/cabecera/cabecera.component';
+import { EditarCompaniaComponent } from './pages/admin/administracion/conf-compania/editar-compania/editar-compania.component';
+import { TablaGeneralesDetalleComponent } from './pages/admin/mantenimiento/tabla-generales/tabla-generales-detalle/tabla-generales-detalle.component';
+import { VisorTablaGeneralesComponent } from './pages/admin/mantenimiento/tabla-generales/visor-tabla-generales/visor-tabla-generales.component';
+import { EditarTablaGeneralDetalleComponent } from './pages/admin/mantenimiento/tabla-generales/tabla-generales-detalle/editar-tabla-general-detalle/editar-tabla-general-detalle.component';
+import { VisorTablaGeneralDetalleComponent } from './pages/admin/mantenimiento/tabla-generales/tabla-generales-detalle/visor-tabla-general-detalle/visor-tabla-general-detalle.component';
+import { RegistrarTablaGeneralDetalleComponent } from './pages/admin/mantenimiento/tabla-generales/tabla-generales-detalle/registrar-tabla-general-detalle/registrar-tabla-general-detalle.component';
+import { RegistrarTablaGeneralComponent } from './pages/admin/mantenimiento/tabla-generales/registrar-tabla-general/registrar-tabla-general.component';
 
 
 
@@ -133,6 +146,19 @@ import { ConfEmpresaComponent } from './pages/admin/administracion/conf-empresa/
     RegConfigUsuarioComponent,
     EditConfigUsuarioComponent,
     ConfEmpresaComponent,
+    VisorPerfilComponent,
+    ModalPerfilComponent,
+    ConfiguracionComponent,
+    ConfCompaniaComponent,
+    ConfigPlantillaComponent,
+    CabeceraComponent,
+    EditarCompaniaComponent,
+    TablaGeneralesDetalleComponent,
+    VisorTablaGeneralesComponent,
+    EditarTablaGeneralDetalleComponent,
+    VisorTablaGeneralDetalleComponent,
+    RegistrarTablaGeneralDetalleComponent,
+    RegistrarTablaGeneralComponent,
 
 
   ],

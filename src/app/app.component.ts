@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Retro Futbol ';
+  fontFamilia = 'monospace'; // Familia de fuentes inicial
 
+  cambiarFamilia(familia: string) {
+    this.fontFamilia = familia;
+  }
 }

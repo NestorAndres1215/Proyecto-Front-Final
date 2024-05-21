@@ -1,0 +1,102 @@
+<div class="separator position-sticky sticky-top">
+  <h1 style="font-family: monospace;">Configuración de Compania</h1>
+
+  <button _ngcontent-yfb-c88="" class="volver-btn" (click)="volver()" class="btn btn-danger button_close"
+    tabindex="0"><i _ngcontent-yfb-c88="" class="fas fa-long-arrow-alt-left"></i></button>
+</div>
+<div class="container mt-5 mb-5">
+  <div class="row" *ngFor="let row of datosTabla">
+    <div class="col-12 mb-4">
+      <div class="card">
+        <div class="card-header d-flex justify-content-center align-items-center"
+          style="background-color: lightsteelblue; position: sticky; top: 60px; z-index: 1;">
+          <img *ngIf="mostrarImagen(row)" [src]="mostrarImagen(row)" alt="Imagen"
+            class="img-marca rounded-circle img-fluid">
+          <img *ngIf="!mostrarImagen(row)" src="assets/image/components/icono-perfil.jpg" alt="Imagen predeterminada"
+            class="img-marca rounded-circle img-fluid">
+        </div>
+        <div class="card-body">
+          <h2 class="monospace text-center font-weight-bold mb-4">Datos de Compania</h2>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">NOMBRE</h3>
+            </div>
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">{{ row.com_nombre }}</h3>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">RUC</h3>
+            </div>
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">{{ row.com_ruc }}</h3>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">TELEFONO</h3>
+            </div>
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">{{ row.com_telefono }}</h3>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">DIRECCION</h3>
+            </div>
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">{{ row.com_direccion }}</h3>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">CORREO</h3>
+            </div>
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">{{ row.com_correo }}</h3>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">PAIS</h3>
+            </div>
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">{{ row.com_pais }}</h3>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">SECTOR</h3>
+            </div>
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">{{ row.com_sector }}</h3>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">DESCRIPCION</h3>
+            </div>
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">{{ row.com_descripcion }}</h3>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">FECHA</h3>
+            </div>
+            <div class="col-md-6">
+              <h3 class="monospace font-weight-bold">{{ row.com_fecha_de_fundacion | date }}</h3>
+            </div>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-link ml-2" (click)="editarImagen(row)">
+              Actualizar Datos
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

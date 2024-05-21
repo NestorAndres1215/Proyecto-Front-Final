@@ -8,22 +8,31 @@
       <h1 class="example-app-name" style="width: max-content;"><img class="img-logo"></h1>
       <span class="example-spacer"></span>
       <div style="justify-content: center;display: flex;margin: initial;" class="navegador">
-        <h4 *ngIf="isLoggedIn && user"> {{ user.username }} </h4>
-        <h4> - Administrador</h4>
+        <h4 *ngIf="isLoggedIn && user" style="font-family: monospace;"> {{ user.username }} </h4>
+        <h4 style="font-family: monospace;"> - Administrador</h4>
       </div>
       <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        
+        <button mat-menu-item (click)="perfil()">
           <mat-icon>person</mat-icon>
-          <span>Perfil <strong></strong></span>
+          <span style="font-family: monospace;">Perfil <strong></strong></span>
         </button>
 
+        <button mat-menu-item (click)="configuracion()">
+          <mat-icon>check_circle</mat-icon>
+          <span style="font-family: monospace;">Version: <strong>0.0.1</strong></span>
+        </button>
+        <button mat-menu-item (click)="configuracion()">
+          <mat-icon>settings</mat-icon>
+          <span style="font-family: monospace;">Configuracion <strong></strong></span>
+        </button>
 
         <button mat-menu-item *ngIf="isLoggedIn" (click)="logout()">
           <mat-icon>exit_to_app</mat-icon>
-          <span>Cerrar Sesión</span>
+          <span style="font-family: monospace;">Cerrar Sesión</span>
         </button>
       </mat-menu>
 
@@ -40,7 +49,7 @@
         <ng-container *ngFor="let menuItem of menu1">
           <mat-list-item [routerLink]="[menuItem.menuRuta]" (click)="toggleSubMenu(menuItem)" style="cursor: pointer">
             <mat-icon>{{ menuItem.menuIcono }}</mat-icon>
-            <span style="margin-left: 8px; color: black;">{{ menuItem.menuNombre }}</span>
+            <span style="margin-left: 8px; color: black;font-family: monospace;">{{ menuItem.menuNombre }}</span>
           </mat-list-item>
           <!-- Agregar menú hijo si se muestra el submenú -->
           <ng-container *ngIf="menuItem.mostrarSubMenu">
@@ -48,7 +57,7 @@
               [routerLink]="[subMenuItem.menuRuta]" (click)="handleSubmenuItemClicked(subMenuItem)"
               style="cursor: pointer">
               <mat-icon>{{ subMenuItem.menuIcono }}</mat-icon>
-              <span style="margin-left: 8px; color: black;">{{ subMenuItem.menuNombre }}</span>
+              <span style="margin-left: 8px; color: black;font-family: monospace;">{{ subMenuItem.menuNombre }}</span>
             </mat-list-item>
           </ng-container>
         </ng-container>

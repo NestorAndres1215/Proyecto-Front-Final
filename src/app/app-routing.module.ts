@@ -1,30 +1,24 @@
-import { NormalGuard } from './services/normal.guard';
-import { AdminGuard } from './services/admin.guard';
+import { NormalGuard } from './guard/normal.guard';
+import { AdminGuard } from './guard/admin.guard';
 import { UserDashboardComponent } from './pages/cliente/home-cliente/home-cliente.component';
 import { DashboardComponent } from './pages/admin/home-admin/home-admin.component';
 import { LoginComponent } from './pages/configuracion/login/login.component';
 import { SignupComponent } from './pages/configuracion/signup/signup.component';
 import { HomeComponent } from './pages/configuracion/home/home.component';
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { PrincipalComponent } from './pages/admin/principal/principal.component';
 import { AsientoCompraComponent } from './pages/admin/asiento/asiento-compra/asiento-compra.component';
 import { AsientoVentaComponent } from './pages/admin/asiento/asiento-venta/asiento-venta.component';
-import { AsientoComponent } from './pages/admin/asiento/asiento.component';
-import { ReporteComponent } from './pages/admin/reporte/reporte.component';
 import { RegComprasComponent } from './pages/admin/reporte/reg-compras/reg-compras.component';
 import { RegVentasComponent } from './pages/admin/reporte/reg-ventas/reg-ventas.component';
 import { RegReclamoComponent } from './pages/admin/reporte/reg-reclamo/reg-reclamo.component';
 import { RegPromocionComponent } from './pages/admin/reporte/reg-promocion/reg-promocion.component';
 import { RegProductoComponent } from './pages/admin/reporte/reg-producto/reg-producto.component';
-import { ProgramacionComponent } from './pages/admin/programacion/programacion.component';
 import { RegProgramacionCompraComponent } from './pages/admin/programacion/reg-programacion-compra/reg-programacion-compra.component';
 import { RegProgramacionVentaComponent } from './pages/admin/programacion/reg-programacion-venta/reg-programacion-venta.component';
-import { AdministracionComponent } from './pages/admin/administracion/administracion.component';
 import { ConfigUsuarioComponent } from './pages/admin/administracion/config-usuario/config-usuario.component';
 import { ConfigPerfilComponent } from './pages/admin/administracion/config-perfil/config-perfil.component';
-import { MantenimientoComponent } from './pages/admin/mantenimiento/mantenimiento.component';
 import { TablaGeneralesComponent } from './pages/admin/mantenimiento/tabla-generales/tabla-generales.component';
 import { TablaResenaComponent } from './pages/admin/mantenimiento/tabla-resena/tabla-resena.component';
 import { MantenimientoPromocionComponent } from './pages/admin/mantenimiento/mantenimiento-promocion/mantenimiento-promocion.component';
@@ -33,7 +27,6 @@ import { MantenimientoProveedorComponent } from './pages/admin/mantenimiento/man
 import { MantenimientoCategoriaComponent } from './pages/admin/mantenimiento/mantenimiento-categoria/mantenimiento-categoria.component';
 import { MantenimientoContenidoComponent } from './pages/admin/mantenimiento/mantenimiento-contenido/mantenimiento-contenido.component';
 import { MantenimientoProductoComponent } from './pages/admin/mantenimiento/mantenimiento-producto/mantenimiento-producto.component';
-import { ConsultaComponent } from './pages/admin/consulta/consulta.component';
 import { ConsultaVentaComponent } from './pages/admin/consulta/consulta-venta/consulta-venta.component';
 import { ConsultaCompraComponent } from './pages/admin/consulta/consulta-compra/consulta-compra.component';
 import { ConsultaProductoComponent } from './pages/admin/consulta/consulta-producto/consulta-producto.component';
@@ -42,6 +35,8 @@ import { ConsultaProveedorComponent } from './pages/admin/consulta/consulta-prov
 import { ConsultaDescuentoComponent } from './pages/admin/consulta/consulta-descuento/consulta-descuento.component';
 import { RegEstadoSituacionFinancieraComponent } from './pages/admin/estado-situacion-financiera/reg-estado-situacion-financiera/reg-estado-situacion-financiera.component';
 import { ConfEmpresaComponent } from './pages/admin/administracion/conf-empresa/conf-empresa.component';
+import { ConfCompaniaComponent } from './pages/admin/administracion/conf-compania/conf-compania.component';
+import { ConfigPlantillaComponent } from './pages/admin/administracion/config-plantilla/config-plantilla.component';
 
 
 const routes: Routes = [
@@ -86,6 +81,8 @@ const routes: Routes = [
       { path: 'usuario', component: ConfigUsuarioComponent, pathMatch: 'full' },
       { path: 'perfil', component: ConfigPerfilComponent, pathMatch: 'full' },
       { path: 'empresa', component: ConfEmpresaComponent, pathMatch: 'full' },
+      { path: 'compania', component: ConfCompaniaComponent, pathMatch: 'full' },
+      { path: 'plantilla', component: ConfigPlantillaComponent, pathMatch: 'full' },
     ]
   },
 
@@ -128,7 +125,7 @@ const routes: Routes = [
     canActivate: [AdminGuard],
     children: [
       { path: 'situacionfinanciera', component: RegEstadoSituacionFinancieraComponent, pathMatch: 'full' },
-    
+
     ]
   },
   {
