@@ -7,8 +7,15 @@ import baserUrl from '../interceptor/helper';
 })
 export class GeneralesService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) { }
+
   obtenerGeneral(): Observable<any> {
     return this.http.get(`${baserUrl}/general/listaGenerales/`);
+  }
+
+  obtenerGeneralDetalle(codigo: String): Observable<any> {
+    return this.http.get(`${baserUrl}/general/listaGenerales/${codigo}`);
   }
 }

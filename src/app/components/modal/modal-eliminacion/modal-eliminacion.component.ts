@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { ConfigUsuarioComponent } from 'src/app/pages/admin/administracion/config-usuario/config-usuario.component';
 import { Respuesta }  from 'src/app/model/respuesta';
 @Component({
   selector: 'app-modal-eliminacion',

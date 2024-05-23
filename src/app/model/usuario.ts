@@ -7,9 +7,9 @@ export class Usuario {
     ul_nombre: String;
     ul_apellido: String;
 
-    ul_correo: String;
+    correo: String;
     ul_direccion: String;
-    ul_telefono: String;
+    telefono: String;
     ul_rol: String;
     ul_estado: boolean;
 }

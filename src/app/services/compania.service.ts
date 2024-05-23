@@ -11,6 +11,7 @@ export class CompaniaService {
   obtenerUsuario(): Observable<any> {
     return this.http.get(`${baserUrl}/compania/listar`);
   }
+
   actualizarCategoria(com_codigo: String, registrar: any): Observable<any> {
 
     const formData: FormData = new FormData();
