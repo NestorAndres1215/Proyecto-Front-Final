@@ -120,6 +120,6 @@ export class CabeceraAdministradorComponent implements OnInit {
     });
   } 
   modo() {
-    this.router.navigate(['/user-dashboard']);
+    this.router.navigate(['/modo']);
   }
 }
