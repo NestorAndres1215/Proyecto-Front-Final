@@ -1,1 +1,43 @@
-<p>tabla-generales-detalle works!</p>
+<div class="card">
+    <div class="separator" style="background-color: lightsteelblue;">
+        <h2 style="font-family: monospace;"> {{"Mantenimiento Tabla General - " + codigo +" - "+ nombre}}</h2>
+
+
+        <button _ngcontent-yfb-c88="" class="volver-btn" (click)="volver()" class="btn btn-danger button_close"
+            tabindex="0"><i _ngcontent-yfb-c88="" class="fas fa-long-arrow-alt-left"></i></button>
+    </div>
+
+    <div>
+        <div  style="margin: 0 auto; margin-top: 10px; width: 95%">
+            <table class="table table-striped ;overflow-y: auto; max-height: 200px;">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">Clave</th>
+                        <th style="width: 50%;">Descripcion </th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of pagedData">
+                        <td>{{ row.tl_clave}}</td>
+                        <td>{{ row.tl_descri1 }}</td>
+                        <td>
+                            <button mat-icon-button class="btn-editar" (click)="editar(row)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-icon-button class="btn-vista" (click)="visor(row)">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+                            <button mat-icon-button class="btn-eliminar" (click)="eliminar(row)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+                (page)="pageChanged($event)">
+            </mat-paginator>
+        </div>
+    </div>
+</div>

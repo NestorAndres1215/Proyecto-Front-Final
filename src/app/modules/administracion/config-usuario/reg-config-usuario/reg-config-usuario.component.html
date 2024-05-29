@@ -1,1 +1,49 @@
-<p>reg-config-usuario works!</p>
+<div class="card">
+    <div class="card-header position-sticky sticky-top">
+        <button _ngcontent-yfb-c88="" (click)="cerrar()" class="btn btn-danger button_close" tabindex="0"><i
+                _ngcontent-yfb-c88="" class="fas fa-long-arrow-alt-left"></i></button>
+        <button _ngcontent-yfb-c69="" class="btn btn-success ng-star-inserted" (click)="operar()"
+            style="margin-right: 10px; align-items: flex-end;"><i _ngcontent-yfb-c69=""
+                class="fas fa-save"></i></button>
+        <h3 style="margin: 0; margin-top: 8px; margin-left: 20px; font-weight: 700px;font-family: monospace;">
+            Registrar</h3>
+    </div>
+    <div class="container">
+        <form [formGroup]="formulario">
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Nombre</mat-label>
+                        <input formControlName="nombre" matInput placeholder="Digite su nombre">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Nombre de usuario</mat-label>
+                        <input formControlName="username" matInput placeholder="Digite su nombre de usuario">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input formControlName="email" type="email" matInput placeholder="Digite su email">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Contraseña</mat-label>
+                        <input formControlName="password" type="password" matInput placeholder="Digite su contraseña">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Apellido</mat-label>
+                        <input formControlName="apellido" matInput placeholder="Digite su apellido">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Telefono</mat-label>
+                        <input formControlName="telefono" type="number" matInput placeholder="Digite su telefono">
+                    </mat-form-field>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

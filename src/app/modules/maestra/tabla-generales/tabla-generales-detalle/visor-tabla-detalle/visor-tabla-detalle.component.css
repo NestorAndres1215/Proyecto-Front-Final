@@ -10,7 +10,12 @@
     margin-left: 3px;
     margin-right: 5px;
   }
-  
+  input{
+    font-family: monospace;
+  }
+  mat-label{
+    font-family: monospace;
+  }
   .btn-danger {
     float: right;
     height: max-content;
@@ -22,12 +27,7 @@
     margin-top: 20px;
     /* Puedes ajustar este valor según tu preferencia */
   }
-  input{
-    font-family: monospace;
-  }
-  mat-label{
-    font-family: monospace;
-  }
+  
   .card-header {
     background-color: lightsteelblue;
     color: black;

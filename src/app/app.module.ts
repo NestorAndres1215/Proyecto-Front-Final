@@ -40,7 +40,7 @@ import { LoginComponent } from './config/login/login.component';
 import { HomeComponent } from './config/home/home.component';
 import { authInterceptorProviders } from './interceptor/auth.interceptor';
 import { DashboardComponent } from './modules/home-admin/home-admin.component';
-import { UserDashboardComponent } from './pages/home-cliente/home-cliente.component';
+
 import { FooterComponent } from './components/cliente/footer/footer.component';
 import { PrincipalComponent } from './modules/principal/principal.component';
 
@@ -94,6 +94,14 @@ import { ConfigPlantillaComponent } from './modules/administracion/config-planti
 import { ModalMenuAdministrativoComponent } from './components/modal/modal-menu-administrativo/modal-menu-administrativo.component';
 import { FooterAdministradorComponent } from './components/footer-administrador/footer-administrador.component';
 import { CabeceraAdministradorComponent } from './components/cabecera-administrador/cabecera-administrador.component';
+import { CabeceraClienteComponent } from './components/cabecera-cliente/cabecera-cliente.component';
+import { FooterClienteComponent } from './components/footer-cliente/footer-cliente.component';
+import { CommonModule } from '@angular/common';
+import { TablaGeneralesDetalleComponent } from './modules/maestra/tabla-generales/tabla-generales-detalle/tabla-generales-detalle.component';
+import { VisorTablaDetalleComponent } from './modules/maestra/tabla-generales/tabla-generales-detalle/visor-tabla-detalle/visor-tabla-detalle.component';
+import { ModoCambiarRolComponent } from './components/modo-cambiar-rol/modo-cambiar-rol.component';
+import { HomeClienteComponent } from './pages/home-cliente/home-cliente.component';
+import { CabeceraModoComponent } from './components/cabecera-modo/cabecera-modo.component';
 
 
 
@@ -106,7 +114,7 @@ import { CabeceraAdministradorComponent } from './components/cabecera-administra
     LoginComponent,
     HomeComponent,
     DashboardComponent,
-    UserDashboardComponent,
+    HomeClienteComponent,
     FooterComponent,
     PrincipalComponent,
     ReporteComponent,
@@ -117,6 +125,7 @@ import { CabeceraAdministradorComponent } from './components/cabecera-administra
     ProgramacionComponent,
     RegReclamoComponent,
     RegPromocionComponent,
+    TablaGeneralesDetalleComponent,
     RegProductoComponent,
     RegProgramacionVentaComponent,
     RegProgramacionCompraComponent,
@@ -159,6 +168,11 @@ MantenimientoComponent,
     ModalMenuAdministrativoComponent,
     CabeceraAdministradorComponent,
     FooterAdministradorComponent,
+    CabeceraClienteComponent,
+    FooterClienteComponent,
+    VisorTablaDetalleComponent,
+    ModoCambiarRolComponent,
+    CabeceraModoComponent,
 
 
   ],
@@ -184,6 +198,7 @@ MantenimientoComponent,
     MatExpansionModule,
     MatListModule,
     MatSortModule,
+    CommonModule ,
     MatGridListModule,
     MatOptionModule,
     MatTabsModule,

@@ -1,6 +1,6 @@
 import { NormalGuard } from './guard/normal.guard';
 import { AdminGuard } from './guard/admin.guard';
-import { UserDashboardComponent } from './pages/home-cliente/home-cliente.component';
+
 import { DashboardComponent } from './modules/home-admin/home-admin.component';
 import { LoginComponent } from './config/login/login.component';
 import { SignupComponent } from './config/signup/signup.component';
@@ -39,12 +39,15 @@ import { ConsultaPromocionComponent } from './modules/consulta/consulta-promocio
 import { ConsultaProveedorComponent } from './modules/consulta/consulta-proveedor/consulta-proveedor.component';
 import { ConsultaVentaComponent } from './modules/consulta/consulta-venta/consulta-venta.component';
 import { RegEstadoSituacionFinancieraComponent } from './modules/estado-situacion-financiera/reg-estado-situacion-financiera/reg-estado-situacion-financiera.component';
+import { ModoCambiarRolComponent } from './components/modo-cambiar-rol/modo-cambiar-rol.component';
+import { HomeClienteComponent } from './pages/home-cliente/home-cliente.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'signup', component: SignupComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, pathMatch: 'full', },
+  { path: 'modo', component: ModoCambiarRolComponent, pathMatch: 'full', },
   {
     path: 'asientos',
     component: DashboardComponent,
@@ -139,9 +142,15 @@ const routes: Routes = [
   },
   {
     path: 'user-dashboard',
-    component: UserDashboardComponent,
+    component: HomeClienteComponent,
     pathMatch: 'full',
     canActivate: [NormalGuard]
+  },
+  {
+    path: 'modo',
+    component: HomeClienteComponent,
+    pathMatch: 'full',
+    canActivate: [AdminGuard]
   },
 
 ];

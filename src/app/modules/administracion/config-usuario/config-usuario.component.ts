@@ -9,6 +9,7 @@ import { MensajeService } from 'src/app/services/mensaje.service';
 import { UserService } from 'src/app/services/user.service';
 import { EditConfigUsuarioComponent } from './edit-config-usuario/edit-config-usuario.component';
 import { Respuesta } from 'src/app/model/respuesta';
+import { RegConfigUsuarioComponent } from './reg-config-usuario/reg-config-usuario.component';
 
 @Component({
   selector: 'app-config-usuario',
@@ -16,6 +17,7 @@ import { Respuesta } from 'src/app/model/respuesta';
   styleUrls: ['./config-usuario.component.css']
 })
 export class ConfigUsuarioComponent implements OnInit {
+
 
   user: any = null;
   xd: any
@@ -151,5 +153,18 @@ export class ConfigUsuarioComponent implements OnInit {
       this.listarUsuario();
     })
   }
+  operar() {
+    this.user = this.login.getUser();
+    const dialogRef = this.dialog.open(RegConfigUsuarioComponent, {
+      width: '700px',
+      height: '430px',
+      data: {
+      }
+    });
+    dialogRef.afterClosed().subscribe(data => {
+      this.listarUsuario();
+    })
 
+
+  }
 }

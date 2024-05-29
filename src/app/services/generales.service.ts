@@ -16,6 +16,6 @@ export class GeneralesService {
   }
 
   obtenerGeneralDetalle(codigo: String): Observable<any> {
-    return this.http.get(`${baserUrl}/general/listaGenerales/${codigo}`);
+    return this.http.get(`${baserUrl}/general/listaGeneralesDetalle/${codigo}`);
   }
 }
