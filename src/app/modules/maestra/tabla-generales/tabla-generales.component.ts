@@ -75,8 +75,8 @@ export class TablaGeneralesComponent implements OnInit {
   }
   visor(row: any) {
     const dialogRef = this.dialog.open(VisorTablaGeneralesComponent, {
-      width: '950px',
-      height: '550px',
+      width: '550px',
+      height: '400px',
       data: {
         row,
       }

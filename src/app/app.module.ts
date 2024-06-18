@@ -91,17 +91,19 @@ import { VisorPerfilComponent } from './modules/administracion/config-perfil/vis
 import { ConfCompaniaComponent } from './modules/administracion/conf-compania/conf-compania.component';
 import { EditarCompaniaComponent } from './modules/administracion/conf-compania/editar-compania/editar-compania.component';
 import { ConfigPlantillaComponent } from './modules/administracion/config-plantilla/config-plantilla.component';
-import { ModalMenuAdministrativoComponent } from './components/modal/modal-menu-administrativo/modal-menu-administrativo.component';
-import { FooterAdministradorComponent } from './components/footer-administrador/footer-administrador.component';
-import { CabeceraAdministradorComponent } from './components/cabecera-administrador/cabecera-administrador.component';
-import { CabeceraClienteComponent } from './components/cabecera-cliente/cabecera-cliente.component';
-import { FooterClienteComponent } from './components/footer-cliente/footer-cliente.component';
+import { FooterAdministradorComponent } from './components/footer/footer-administrador/footer-administrador.component';
+import { CabeceraAdministradorComponent } from './components/cabecera/cabecera-administrador/cabecera-administrador.component';
+import { CabeceraClienteComponent } from './components/cabecera/cabecera-cliente/cabecera-cliente.component';
+import { FooterClienteComponent } from './components/footer/footer-cliente/footer-cliente.component';
 import { CommonModule } from '@angular/common';
 import { TablaGeneralesDetalleComponent } from './modules/maestra/tabla-generales/tabla-generales-detalle/tabla-generales-detalle.component';
 import { VisorTablaDetalleComponent } from './modules/maestra/tabla-generales/tabla-generales-detalle/visor-tabla-detalle/visor-tabla-detalle.component';
 import { ModoCambiarRolComponent } from './components/modo-cambiar-rol/modo-cambiar-rol.component';
 import { HomeClienteComponent } from './pages/home-cliente/home-cliente.component';
-import { CabeceraModoComponent } from './components/cabecera-modo/cabecera-modo.component';
+import { CabeceraModoComponent } from './components/cabecera/cabecera-modo/cabecera-modo.component';
+import { VisorTablaGeneralesComponent } from './modules/maestra/tabla-generales/visor-tabla-generales/visor-tabla-generales.component';
+import { ModalDesactivacionComponent } from './components/modal/modal-desactivacion/modal-desactivacion.component';
+import { ModalActivacionComponent } from './components/modal/modal-activacion/modal-activacion.component';
 
 
 
@@ -125,6 +127,7 @@ import { CabeceraModoComponent } from './components/cabecera-modo/cabecera-modo.
     ProgramacionComponent,
     RegReclamoComponent,
     RegPromocionComponent,
+    VisorTablaGeneralesComponent,
     TablaGeneralesDetalleComponent,
     RegProductoComponent,
     RegProgramacionVentaComponent,
@@ -160,12 +163,12 @@ MantenimientoComponent,
     ConfigUsuarioComponent,
     ConfCompaniaComponent,
     ConfigPlantillaComponent,
- 
+    HomeClienteComponent,
     EditarCompaniaComponent,
 
     ModalSunatComponent,
     MaestraComponent,
-    ModalMenuAdministrativoComponent,
+
     CabeceraAdministradorComponent,
     FooterAdministradorComponent,
     CabeceraClienteComponent,
@@ -173,6 +176,8 @@ MantenimientoComponent,
     VisorTablaDetalleComponent,
     ModoCambiarRolComponent,
     CabeceraModoComponent,
+    ModalDesactivacionComponent,
+    ModalActivacionComponent,
 
 
   ],

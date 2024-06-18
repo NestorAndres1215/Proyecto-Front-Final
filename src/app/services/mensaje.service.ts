@@ -26,7 +26,6 @@ export class MensajeService {
   }
   MostrarError(message: Object, duration: number = 2000) {
     let errorMessage = typeof message === 'string' ? message : JSON.stringify(message);
-    // Eliminar el primer objeto y los corchetes
     errorMessage = errorMessage.replace(/.*?{\s*"error"\s*:\s*"([^"]*)"\s*}.*/, '$1');
     this.snackBar.open(errorMessage, 'AVISO', {
       duration: duration,

@@ -1,11 +1,12 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { ModalPerfilComponent } from '../modal/modal-perfil/modal-perfil.component';
+import { ModalPerfilComponent } from '../../modal/modal-perfil/modal-perfil.component';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { LoginService } from 'src/app/services/login.service';
 import { MensajeService } from 'src/app/services/mensaje.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { MenuService } from 'src/app/services/menu.service';
+import { VersionService } from 'src/app/services/version.service';
 
 @Component({
   selector: 'app-cabecera-administrador',
@@ -22,11 +23,11 @@ export class CabeceraAdministradorComponent implements OnInit {
 
   constructor(
     public login: LoginService,
-
+private git:VersionService,
     private dialog: MatDialog,
     private mensajeService: MensajeService,
     private change: ChangeDetectorRef,
-    private router: Router, 
+    private router: Router,
     private menu: MenuService) { }
 
   ngOnInit(): void {
@@ -41,7 +42,11 @@ export class CabeceraAdministradorComponent implements OnInit {
       }
     )
 
-
+this.git.getCommitCount().subscribe(
+  data=>{
+    console.log(data)
+  }
+)
 
   }
   menu1: any
@@ -104,21 +109,21 @@ export class CabeceraAdministradorComponent implements OnInit {
     this.mainMenuTrigger.closeMenu();
   }
 
-  configuracion(){
+  configuracion() {
 
 
-    
+
   }
-  perfil(){
+  perfil() {
 
     const dialogRef = this.dialog.open(ModalPerfilComponent, {
-      width: '700px',
-      height: '430px',
+      width: '500px',
+      height: '500px',
       data: {
-    
+
       }
     });
-  } 
+  }
   modo() {
     this.router.navigate(['/modo']);
   }

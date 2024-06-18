@@ -28,6 +28,10 @@ export class UserService {
     return this.http.get(`${baserUrl}/usuarios/listaUsuario/rol/${rol}`);
   }
 
+  obtenerUsuarioNombre(usuario: String): Observable<any> {
+    return this.http.get(`${baserUrl}/usuarios/listaUsuario/usuario/${usuario}`);
+  }
+
   actualizarUsuario(user: Usuario): Observable<any> {
     return this.http.put(`${baserUrl}/usuarios/actualizarUsuario/`, user);
   }

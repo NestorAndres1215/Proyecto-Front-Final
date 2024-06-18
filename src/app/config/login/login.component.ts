@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit } from '@angular/core';
+import { MensajeService } from 'src/app/services/mensaje.service';
 
 
 @Component({
@@ -12,59 +13,55 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   loginData = {
-    "username" : '',
-    "password" : '',
+    "username": '',
+    "password": '',
   }
 
-  constructor(private snack:MatSnackBar,private loginService:LoginService,private router:Router) { }
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    private mensaje: MensajeService) { }
 
   ngOnInit(): void {
-   
-}
+
+  }
 
 
-  formSubmit(){
-    if(this.loginData.username.trim() == '' || this.loginData.username.trim() == null){
-      this.snack.open('El nombre de usuario es requerido !!','Aceptar',{
-        duration:3000
-      })
+  formSubmit() {
+    if (this.loginData.username.trim() == '' || this.loginData.username.trim() == null) {
+      this.mensaje.MostrarMensaje('El nombre de usuario es requerido !!')
       return;
     }
 
-    if(this.loginData.password.trim() == '' || this.loginData.password.trim() == null){
-      this.snack.open('La contraseña es requerida !!','Aceptar',{
-        duration:3000
-      })
+    if (this.loginData.password.trim() == '' || this.loginData.password.trim() == null) {
+      this.mensaje.MostrarMensaje('El contraseña de usuario es requerido !!')
       return;
     }
 
     this.loginService.generateToken(this.loginData).subscribe(
-      (data:any) => {
-        console.log(data);
+      (data: any) => {
         this.loginService.loginUser(data.token);
-        this.loginService.getCurrentUser().subscribe((user:any) => {
+        this.loginService.getCurrentUser().subscribe((user: any) => {
           this.loginService.setUser(user);
-          console.log(user);
-
-          if(this.loginService.getUserRole() == 'ADMIN'){
+          if (this.loginService.getUserRole() == 'ADMIN') {
 
             this.router.navigate(['admin']);
             this.loginService.loginStatusSubjec.next(true);
+            this.mensaje.MostrarMensaje("Bienvenidos")
           }
-          else if(this.loginService.getUserRole() == 'NORMAL'){
+          else if (this.loginService.getUserRole() == 'NORMAL') {
 
             this.router.navigate(['user-dashboard']);
             this.loginService.loginStatusSubjec.next(true);
+            this.mensaje.MostrarMensaje("Bienvenidos")
           }
-          else{
+          else {
             this.loginService.logout();
           }
         })
-      },(error) => {
-        console.log(error);
-        this.snack.open('Detalles inválidos , vuelva a intentar !!','Aceptar',{
-          duration:3000
-        })
+      }, (error) => {
+        this.mensaje.MostrarMensaje("Datos Invalidos")
+
       }
     )
   }
