@@ -16,7 +16,7 @@ export class CompaniaService {
     const formData: FormData = new FormData();
     
     formData.append('nombre', registrar.com_nombre);
-    formData.append('telefono', registrar.com_telefono);[+][[]]
+    formData.append('telefono', registrar.com_telefono);
     formData.append('direccion', registrar.com_direccion);
     formData.append('correo', registrar.com_correo);
     formData.append('pais', registrar.com_pais);
