@@ -42,11 +42,7 @@ private git:VersionService,
       }
     )
 
-this.git.getCommitCount().subscribe(
-  data=>{
-    console.log(data)
-  }
-)
+
 
   }
   menu1: any

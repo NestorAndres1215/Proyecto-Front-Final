@@ -72,11 +72,12 @@ export class SignupComponent implements OnInit {
       this.userService.añadirUsuario(objRegistrar).subscribe(
         (response) => {
           this.mensaje.MostrarMensaje("Se Registro Usuario")
+          console.log(objRegistrar)
           this.formulario.reset();
         },
         (error) => {
           console.log(error.error)
-          this.mensaje.MostrarError(error.error)
+          this.mensaje.MostrarError(error)
         }
       )
 

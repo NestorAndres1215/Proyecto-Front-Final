@@ -60,7 +60,8 @@ export class LoginComponent implements OnInit {
           }
         })
       }, (error) => {
-        this.mensaje.MostrarMensaje("Datos Invalidos")
+        console.log(error)
+        this.mensaje.MostrarBodyError(error)
 
       }
     )

@@ -25,10 +25,28 @@ export class MensajeService {
     });
   }
   MostrarError(message: Object, duration: number = 2000) {
+    console.log(message)
     let errorMessage = typeof message === 'string' ? message : JSON.stringify(message);
     errorMessage = errorMessage.replace(/.*?{\s*"error"\s*:\s*"([^"]*)"\s*}.*/, '$1');
     this.snackBar.open(errorMessage, 'AVISO', {
       duration: duration,
+    });
+  }
+
+  MostrarBodyError(message: string, duration: number = 2000) {
+    console.log(message);
+    
+    let errorMessage: string;
+    
+    if (typeof message === 'string') {
+        errorMessage = message;
+    } else {
+        const parsedMessage = JSON.parse(JSON.stringify(message));
+        errorMessage = parsedMessage.error || 'Ocurrió un error desconocido';
+    }
+    console.log(errorMessage)
+    this.snackBar.open(errorMessage, 'AVISO', {
+        duration: duration,
     });
   }
 }

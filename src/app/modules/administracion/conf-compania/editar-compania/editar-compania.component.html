@@ -32,10 +32,19 @@
                         <input formControlName="telefono" matInput placeholder="Digite su teléfono">
                     </mat-form-field>
                     <div>
+                        <p>Nombre del archivo: {{ selectedFileName }}</p>
+                        <!-- Input de tipo archivo para seleccionar la imagen -->
                         <input type="file" (change)="onFileSelected($event)" accept="image/*">
                         <br>
-                        <img *ngIf="selectedFile" class="img-marca img-fluid">
-                    </div>
+                        
+                        <!-- Mostrar la imagen seleccionada si existe, de lo contrario, mostrar la imagen basada en row -->
+                        <img *ngIf="imageUrl; else mostrarImagenTemplate" [src]="imageUrl" class="img-marca img-fluid">
+                      
+                        <!-- Template alternativo para mostrar la imagen basada en row -->
+                        <ng-template #mostrarImagenTemplate>
+                          <img [src]="mostrarImagen(this.logo)" class="img-marca img-fluid">
+                        </ng-template>
+                      </div>
 
 
                 </div>
