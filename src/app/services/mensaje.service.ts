@@ -33,20 +33,37 @@ export class MensajeService {
     });
   }
 
-  MostrarBodyError(message: string, duration: number = 2000) {
+  MostrarBodyError(message: any, duration: number = 2000) {
     console.log(message);
-    
+
     let errorMessage: string;
-    
+
     if (typeof message === 'string') {
-        errorMessage = message;
-    } else {
-        const parsedMessage = JSON.parse(JSON.stringify(message));
-        errorMessage = parsedMessage.error || 'Ocurrió un error desconocido';
+      errorMessage = message;
     }
-    console.log(errorMessage)
+
+    else if (typeof message === 'object' && message !== null) {
+
+      if (message.error && typeof message.error === 'object' && message.error.mensaje) {
+        errorMessage = message.error.mensaje;
+      } else if (message.error) {
+        errorMessage = JSON.stringify(message.error);
+      } else if (message.message) {
+        errorMessage = message.message;
+      } else {
+        errorMessage = JSON.stringify(message);
+      }
+    }
+
+    else {
+      errorMessage = 'Ocurrió un error desconocido';
+    }
+
+    errorMessage = JSON.stringify(message.error).replace(/\"/g, '');
+
     this.snackBar.open(errorMessage, 'AVISO', {
-        duration: duration,
+      duration: duration,
     });
   }
+
 }

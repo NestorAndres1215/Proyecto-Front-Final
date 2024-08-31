@@ -104,6 +104,7 @@ import { CabeceraModoComponent } from './components/cabecera/cabecera-modo/cabec
 import { VisorTablaGeneralesComponent } from './modules/maestra/tabla-generales/visor-tabla-generales/visor-tabla-generales.component';
 import { ModalDesactivacionComponent } from './components/modal/modal-desactivacion/modal-desactivacion.component';
 import { ModalActivacionComponent } from './components/modal/modal-activacion/modal-activacion.component';
+import { TipoCambioComponent } from './modules/maestra/tipo-cambio/tipo-cambio.component';
 
 
 
@@ -178,6 +179,7 @@ MantenimientoComponent,
     CabeceraModoComponent,
     ModalDesactivacionComponent,
     ModalActivacionComponent,
+    TipoCambioComponent,
 
 
   ],

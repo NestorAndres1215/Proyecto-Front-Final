@@ -30,7 +30,7 @@ export class EditConfigUsuarioComponent implements OnInit {
     private dialogRe: MatDialogRef<ConfigUsuarioComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private cdr: ChangeDetectorRef,
-    private mensajeService: MensajeService,
+    private mensaje: MensajeService,
     private dialog: MatDialog,
     private userService: UserService,
     private formBuilder: UntypedFormBuilder,) { }
@@ -102,20 +102,16 @@ this.deshabilitar()
 
       this.userService.actualizarUsuario(objRegistrar).subscribe(
         (response) => {
-          this.mensajeService.MostrarMensaje("Se Registro Usuario")
+          this.mensaje.MostrarMensaje("Se Registro Usuario")
           this.formulario.reset();
-
           this.dialog.closeAll();
-          this.listarUsuario()
           this.cdr.detectChanges();
-          
         },
         (error) => {
-          this.mensajeService.MostrarMensaje("No se registro Usuario")
+          console.log(error)
+          this.mensaje.MostrarBodyError(error)
         }
       )
-      this.formulario.reset();
-      this.cdr.markForCheck();
     }
     else {
       console.log('El formulario no es válido');

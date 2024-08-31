@@ -35,7 +35,6 @@ export class TablaGeneralesDetalleComponent implements OnInit {
   totalItems: number;
   pageSize = 5;
 
-
   constructor(
     private dialogRe: MatDialogRef<TablaGeneralesComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,

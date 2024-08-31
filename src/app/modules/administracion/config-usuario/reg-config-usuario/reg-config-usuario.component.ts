@@ -83,8 +83,8 @@ throw new Error('Method not implemented.');
           this.cdr.detectChanges();
         },
         (error) => {
-          console.log(error.error)
-          this.mensaje.MostrarError(error.error)
+          console.log(error)
+          this.mensaje.MostrarBodyError(error)
         }
       )
 

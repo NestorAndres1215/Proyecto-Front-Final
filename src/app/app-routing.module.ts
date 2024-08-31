@@ -41,6 +41,7 @@ import { ConsultaVentaComponent } from './modules/consulta/consulta-venta/consul
 import { RegEstadoSituacionFinancieraComponent } from './modules/estado-situacion-financiera/reg-estado-situacion-financiera/reg-estado-situacion-financiera.component';
 import { ModoCambiarRolComponent } from './components/modo-cambiar-rol/modo-cambiar-rol.component';
 import { HomeClienteComponent } from './pages/home-cliente/home-cliente.component';
+import { TipoCambioComponent } from './modules/maestra/tipo-cambio/tipo-cambio.component';
 
 
 const routes: Routes = [
@@ -70,6 +71,14 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'maestras',
+    component: DashboardComponent,
+    canActivate: [AdminGuard],
+    children: [
+      { path: 'tipocambios', component: TipoCambioComponent, pathMatch: 'full' },
+    
+    ]
+  },  {
     path: 'programacion',
     component: DashboardComponent,
     canActivate: [AdminGuard],

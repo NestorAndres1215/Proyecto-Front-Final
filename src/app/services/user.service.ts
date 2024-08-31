@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import baserUrl from '../interceptor/helper';
 import { Usuario } from '../model/usuario';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,8 +33,24 @@ export class UserService {
   }
 
   actualizarUsuario(user: Usuario): Observable<any> {
-    return this.http.put(`${baserUrl}/usuarios/actualizarUsuario/`, user);
+    console.log(user);
+    return this.http.put(`${baserUrl}/usuarios/actualizarUsuario/`, user, { responseType: 'text' })
+      .pipe(
+        map(response => {
+          try {
+            return JSON.parse(response);
+          } catch (error) {
+            console.error('Error parsing response', error);
+            return response;
+          }
+        }),
+        catchError(error => {
+          console.error('HTTP error', error);
+          return throwError(error);
+        })
+      );
   }
+  
 
   eliminarUsuario(codigo: String) {
     return this.http.delete(`${baserUrl}/usuarios/eliminarUsuario/${codigo}`);

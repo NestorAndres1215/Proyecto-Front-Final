@@ -8,6 +8,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 export class CompaniaService {
 
   constructor(private http: HttpClient) { }
+
   obtenerUsuario(): Observable<any> {
     return this.http.get(`${baserUrl}/compania/listar`);
   }

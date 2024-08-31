@@ -149,8 +149,8 @@ export class EditarCompaniaComponent implements OnInit {
           this.cdr.markForCheck();
         },
         error => {
-          console.error('Error al actualizar la categoría:', error);
-          return; 
+          this.mensajeService.MostrarBodyError(error)
+  
         }
       );
       
