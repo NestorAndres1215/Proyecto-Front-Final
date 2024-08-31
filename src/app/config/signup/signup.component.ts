@@ -47,7 +47,6 @@ export class SignupComponent implements OnInit {
     });
   }
 
-
   operar() {
 
     console.log(this.formulario.value)

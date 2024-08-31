@@ -35,7 +35,7 @@ export class MensajeService {
 
   MostrarBodyError(message: any, duration: number = 2000) {
     console.log(message);
-
+console.log(typeof message)
     let errorMessage: string;
 
     if (typeof message === 'string') {
@@ -47,6 +47,7 @@ export class MensajeService {
       if (message.error && typeof message.error === 'object' && message.error.mensaje) {
         errorMessage = message.error.mensaje;
       } else if (message.error) {
+        console.log(message.error)
         errorMessage = JSON.stringify(message.error);
       } else if (message.message) {
         errorMessage = message.message;
@@ -58,7 +59,7 @@ export class MensajeService {
     else {
       errorMessage = 'Ocurrió un error desconocido';
     }
-
+console.log(errorMessage)
     errorMessage = JSON.stringify(message.error).replace(/\"/g, '');
 
     this.snackBar.open(errorMessage, 'AVISO', {

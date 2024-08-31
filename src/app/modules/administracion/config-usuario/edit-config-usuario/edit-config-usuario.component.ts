@@ -6,6 +6,7 @@ import { Usuario } from 'src/app/model/usuario';
 import { UserService } from 'src/app/services/user.service';
 import { MensajeService } from 'src/app/services/mensaje.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-edit-config-usuario',
@@ -27,6 +28,7 @@ export class EditConfigUsuarioComponent implements OnInit {
   rol: string
   datosTabla: any;
   constructor(
+
     private dialogRe: MatDialogRef<ConfigUsuarioComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private cdr: ChangeDetectorRef,
@@ -38,6 +40,7 @@ export class EditConfigUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.lista = this.data
     this.listarEdiciones()
+    this.listarUsuario()
   }
 
   initForm(): void {
@@ -65,7 +68,7 @@ export class EditConfigUsuarioComponent implements OnInit {
     this.direccion = this.lista.row.ul_direccion
     this.rol = this.lista.row.ul_rol
     this.initForm()
-this.deshabilitar()
+    this.deshabilitar()
   }
 
   deshabilitar() {
@@ -80,9 +83,12 @@ this.deshabilitar()
   cerrar() {
     this.dialogRe.close();
   }
+
+
+
+
   operar() {
-    console.log(this.lista.row.ul_codigo)
-    console.log(this.formulario.value)
+
     if (this.formulario.valid) {
       const objRegistrar: Usuario = {
         ul_codigo: this.lista.row.ul_codigo,
@@ -97,8 +103,27 @@ this.deshabilitar()
         ul_rol: this.formulario.get('rol').value,
       };
 
+      let usuariosExistentes = this.usuarios.filter(usuario => usuario.ul_usuario == this.formulario.get('username').value);
+      let telefonoExistentes = this.usuarios.filter(usuario => usuario.ul_telefono == this.formulario.get('telefono').value);
+      let correoExistentes = this.usuarios.filter(usuario => usuario.ul_email == this.formulario.get('correo').value);
+      let existeUsuario = usuariosExistentes.map(i => i.ul_codigo == this.lista.row.ul_codigo);
+      let existeTelefono = telefonoExistentes.map(i => i.ul_codigo == this.lista.row.ul_codigo);
+      let existeCorreo = correoExistentes.map(i => i.ul_codigo == this.lista.row.ul_codigo);
+      if (existeUsuario.includes(false)) {
+        this.mensaje.MostrarMensaje("EL NOMBRE DE USUARIO YA EXISTE ")
+        return
 
-      console.log(objRegistrar)
+      }
+      if (existeTelefono.includes(false)) {
+        this.mensaje.MostrarMensaje("EL NUMERO  DE TELEFONO YA EXISTE ")
+        return
+
+      }
+      if (existeCorreo.includes(false)) {
+        this.mensaje.MostrarMensaje("EL CORREO YA EXISTE ")
+        return
+
+      }
 
       this.userService.actualizarUsuario(objRegistrar).subscribe(
         (response) => {
@@ -122,12 +147,11 @@ this.deshabilitar()
   usuarios: any;
   dataSource: MatTableDataSource<any>;
 
-  async listarUsuario() {  
-    this.userService.obtenerUsuario().subscribe((r) => {
+  async listarUsuario() {
+    await this.userService.obtenerUsuario().subscribe((r) => {
       console.log(r)
       this.usuarios = r;
-   //   this.dataSource.data = this.usuarios; // Actualiza el datasource
-      this.cdr.detectChanges(); // Forzar detección de cambios;
+      this.cdr.detectChanges();
 
 
     });

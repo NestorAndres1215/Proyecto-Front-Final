@@ -10,11 +10,10 @@
 </div>
 
 
-<div class="card-body" style="margin: 0 auto; margin-top: 40px; width: 95%">
-  <table class="table table-striped ;overflow-y: auto; max-height: 200px;">
+<div class="card-body">
+  <table class="table table-striped">
     <thead>
       <tr>
-
         <th>Código</th>
         <th>Nombre</th>
         <th>Usuario</th>
@@ -28,9 +27,9 @@
     <tbody>
       <tr *ngFor="let row of pagedData">
         <td>{{ row.ul_codigo }}</td>
-        <td>{{ row.ul_nombre+ " "+row.ul_apellido}}</td>
+        <td>{{ row.ul_nombre + " " + row.ul_apellido }}</td>
         <td>{{ row.ul_usuario }}</td>
-        <td>{{row.ul_correo }}</td>
+        <td>{{ row.ul_correo }}</td>
         <td>{{ row.ul_telefono }}</td>
         <td>{{ row.ul_direccion }}</td>
         <td>{{ row.ul_rol }}</td>
@@ -44,8 +43,6 @@
           <button mat-icon-button class="btn-eliminar" (click)="eliminar(row)">
             <mat-icon>delete</mat-icon>
           </button>
-
-
         </td>
       </tr>
     </tbody>
@@ -53,6 +50,6 @@
   <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
     (page)="pageChanged($event)">
   </mat-paginator>
-
 </div>
+
 <app-footer-administrador></app-footer-administrador>

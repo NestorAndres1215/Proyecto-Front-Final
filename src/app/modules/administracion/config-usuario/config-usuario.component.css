@@ -86,3 +86,40 @@
   border-radius: 20%; /* Hace que los bordes sean circulares */
 }
 
+.card-body {
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 95%;
+  overflow-x: auto; /* Habilita el desplazamiento horizontal si es necesario */
+}
+
+.table {
+  width: 100%;
+  table-layout: auto; /* Ajusta automáticamente el ancho de las columnas */
+}
+
+.table th, .table td {
+  text-align: left;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+@media (max-width: 768px) {
+  .table th, .table td {
+    font-size: 12px; /* Reduce el tamaño del texto en pantallas pequeñas */
+    padding: 0.5rem; /* Reduce el padding para mejor ajuste */
+  }
+}
+
+@media (max-width: 576px) {
+  .table {
+    font-size: 10px; /* Aumenta el ajuste en pantallas muy pequeñas */
+  }
+
+  .table th, .table td {
+    padding: 0.25rem; /* Menor padding en pantallas muy pequeñas */
+  }
+
+  .btn-editar, .btn-vista, .btn-eliminar {
+    font-size: 14px; /* Ajusta el tamaño de los íconos */
+  }
+}

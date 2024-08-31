@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import baserUrl from '../interceptor/helper';
 import { Usuario } from '../model/usuario';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, pipe, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,21 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   añadirUsuario(user: Usuario) {
-    return this.http.post(`${baserUrl}/usuarios/`, user);
+    return this.http.post(`${baserUrl}/usuarios/`, user, { responseType: 'text' })
+    .pipe(
+      map(response => {
+        try {
+          return JSON.parse(response);
+        } catch (error) {
+          console.error('Error parsing response', error);
+          return response;
+        }
+      }),
+      catchError(error => {
+        console.error('HTTP error', error);
+        return throwError(error);
+      })
+    );
   }
 
   obtenerUsuario(): Observable<any> {
