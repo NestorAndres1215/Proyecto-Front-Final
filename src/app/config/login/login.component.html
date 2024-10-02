@@ -1,58 +1,37 @@
 <app-navbar></app-navbar>
-<section class="body">
 
-    <div class="login-box">
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="logo">
-            <span class="logo-font">Retro</span>Futbol
-          </div>
-        </div>
+<body>
+
+  <div class="container">
+    <div class="login">
+      <div class="header">
+        <h1>INICIAR SESION</h1>
       </div>
-      <div class="row">
-        <div class="col-sm-6">
-          <br>
-          <h3 class="header-title">LOGIN</h3>
-          <form (ngSubmit)="formSubmit()">
-            <mat-form-field class="full-width" appearance="outline">
-              <mat-label>Nombre de usuario</mat-label>
-              <input [(ngModel)]="loginData.username" name="username" required matInput
-                placeholder="Digite su nombre de usuario">
-              <mat-hint>El nombre de usuario debe ser valido</mat-hint>
-            </mat-form-field>
-            <mat-form-field class="full-width" appearance="outline">
-              <mat-label>Contraseña</mat-label>
-              <input [(ngModel)]="loginData.password" name="password" required type="password" matInput
-                placeholder="Digite su contraseña">
-              <mat-hint>La contraseña debe ser valida</mat-hint>
-            </mat-form-field>
-            <br><br>
-            <div class="container text-center">
-              <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-              <button type="reset" style="margin-left: 20px;" class="btn btn-danger">Limpiar</button>
-            </div>
-          </form>
-        </div>
-        <div class="col-sm-6 hide-on-mobile">
-          <div id="demo" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ul class="carousel-indicators">
-              <li data-target="#demo" data-slide-to="0" class="active"></li>
-              <li data-target="#demo" data-slide-to="1"></li>
-            </ul>
-            <!-- The slideshow -->
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="slider-feature-card">
-                  <img src="assets/image/config/imagen-login.png" alt="">
-     
-                </div>
-              </div>
+      <div class="main">
+        <form>
+          <mat-form-field appearance="outline">
+            <mat-label>Nombre de usuario</mat-label>
+            <input [(ngModel)]="loginData.username" name="username" required matInput
+              placeholder="Digite su nombre de usuario">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Contraseña</mat-label>
+            <input [(ngModel)]="loginData.password" name="password" required type="password" matInput
+              placeholder="Digite su contraseña">
+          </mat-form-field>
 
-            </div>
-          </div>
-        </div>
+          <button type="submit" (click)="formSubmit()">Iniciar sesión</button>
+          <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+          <button type="submit" (click)="registrar()">Registrarse</button>
+          <br>
+        </form>
       </div>
     </div>
- 
-</section>
+    <div class="img">
+      <span>
+        <h1>BIENVENIDOS</h1>
+        <p>RETRO FUTBOL</p>
+      </span>
+    </div>
+  </div>
+</body>

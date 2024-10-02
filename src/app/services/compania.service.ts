@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 import baserUrl from '../interceptor/helper';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 @Injectable({
@@ -34,17 +34,21 @@ export class CompaniaService {
       'enctype': 'multipart/form-data' 
     });
   
-    return this.http.put(`${baserUrl}/compania/actualizar/${com_codigo}`, formData, { headers }).pipe(
-      catchError((error: HttpErrorResponse) => {
-        if (error.error instanceof ErrorEvent) {
-          console.error('Error del lado del cliente:', error.error.message);
-        } else {
-          console.error(`Error en el servidor: ${error.status}, ${error.error}`);
+    return this.http.put(`${baserUrl}/compania/actualizar/${com_codigo}`, formData, { responseType: 'text' })
+    .pipe(
+      map(response => {
+        try {
+          return JSON.parse(response);
+        } catch (error) {
+          console.error('Error parsing response', error);
+          return response;
         }
-        throw error;
+      }),
+      catchError(error => {
+        console.error('HTTP error', error);
+        return throwError(error);
       })
     );
-  }
-  
+}
   
 }

@@ -7,6 +7,7 @@ import { UserService } from 'src/app/services/user.service';
 import { GeneralesService } from 'src/app/services/generales.service';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { VisorTablaDetalleComponent } from './visor-tabla-detalle/visor-tabla-detalle.component';
+import { RegTablaGeneralesDetallleComponent } from './reg-tabla-generales-detallle/reg-tabla-generales-detallle.component';
 
 @Component({
   selector: 'app-tabla-generales-detalle',
@@ -14,6 +15,7 @@ import { VisorTablaDetalleComponent } from './visor-tabla-detalle/visor-tabla-de
   styleUrls: ['./tabla-generales-detalle.component.css']
 })
 export class TablaGeneralesDetalleComponent implements OnInit {
+
   editar(_t17: any) {
     throw new Error('Method not implemented.');
   }
@@ -58,14 +60,17 @@ export class TablaGeneralesDetalleComponent implements OnInit {
 
   async listartablagenerales() {
     this.servicio.obtenerGeneralDetalle(this.codigo).subscribe((data) => {
+      console.log(data)
       this.datosTabla = data;
       this.pagedData = data
       this.totalItems = this.datosTabla.length
       console.log(this.pageSize)
-      this.pageSize=5
+      this.pageSize = 5
       this.pageChanged({ pageIndex: 0, pageSize: this.pageSize, length: this.totalItems });
 
       this.change.markForCheck();
+    }, error => {
+      console.log(error)
     });
   }
 
@@ -94,5 +99,19 @@ export class TablaGeneralesDetalleComponent implements OnInit {
       this.listartablagenerales();
       this.pageChanged({ pageIndex: 0, pageSize: 5, length: this.totalItems });
     })
+  }
+  operar() {
+   console.log(this.codigo)
+    const dialogRef = this.dialog.open(RegTablaGeneralesDetallleComponent, {
+      width: '700px',
+      height: '430px',
+      data: {
+        codigo:this.codigo
+      }
+    });
+    dialogRef.afterClosed().subscribe(data => {
+     this.listartablagenerales()
+    })
+    
   }
 }

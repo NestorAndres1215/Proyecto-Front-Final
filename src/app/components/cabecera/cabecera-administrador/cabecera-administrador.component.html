@@ -8,8 +8,7 @@
         <h1 class="example-app-name" style="width: max-content;"><img class="img-logo"></h1>
         <span class="example-spacer"></span>
         <div style="justify-content: center;display: flex;margin: initial;" class="navegador">
-          <h4 *ngIf="isLoggedIn && user" style="font-family: monospace;"> {{ user.username }} </h4>
-          <h4 style="font-family: monospace;"> - Administrador</h4>
+          <h4 *ngIf="isLoggedIn && user" style="font-family: monospace;"> {{ user.username+"  - Administrador " }} </h4>
         </div>
         <button mat-icon-button [matMenuTriggerFor]="menu">
           <mat-icon>more_vert</mat-icon>
@@ -21,7 +20,7 @@
             <span style="font-family: monospace;">Perfil <strong></strong></span>
           </button>
   
-          <button mat-menu-item (click)="configuracion()">
+          <button mat-menu-item >
             <mat-icon>check_circle</mat-icon>
             <span style="font-family: monospace;">Version: <strong>0.0.1</strong></span>
           </button>
@@ -29,7 +28,7 @@
             <mat-icon>highlight</mat-icon>
             <span style="font-family: monospace;">Cambiar Modo<strong></strong></span>
           </button>
-          <button mat-menu-item (click)="configuracion()">
+          <button mat-menu-item>
             <mat-icon>settings</mat-icon>
             <span style="font-family: monospace;">Configuracion <strong></strong></span>
           </button>

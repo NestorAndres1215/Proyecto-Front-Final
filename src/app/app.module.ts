@@ -105,6 +105,7 @@ import { VisorTablaGeneralesComponent } from './modules/maestra/tabla-generales/
 import { ModalDesactivacionComponent } from './components/modal/modal-desactivacion/modal-desactivacion.component';
 import { ModalActivacionComponent } from './components/modal/modal-activacion/modal-activacion.component';
 import { TipoCambioComponent } from './modules/maestra/tipo-cambio/tipo-cambio.component';
+import { RegTablaGeneralesDetallleComponent } from './modules/maestra/tabla-generales/tabla-generales-detalle/reg-tabla-generales-detallle/reg-tabla-generales-detallle.component';
 
 
 
@@ -180,6 +181,7 @@ MantenimientoComponent,
     ModalDesactivacionComponent,
     ModalActivacionComponent,
     TipoCambioComponent,
+    RegTablaGeneralesDetallleComponent,
 
 
   ],

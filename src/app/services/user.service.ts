@@ -12,22 +12,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  añadirUsuario(user: Usuario) {
-    return this.http.post(`${baserUrl}/usuarios/`, user, { responseType: 'text' })
-    .pipe(
-      map(response => {
-        try {
-          return JSON.parse(response);
-        } catch (error) {
-          console.error('Error parsing response', error);
-          return response;
-        }
-      }),
-      catchError(error => {
-        console.error('HTTP error', error);
-        return throwError(error);
-      })
-    );
+  añadirUsuario(user: any) {
+    return this.http.post(`${baserUrl}/usuarios/`, user, { responseType: 'text' });
   }
 
   obtenerUsuario(): Observable<any> {
@@ -47,24 +33,10 @@ export class UserService {
   }
 
   actualizarUsuario(user: Usuario): Observable<any> {
-    console.log(user);
-    return this.http.put(`${baserUrl}/usuarios/actualizarUsuario/`, user, { responseType: 'text' })
-      .pipe(
-        map(response => {
-          try {
-            return JSON.parse(response);
-          } catch (error) {
-            console.error('Error parsing response', error);
-            return response;
-          }
-        }),
-        catchError(error => {
-          console.error('HTTP error', error);
-          return throwError(error);
-        })
-      );
+
+    return this.http.put(`${baserUrl}/usuarios/actualizarUsuario/`, user, { responseType: 'text' });
   }
-  
+
 
   eliminarUsuario(codigo: String) {
     return this.http.delete(`${baserUrl}/usuarios/eliminarUsuario/${codigo}`);

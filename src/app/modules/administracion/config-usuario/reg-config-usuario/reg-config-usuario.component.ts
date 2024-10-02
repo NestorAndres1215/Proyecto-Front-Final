@@ -11,9 +11,9 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./reg-config-usuario.component.css']
 })
 export class RegConfigUsuarioComponent implements OnInit {
-cerrar() {
-throw new Error('Method not implemented.');
-}
+  cerrar() {
+    throw new Error('Method not implemented.');
+  }
   public formulario: UntypedFormGroup;
   usuarios: any[];
   email: any
@@ -52,8 +52,6 @@ throw new Error('Method not implemented.');
 
 
   operar() {
-
-    console.log(this.formulario.value)
     if (this.formulario.valid) {
       const objRegistrar: Usuario = {
         ul_codigo: '',
@@ -79,7 +77,7 @@ throw new Error('Method not implemented.');
           this.formulario.reset();
 
           this.dialog.closeAll();
-   
+
           this.cdr.detectChanges();
         },
         (error) => {
@@ -90,13 +88,9 @@ throw new Error('Method not implemented.');
 
     }
     else {
-      console.log('El formulario no es válido');
+      this.mensaje.MostrarMensaje("Falta llenar formulario")
       this.formulario.markAllAsTouched();
     }
 
   }
-
-
-
-
 }

@@ -35,7 +35,7 @@ export class MensajeService {
 
   MostrarBodyError(message: any, duration: number = 2000) {
     console.log(message);
-console.log(typeof message)
+    console.log(typeof message)
     let errorMessage: string;
 
     if (typeof message === 'string') {
@@ -59,7 +59,7 @@ console.log(typeof message)
     else {
       errorMessage = 'Ocurrió un error desconocido';
     }
-console.log(errorMessage)
+    console.log(errorMessage)
     errorMessage = JSON.stringify(message.error).replace(/\"/g, '');
 
     this.snackBar.open(errorMessage, 'AVISO', {

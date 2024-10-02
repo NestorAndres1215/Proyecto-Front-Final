@@ -52,7 +52,7 @@ export class SignupComponent implements OnInit {
     console.log(this.formulario.value)
     if (this.formulario.valid) {
       const objRegistrar: Usuario = {
-        ul_codigo: '',
+        ul_codigo: '1543',
         username: this.formulario.get('username').value,
         password: this.formulario.get('password').value,
         ul_nombre: this.formulario.get('nombre').value,

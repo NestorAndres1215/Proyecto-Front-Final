@@ -8,7 +8,7 @@ export class TipoCambioService {
 
   constructor(private http: HttpClient) { }
 
-  tipoCambio(año:String,mes:String){
+  tipoCambio(año: String, mes: String) {
     return this.http.get(`${baserUrl}/sunat/moneda/${año}/${mes}`);
   }
 }
