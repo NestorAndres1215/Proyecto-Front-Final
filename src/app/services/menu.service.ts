@@ -8,11 +8,11 @@ export class MenuService {
 
   constructor(private http: HttpClient) { }
 
-
-  listarmenuPrimero() {
+  
+   listarmenuPrimero(){
     return this.http.get(`${baserUrl}/menu/menuPrimero`);
   }
-  listarmenuSegundo(menu: any) {
+  listarmenuSegundo(menu:any){
     return this.http.get(`${baserUrl}/menu/menuSegundo`);
   }
 }

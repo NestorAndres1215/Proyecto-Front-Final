@@ -32,19 +32,10 @@
                         <input formControlName="telefono" matInput placeholder="Digite su teléfono">
                     </mat-form-field>
                     <div>
-                        <p>Nombre del archivo: {{ selectedFileName }}</p>
-                        <!-- Input de tipo archivo para seleccionar la imagen -->
                         <input type="file" (change)="onFileSelected($event)" accept="image/*">
                         <br>
-                        
-                        <!-- Mostrar la imagen seleccionada si existe, de lo contrario, mostrar la imagen basada en row -->
-                        <img *ngIf="imageUrl; else mostrarImagenTemplate" [src]="imageUrl" class="img-marca img-fluid">
-                      
-                        <!-- Template alternativo para mostrar la imagen basada en row -->
-                        <ng-template #mostrarImagenTemplate>
-                          <img [src]="mostrarImagen(this.logo)" class="img-marca img-fluid">
-                        </ng-template>
-                      </div>
+                        <img *ngIf="selectedFile" class="img-marca img-fluid">
+                    </div>
 
 
                 </div>
@@ -60,7 +51,7 @@
                     </mat-form-field>
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>Fecha de Fundacion</mat-label>
-                        <input type="date"formControlName="fecha" matInput placeholder="Digite su fecha">
+                        <input formControlName="fecha" matInput placeholder="Digite su fecha">
                     </mat-form-field>
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>Direccion</mat-label>

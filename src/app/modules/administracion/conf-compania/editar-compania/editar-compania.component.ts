@@ -13,7 +13,8 @@ import { MensajeService } from 'src/app/services/mensaje.service';
 })
 export class EditarCompaniaComponent implements OnInit {
 
-  imagenUrlBase = 'data:image/jpeg;base64,';
+  selectedFile: string | ArrayBuffer | null = null;
+
   public formulario: UntypedFormGroup;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
@@ -31,14 +32,13 @@ export class EditarCompaniaComponent implements OnInit {
   pais: string
   sector: string
   descripcion: string
-  logo: File | undefined;
+  logo: string
   fecha: string
   ngOnInit(): void {
-
     this.logo = this.data.row.com_logo
-    console.log(typeof this.data.row.com_logo)
+    console.log(this.logo)
     console.log(this.data.row.com_fecha_de_fundacion)
-    this.fecha = this.data.row.com_fecha_de_fundacion
+    this.fecha= this.data.row.com_fecha_de_fundacion
     this.nombre = this.data.row.com_nombre
     this.ruc = this.data.row.com_ruc
     this.telefono = this.data.row.com_telefono
@@ -48,18 +48,10 @@ export class EditarCompaniaComponent implements OnInit {
     this.sector = this.data.row.com_sector
     this.descripcion = this.data.row.com_descripcion
 
-
     this.initForm()
   }
 
-  defaultFileName: string = 'imagen.png'; // Nombre del archivo por defecto
 
-  get selectedFileName(): string {
-    return this.selectedFile ? this.selectedFile.name : this.defaultFileName;
-  }
-  mostrarImagen(perfil: any): string {
-    return this.data.row.com_logo ? this.imagenUrlBase + this.data.row.com_logo : '';
-  }
   initForm(): void {
 
     this.formulario = this.formBuilder.group({
@@ -68,6 +60,7 @@ export class EditarCompaniaComponent implements OnInit {
       email: [this.email, [Validators.required]],
       pais: [this.pais, Validators.required],
       sector: [this.sector, Validators.required],
+      logo: [this.logo, [Validators.required]],
       fecha: [this.fecha, [Validators.required]],
       telefono: [this.telefono, Validators.required],
       direccion: [this.direccion, Validators.required],
@@ -78,52 +71,20 @@ export class EditarCompaniaComponent implements OnInit {
   cerrar() {
     this.dialogRe.close();
   }
-  selectedFile: File | undefined;
-  imageUrl: string | ArrayBuffer | null = null; // Variable para la URL de la imagen
 
-  imagen() {
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.imageUrl = reader.result as string;
-    };
-    reader.readAsDataURL(this.logo);
-  }
-  defaultImageUrl: string = 'assets/image/components/icono-perfil.jpg';
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
-
     if (file) {
-      this.selectedFile = file;
-      console.log(this.selectedFile)
-      // Obtener la URL del objeto File seleccionado
       const reader = new FileReader();
-      reader.onload = () => {
-        this.imageUrl = reader.result as string;
-      };
       reader.readAsDataURL(file);
-    } else {
-      // Mantener this.imageUrl como this.logo si no se selecciona ningún archivo
-      this.imageUrl = this.logo ? URL.createObjectURL(this.logo) : 'ruta/a/tu/logo/por/defecto.png';
-      console.log(this.imageUrl)
+      reader.onload = () => {
+        this.selectedFile = reader.result;
+      };
     }
   }
-
   operar() {
-    const formValues = this.formulario.value;
-    let logo = new File(
-      [new Blob()],
-      'imagen.jpeg',
-      { type: 'image/jpeg' }
-    );
-
-    if (this.selectedFile == null) {
-      formValues.logo = logo
-    }
-    else {
-      formValues.logo = this.selectedFile
-    }
     if (this.formulario.valid) {
-
+      const formValues = this.formulario.value;
       const registrar = {
         com_codigo: '001',
         com_nombre: formValues.nombre,
@@ -135,26 +96,23 @@ export class EditarCompaniaComponent implements OnInit {
         com_sector: formValues.sector,
         com_fecha_de_fundacion: formValues.fecha,
         com_descripcion: formValues.descripcion,
-        com_logo: formValues.logo,
       };
-
-      console.log(registrar)
-    
-      this.service.actualizarCategoria(registrar.com_codigo, registrar).subscribe(
-        () => {
+      let com_logo=this.formulario.get('logo').value;
+      this.service.actualizarCategoria('001', registrar ).subscribe(
+        (response) => {
+          this.mensajeService.MostrarMensaje('Se Registro Usuario');
           this.formulario.reset();
-          this.cdr.detectChanges();
-          this.mensajeService.MostrarMensaje('Se Registró el Usuario');
           this.dialog.closeAll();
-          this.cdr.markForCheck();
+          this.cdr.detectChanges();
         },
-        error => {
-          this.mensajeService.MostrarBodyError(error)
-  
+        (error) => {
+          this.mensajeService.MostrarMensaje('No se registro Usuario');
+          console.log(error)
         }
       );
-      
-    }
 
+      this.formulario.reset();
+      this.cdr.markForCheck();
+    }
   }
 }

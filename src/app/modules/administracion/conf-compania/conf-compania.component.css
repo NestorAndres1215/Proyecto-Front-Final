@@ -105,13 +105,3 @@ body {
   padding: 10px 0;
   background-color: lightsteelblue;
 }
-@media (max-width: 576px) {
-  .card-body h2, .card-body h3 {
-    font-size: 0.875rem;
-  }
-
-  .img-marca {
-    max-width: 60px;
-    max-height: 60px;
-  }
-}

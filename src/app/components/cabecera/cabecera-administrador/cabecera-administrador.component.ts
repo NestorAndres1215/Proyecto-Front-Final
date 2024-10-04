@@ -6,7 +6,7 @@ import { MensajeService } from 'src/app/services/mensaje.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { MenuService } from 'src/app/services/menu.service';
-
+import { VersionService } from 'src/app/services/version.service';
 
 @Component({
   selector: 'app-cabecera-administrador',
@@ -23,7 +23,7 @@ export class CabeceraAdministradorComponent implements OnInit {
 
   constructor(
     public login: LoginService,
-
+private git:VersionService,
     private dialog: MatDialog,
     private mensajeService: MensajeService,
     private change: ChangeDetectorRef,
@@ -42,7 +42,11 @@ export class CabeceraAdministradorComponent implements OnInit {
       }
     )
 
-
+this.git.getCommitCount().subscribe(
+  data=>{
+    console.log(data)
+  }
+)
 
   }
   menu1: any
@@ -50,10 +54,10 @@ export class CabeceraAdministradorComponent implements OnInit {
   async listarMenuPrimero() {
     this.menu.listarmenuPrimero().subscribe(
       data => {
-
+        console.log(data);
         this.menuxd = data
         this.menu1 = this.menuxd.filter((item: { menuTipo: string; }) => item.menuTipo === 'T');
-
+        console.log(this.menu1)
       }
     );
   }
@@ -66,6 +70,7 @@ export class CabeceraAdministradorComponent implements OnInit {
       this.menu2FiltradoPorCategoria[menuItem.menuCategoria] = this.menu2.filter((i: { menuCategoria: any; }) => i.menuCategoria === menuItem.menuCategoria);
 
       if (this.menu2FiltradoPorCategoria[menuItem.menuCategoria].length === 0) {
+        console.log('El arreglo está vacío');
         this.router.navigate(['/admin']);
       }
     } else {
@@ -78,13 +83,13 @@ export class CabeceraAdministradorComponent implements OnInit {
 
 
   handleSubmenuItemClicked(subMenuItem: any): void {
-    //console.log('Clic en el submenu:', subMenuItem.menuNombre);
+    console.log('Clic en el submenu:', subMenuItem.menuNombre);
   }
   menu2: any
   async listarMenuSegundo(categoria: any) {
     this.menu.listarmenuSegundo(categoria).subscribe(
       data => {
-
+        console.log(data);
         this.menu2 = data
       }
     );
@@ -104,7 +109,11 @@ export class CabeceraAdministradorComponent implements OnInit {
     this.mainMenuTrigger.closeMenu();
   }
 
- 
+  configuracion() {
+
+
+
+  }
   perfil() {
 
     const dialogRef = this.dialog.open(ModalPerfilComponent, {
