@@ -47,13 +47,12 @@ export class SignupComponent implements OnInit {
     });
   }
 
-
   operar() {
 
     console.log(this.formulario.value)
     if (this.formulario.valid) {
       const objRegistrar: Usuario = {
-        ul_codigo: '',
+        ul_codigo: '1543',
         username: this.formulario.get('username').value,
         password: this.formulario.get('password').value,
         ul_nombre: this.formulario.get('nombre').value,
@@ -72,11 +71,12 @@ export class SignupComponent implements OnInit {
       this.userService.añadirUsuario(objRegistrar).subscribe(
         (response) => {
           this.mensaje.MostrarMensaje("Se Registro Usuario")
+          console.log(objRegistrar)
           this.formulario.reset();
         },
         (error) => {
           console.log(error.error)
-          this.mensaje.MostrarError(error.error)
+          this.mensaje.MostrarError(error)
         }
       )
 

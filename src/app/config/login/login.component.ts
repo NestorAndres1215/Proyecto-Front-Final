@@ -26,7 +26,11 @@ export class LoginComponent implements OnInit {
 
   }
 
+  registrar() {
 
+    this.router.navigate(['/signup']);
+
+  }
   formSubmit() {
     if (this.loginData.username.trim() == '' || this.loginData.username.trim() == null) {
       this.mensaje.MostrarMensaje('El nombre de usuario es requerido !!')
@@ -60,7 +64,7 @@ export class LoginComponent implements OnInit {
           }
         })
       }, (error) => {
-        this.mensaje.MostrarMensaje("Datos Invalidos")
+        this.mensaje.MostrarBodyError(error)
 
       }
     )
