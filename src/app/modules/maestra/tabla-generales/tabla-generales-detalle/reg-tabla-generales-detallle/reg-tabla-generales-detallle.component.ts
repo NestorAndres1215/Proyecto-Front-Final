@@ -1,10 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Detalle } from 'src/app/model/general';
+
 import { MensajeService } from 'src/app/services/mensaje.service';
 import { TablaGeneralesDetalleComponent } from '../tabla-generales-detalle.component';
 import { GeneralesService } from 'src/app/services/generales.service';
+import { Detalle } from 'src/app/model/general';
+
 
 @Component({
   selector: 'app-reg-tabla-generales-detallle',

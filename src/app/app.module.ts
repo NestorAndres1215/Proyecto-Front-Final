@@ -39,71 +39,73 @@ import { SignupComponent } from './config/signup/signup.component';
 import { LoginComponent } from './config/login/login.component';
 import { HomeComponent } from './config/home/home.component';
 import { authInterceptorProviders } from './interceptor/auth.interceptor';
-import { DashboardComponent } from './modules/home-admin/home-admin.component';
 
-import { FooterComponent } from './components/cliente/footer/footer.component';
-import { PrincipalComponent } from './modules/principal/principal.component';
-
-
-import { AsientoCompraComponent } from './modules/asiento/asiento-compra/asiento-compra.component';
-import { AsientoVentaComponent } from './modules/asiento/asiento-venta/asiento-venta.component';
-
-import { TablaResenaComponent } from './modules/maestra/tabla-resena/tabla-resena.component';
-import { MantenimientoPromocionComponent } from './modules/mantenimiento/mantenimiento-promocion/mantenimiento-promocion.component';
-import { MantenimientoProveedorComponent } from './modules/mantenimiento/mantenimiento-proveedor/mantenimiento-proveedor.component';
-import { MantenimientoCategoriaComponent } from './modules/mantenimiento/mantenimiento-categoria/mantenimiento-categoria.component';
-import { MantenimientoDescuentoComponent } from './modules/mantenimiento/mantenimiento-descuento/mantenimiento-descuento.component';
-import { MantenimientoContenidoComponent } from './modules/mantenimiento/mantenimiento-contenido/mantenimiento-contenido.component';
-import { MantenimientoProductoComponent } from './modules/mantenimiento/mantenimiento-producto/mantenimiento-producto.component';
 
 import { ModalEliminacionComponent } from './components/modal/modal-eliminacion/modal-eliminacion.component';
 
 import { ModalPerfilComponent } from './components/modal/modal-perfil/modal-perfil.component';
 import { ModalSunatComponent } from './components/modal/modal-sunat/modal-sunat.component';
-import { MaestraComponent } from './modules/maestra/maestra.component';
-import { TablaGeneralesComponent } from './modules/maestra/tabla-generales/tabla-generales.component';
-import { MantenimientoComponent } from './modules/mantenimiento/mantenimiento.component';
-import { ConsultaComponent } from './modules/consulta/consulta.component';
-import { ConsultaPromocionComponent } from './modules/consulta/consulta-promocion/consulta-promocion.component';
-import { RegComprasComponent } from './modules/reporte/reg-compras/reg-compras.component';
-import { RegReclamoComponent } from './modules/reporte/reg-reclamo/reg-reclamo.component';
-import { RegProductoComponent } from './modules/reporte/reg-producto/reg-producto.component';
-import { RegProgramacionCompraComponent } from './modules/programacion/reg-programacion-compra/reg-programacion-compra.component';
-import { RegProgramacionVentaComponent } from './modules/programacion/reg-programacion-venta/reg-programacion-venta.component';
-import { ReporteComponent } from './modules/reporte/reporte.component';
-import { ProgramacionComponent } from './modules/programacion/programacion.component';
-import { RegPromocionComponent } from './modules/reporte/reg-promocion/reg-promocion.component';
-import { ConsultaCompraComponent } from './modules/consulta/consulta-compra/consulta-compra.component';
-import { ConfigPerfilComponent } from './modules/administracion/config-perfil/config-perfil.component';
-import { ConsultaDescuentoComponent } from './modules/consulta/consulta-descuento/consulta-descuento.component';
-import { AdministracionComponent } from './modules/administracion/administracion.component';
-import { ConfigUsuarioComponent } from './modules/administracion/config-usuario/config-usuario.component';
-import { ConsultaProveedorComponent } from './modules/consulta/consulta-proveedor/consulta-proveedor.component';
-import { ConsultaVentaComponent } from './modules/consulta/consulta-venta/consulta-venta.component';
-import { ConsultaProductoComponent } from './modules/consulta/consulta-producto/consulta-producto.component';
-import { EstadoSituacionFinancieraComponent } from './modules/estado-situacion-financiera/estado-situacion-financiera.component';
-import { RegEstadoSituacionFinancieraComponent } from './modules/estado-situacion-financiera/reg-estado-situacion-financiera/reg-estado-situacion-financiera.component';
-import { VisorConfigUsuarioComponent } from './modules/administracion/config-usuario/visor-config-usuario/visor-config-usuario.component';
-import { RegConfigUsuarioComponent } from './modules/administracion/config-usuario/reg-config-usuario/reg-config-usuario.component';
-import { EditConfigUsuarioComponent } from './modules/administracion/config-usuario/edit-config-usuario/edit-config-usuario.component';
-import { ConfEmpresaComponent } from './modules/administracion/conf-empresa/conf-empresa.component';
-import { VisorPerfilComponent } from './modules/administracion/config-perfil/visor-perfil/visor-perfil.component';
-import { ConfCompaniaComponent } from './modules/administracion/conf-compania/conf-compania.component';
-import { EditarCompaniaComponent } from './modules/administracion/conf-compania/editar-compania/editar-compania.component';
-import { ConfigPlantillaComponent } from './modules/administracion/config-plantilla/config-plantilla.component';
+
 import { FooterAdministradorComponent } from './components/footer/footer-administrador/footer-administrador.component';
 import { CabeceraAdministradorComponent } from './components/cabecera/cabecera-administrador/cabecera-administrador.component';
 import { CabeceraClienteComponent } from './components/cabecera/cabecera-cliente/cabecera-cliente.component';
 import { FooterClienteComponent } from './components/footer/footer-cliente/footer-cliente.component';
 import { CommonModule } from '@angular/common';
-import { TablaGeneralesDetalleComponent } from './modules/maestra/tabla-generales/tabla-generales-detalle/tabla-generales-detalle.component';
-import { VisorTablaDetalleComponent } from './modules/maestra/tabla-generales/tabla-generales-detalle/visor-tabla-detalle/visor-tabla-detalle.component';
+
 import { ModoCambiarRolComponent } from './components/modo-cambiar-rol/modo-cambiar-rol.component';
-import { HomeClienteComponent } from './pages/home-cliente/home-cliente.component';
+
 import { CabeceraModoComponent } from './components/cabecera/cabecera-modo/cabecera-modo.component';
-import { VisorTablaGeneralesComponent } from './modules/maestra/tabla-generales/visor-tabla-generales/visor-tabla-generales.component';
+
 import { ModalDesactivacionComponent } from './components/modal/modal-desactivacion/modal-desactivacion.component';
 import { ModalActivacionComponent } from './components/modal/modal-activacion/modal-activacion.component';
+import { FooterComponent } from './components/cliente/footer/footer.component';
+import { AdministracionComponent } from './modules/administracion/administracion.component';
+import { ConfCompaniaComponent } from './modules/administracion/conf-compania/conf-compania.component';
+import { EditarCompaniaComponent } from './modules/administracion/conf-compania/editar-compania/editar-compania.component';
+import { ConfEmpresaComponent } from './modules/administracion/conf-empresa/conf-empresa.component';
+import { ConfigPerfilComponent } from './modules/administracion/config-perfil/config-perfil.component';
+import { VisorPerfilComponent } from './modules/administracion/config-perfil/visor-perfil/visor-perfil.component';
+import { ConfigPlantillaComponent } from './modules/administracion/config-plantilla/config-plantilla.component';
+import { ConfigUsuarioComponent } from './modules/administracion/config-usuario/config-usuario.component';
+import { EditConfigUsuarioComponent } from './modules/administracion/config-usuario/edit-config-usuario/edit-config-usuario.component';
+import { RegConfigUsuarioComponent } from './modules/administracion/config-usuario/reg-config-usuario/reg-config-usuario.component';
+import { VisorConfigUsuarioComponent } from './modules/administracion/config-usuario/visor-config-usuario/visor-config-usuario.component';
+import { AsientoCompraComponent } from './modules/asiento/asiento-compra/asiento-compra.component';
+import { AsientoVentaComponent } from './modules/asiento/asiento-venta/asiento-venta.component';
+import { ConsultaCompraComponent } from './modules/consulta/consulta-compra/consulta-compra.component';
+import { ConsultaDescuentoComponent } from './modules/consulta/consulta-descuento/consulta-descuento.component';
+import { ConsultaProductoComponent } from './modules/consulta/consulta-producto/consulta-producto.component';
+import { ConsultaPromocionComponent } from './modules/consulta/consulta-promocion/consulta-promocion.component';
+import { ConsultaProveedorComponent } from './modules/consulta/consulta-proveedor/consulta-proveedor.component';
+import { ConsultaVentaComponent } from './modules/consulta/consulta-venta/consulta-venta.component';
+import { ConsultaComponent } from './modules/consulta/consulta.component';
+import { EstadoSituacionFinancieraComponent } from './modules/estado-situacion-financiera/estado-situacion-financiera.component';
+import { RegEstadoSituacionFinancieraComponent } from './modules/estado-situacion-financiera/reg-estado-situacion-financiera/reg-estado-situacion-financiera.component';
+import { DashboardComponent } from './modules/home-admin/home-admin.component';
+import { MaestraComponent } from './modules/maestra/maestra.component';
+import { RegTablaGeneralesDetallleComponent } from './modules/maestra/tabla-generales/tabla-generales-detalle/reg-tabla-generales-detallle/reg-tabla-generales-detallle.component';
+import { TablaGeneralesDetalleComponent } from './modules/maestra/tabla-generales/tabla-generales-detalle/tabla-generales-detalle.component';
+import { VisorTablaDetalleComponent } from './modules/maestra/tabla-generales/tabla-generales-detalle/visor-tabla-detalle/visor-tabla-detalle.component';
+import { TablaGeneralesComponent } from './modules/maestra/tabla-generales/tabla-generales.component';
+import { VisorTablaGeneralesComponent } from './modules/maestra/tabla-generales/visor-tabla-generales/visor-tabla-generales.component';
+
+import { MantenimientoCategoriaComponent } from './modules/mantenimiento/mantenimiento-categoria/mantenimiento-categoria.component';
+import { MantenimientoContenidoComponent } from './modules/mantenimiento/mantenimiento-contenido/mantenimiento-contenido.component';
+import { MantenimientoDescuentoComponent } from './modules/mantenimiento/mantenimiento-descuento/mantenimiento-descuento.component';
+import { MantenimientoProductoComponent } from './modules/mantenimiento/mantenimiento-producto/mantenimiento-producto.component';
+import { MantenimientoPromocionComponent } from './modules/mantenimiento/mantenimiento-promocion/mantenimiento-promocion.component';
+import { MantenimientoProveedorComponent } from './modules/mantenimiento/mantenimiento-proveedor/mantenimiento-proveedor.component';
+import { MantenimientoComponent } from './modules/mantenimiento/mantenimiento.component';
+import { ProgramacionComponent } from './modules/programacion/programacion.component';
+import { RegProgramacionCompraComponent } from './modules/programacion/reg-programacion-compra/reg-programacion-compra.component';
+import { RegProgramacionVentaComponent } from './modules/programacion/reg-programacion-venta/reg-programacion-venta.component';
+import { RegComprasComponent } from './modules/reporte/reg-compras/reg-compras.component';
+import { RegProductoComponent } from './modules/reporte/reg-producto/reg-producto.component';
+import { RegPromocionComponent } from './modules/reporte/reg-promocion/reg-promocion.component';
+import { RegReclamoComponent } from './modules/reporte/reg-reclamo/reg-reclamo.component';
+import { ReporteComponent } from './modules/reporte/reporte.component';
+import { HomeClienteComponent } from './pages/home-cliente/home-cliente.component';
+import { TipoCambioComponent } from './modules/maestra/tipo-cambio/tipo-cambio.component';
 
 
 
@@ -118,7 +120,7 @@ import { ModalActivacionComponent } from './components/modal/modal-activacion/mo
     DashboardComponent,
     HomeClienteComponent,
     FooterComponent,
-    PrincipalComponent,
+ 
     ReporteComponent,
     RegComprasComponent,
     ReporteComponent,
@@ -137,7 +139,7 @@ import { ModalActivacionComponent } from './components/modal/modal-activacion/mo
     ConfigPerfilComponent,
 MantenimientoComponent,
     TablaGeneralesComponent,
-    TablaResenaComponent,
+
     MantenimientoPromocionComponent,
     MantenimientoProveedorComponent,
     MantenimientoCategoriaComponent,
@@ -178,6 +180,8 @@ MantenimientoComponent,
     CabeceraModoComponent,
     ModalDesactivacionComponent,
     ModalActivacionComponent,
+    TipoCambioComponent,
+    RegTablaGeneralesDetallleComponent,
 
 
   ],

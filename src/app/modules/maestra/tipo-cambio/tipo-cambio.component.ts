@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { GeneralesService } from 'src/app/services/generales.service';
 import { MensajeService } from 'src/app/services/mensaje.service';
 import { TipoCambioService } from 'src/app/services/tipo-cambio.service';
-import { mesActual } from 'src/app/model/funciones';
 @Component({
   selector: 'app-tipo-cambio',
   templateUrl: './tipo-cambio.component.html',

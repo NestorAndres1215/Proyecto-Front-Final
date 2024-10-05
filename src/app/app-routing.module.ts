@@ -11,7 +11,7 @@ import { PrincipalComponent } from './modules/principal/principal.component';
 import { AsientoCompraComponent } from './modules/asiento/asiento-compra/asiento-compra.component';
 import { AsientoVentaComponent } from './modules/asiento/asiento-venta/asiento-venta.component';
 
-import { TablaResenaComponent } from './modules/maestra/tabla-resena/tabla-resena.component';
+
 import { MantenimientoPromocionComponent } from './modules/mantenimiento/mantenimiento-promocion/mantenimiento-promocion.component';
 import { MantenimientoDescuentoComponent } from './modules/mantenimiento/mantenimiento-descuento/mantenimiento-descuento.component';
 import { MantenimientoProveedorComponent } from './modules/mantenimiento/mantenimiento-proveedor/mantenimiento-proveedor.component';
@@ -97,7 +97,7 @@ const routes: Routes = [
     canActivate: [AdminGuard],
     children: [
       { path: 'tablagenerales', component: TablaGeneralesComponent, pathMatch: 'full' },
-      { path: 'tablareseña', component: TablaResenaComponent, pathMatch: 'full' },
+
       { path: 'promocion', component: MantenimientoPromocionComponent, pathMatch: 'full' },
       { path: 'descuento', component: MantenimientoDescuentoComponent, pathMatch: 'full' },
       { path: 'categoria', component: MantenimientoCategoriaComponent, pathMatch: 'full' },
