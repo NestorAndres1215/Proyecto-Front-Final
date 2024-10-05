@@ -1,0 +1,58 @@
+<div class="separator">
+    <h1 style="font-family: monospace;">Mantenimiento Tipo de Cambio</h1>
+
+    <button _ngcontent-yfb-c88="" class="volver-btn" (click)="volver()" class="btn btn-danger button_close"
+        tabindex="0"><i _ngcontent-yfb-c88="" class="fas fa-long-arrow-alt-left"></i></button>
+</div>
+
+<div>
+  <form [formGroup]="form">
+    <div class="row" style="margin: 0; margin-top: 30px;">
+      <div class="col-md-12 col-lg-4">
+        <mat-form-field style="font-family: monospace; width: 100%;">
+          <mat-select
+            style="font-family: monospace;"
+            placeholder="Mes"
+            formControlName="mes"
+            (selectionChange)="ListarMes()"
+          >
+            <mat-option *ngFor="let ban of listaMes" [value]="ban">
+              <h4 style="font-family: monospace;">
+                {{ ban }}
+              </h4>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+  
+  <div class="card-body" style="margin: 0 auto; margin-top: 40px; width: 95%; overflow-x: auto;">
+    <table class="table table-striped" style="width: 100%; table-layout: auto;">
+      <thead>
+        <tr>
+          <th>Codigo</th>
+          <th>Origen</th>
+          <th>Moneda</th>
+          <th>Compra</th>
+          <th>Venta</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of pagedData">
+          <td>{{ row.codigo }}</td>
+          <td>{{ row.origen }}</td>
+          <td>{{ row.moneda }}</td>
+          <td>{{ row.compra }}</td>
+          <td>{{ row.venta }}</td>
+          <td>{{ row.fecha }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+      (page)="pageChanged($event)">
+    </mat-paginator>
+  </div>
+</div>
+<app-footer-administrador></app-footer-administrador>
